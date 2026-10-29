@@ -1,48 +1,26 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { ContactSVG, EducationSVG, FolderSVG, HomeSVG } from "@/assets";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useIntersectionObserver } from "@/hooks";
 import { cn } from "@/lib/utils";
 
 import { ToggleThemeButton } from "../ToggleThemeButton";
 
-const NavBarItem: React.FC<React.PropsWithChildren<{ to: string }>> = ({
-	children,
-	to,
-}) => {
-	const location = useLocation();
-
-	const isSelected = location.pathname === to;
-
-	return (
-		<motion.li
-			className="relative flex h-full w-full justify-center sm:w-auto sm:justify-start"
-			animate={{ opacity: isSelected ? 1 : 0.7 }}
-			initial={false}
-		>
-			<Link
-				aria-label={`Go to the ${to} page to learn more about me`}
-				className="flex items-center gap-2"
-				to={to}
-			>
-				{children}
-			</Link>
-
-			{isSelected && (
-				<motion.div
-					className="theme-primary-text-background absolute bottom-0 left-0 h-0.5 w-full"
-					transition={{ type: "spring", duration: 0.6, bounce: 0.2 }}
-					layoutId="underline"
-				/>
-			)}
-		</motion.li>
-	);
-};
+const NAV_ITEMS = [
+	{ to: "/", label: "Home", icon: HomeSVG },
+	{ to: "/projects", label: "Projects", icon: FolderSVG },
+	{ to: "/education", label: "Education", icon: EducationSVG },
+	{ to: "/experience", label: "Experience", icon: Briefcase },
+] as const;
 
 const Header: React.FC = () => {
+	const location = useLocation();
+	const navigate = useNavigate();
+
 	const { isIntersecting, targetRef } = useIntersectionObserver();
 
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
@@ -61,6 +39,14 @@ const Header: React.FC = () => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
+	const handleTabChange = (path: string) => {
+		const item = NAV_ITEMS.find((navItem) => navItem.to === path);
+
+		if (item) {
+			void navigate({ to: item.to });
+		}
+	};
+
 	return (
 		<>
 			<header className="mb-28" ref={targetRef}>
@@ -74,29 +60,55 @@ const Header: React.FC = () => {
 					)}
 				>
 					<div className="flex h-full w-full items-center justify-between">
-						<ul className="flex h-full w-full gap-4 transition-all duration-300 sm:w-auto">
+						<div className="flex h-full w-full gap-4 sm:w-auto">
 							<ToggleThemeButton className="hidden h-full w-[3.5rem] sm:grid" />
 
-							<NavBarItem to="/">
-								<HomeSVG />
-								<p className="hidden sm:flex">Home</p>
-							</NavBarItem>
+							<Tabs
+								className="h-full w-full gap-4 data-[orientation=horizontal]:flex-row sm:w-auto"
+								onValueChange={handleTabChange}
+								value={location.pathname}
+							>
+								<TabsList
+									className="w-full gap-4 sm:w-auto"
+									variant="nav"
+								>
+									{NAV_ITEMS.map(
+										({ to, label, icon: Icon }) => (
+											<TabsTrigger
+												className="w-full justify-center opacity-70 transition-opacity data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
+												variant="nav"
+												value={to}
+												key={to}
+												asChild
+											>
+												<Link
+													aria-label={`Go to the ${label} page to learn more about me`}
+													to={to}
+												>
+													<Icon />
+													<p className="hidden sm:flex">
+														{label}
+													</p>
 
-							<NavBarItem to="/projects">
-								<FolderSVG />
-								<p className="hidden sm:flex">Projects</p>
-							</NavBarItem>
-
-							<NavBarItem to="/education">
-								<EducationSVG />
-								<p className="hidden sm:flex">Education</p>
-							</NavBarItem>
-
-							<NavBarItem to="/experience">
-								<Briefcase />
-								<p className="hidden sm:flex">Experience</p>
-							</NavBarItem>
-						</ul>
+													{location.pathname ===
+														to && (
+														<motion.div
+															className="theme-primary-text-background absolute bottom-0 left-0 h-0.5 w-full"
+															transition={{
+																type: "spring",
+																duration: 0.6,
+																bounce: 0.2,
+															}}
+															layoutId="underline"
+														/>
+													)}
+												</Link>
+											</TabsTrigger>
+										),
+									)}
+								</TabsList>
+							</Tabs>
+						</div>
 
 						<button
 							aria-label="Say hi through an email"
