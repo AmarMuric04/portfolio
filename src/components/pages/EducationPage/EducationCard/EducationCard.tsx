@@ -19,20 +19,16 @@ const EducationCard: React.FC<{
 
 	return (
 		<li
-			className="theme-surface relative my-4 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-3 shadow-md backdrop-blur-sm transition-all"
+			className="rounded-2xl border border-hairline bg-surface p-3 shadow-surface sm:p-4"
 			ref={targetRef}
 		>
-			<article>
-				<h1 className="theme-title-text py-2 text-lg font-semibold transition-all">
-					{education.name}
-				</h1>
-
-				<p>{education.type}</p>
-
-				<em className="block">
+			<article className="flex flex-col gap-1">
+				<h2 className="text-card-title text-ink">{education.name}</h2>
+				<p className="text-body">{education.type}</p>
+				<p className="text-body text-text-muted">
 					at {education.institution}{" "}
 					{education.teacher !== "N/A" && `by ${education.teacher}`}
-				</em>
+				</p>
 
 				<ProgressBar
 					labelOffset={education.progression > 90 ? 7 : 2}
@@ -41,12 +37,14 @@ const EducationCard: React.FC<{
 
 				<ProgressLabel type={education.type} />
 
-				<p className="my-4 font-semibold italic">Acquired Skills</p>
+				<h3 className="mt-4 mb-2 text-label text-ink">
+					Acquired skills
+				</h3>
 
 				<ul className="flex flex-wrap gap-2">
 					{education.skills.map((skill) => (
 						<li
-							className="theme-secondary-background rounded-lg px-2 py-1 text-white transition-all"
+							className="rounded-lg bg-accent px-2 py-1 text-label text-on-accent"
 							key={skill}
 						>
 							{skill}

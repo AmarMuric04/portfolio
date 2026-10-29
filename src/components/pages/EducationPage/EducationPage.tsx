@@ -8,11 +8,9 @@ const EducationPage: React.FC = () => {
 		<>
 			<PageHelmet />
 
-			<h2 className="theme-title-text mb-8 text-2xl font-semibold transition-all">
-				My Education
-			</h2>
+			<h1 className="mb-4 text-page-title text-ink">My education</h1>
 
-			<p className="text-lg">
+			<p className="text-lead">
 				I’m currently in my second year of university, where I’ve been
 				actively exploring a mix of academic and hands-on projects. From
 				coursework to personal initiatives, I’ve worked on everything
@@ -21,13 +19,13 @@ const EducationPage: React.FC = () => {
 				foundation and develop skills that I’m excited to grow further.
 			</p>
 
-			<ul>
+			<ul className="my-8 flex flex-col gap-4">
 				{EDUCATION.map((education) => (
 					<EducationCard key={education.name} education={education} />
 				))}
 			</ul>
 
-			<p className="my-4 text-lg">
+			<p className="text-lead">
 				But my education doesn’t stop there. Beyond formal courses, I’ve
 				immersed myself in an uncountable amount of content related to
 				programming, software development, and personal growth. From

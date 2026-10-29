@@ -5,7 +5,7 @@ const ProgressBar: React.FC<{ progression: number; labelOffset: number }> = ({
 	return (
 		<div>
 			<div
-				className="relative mt-8 inline-flex w-auto"
+				className="relative mt-6 inline-flex w-auto text-caption text-ink tabular-nums"
 				style={{ left: `${progression - labelOffset}%` }}
 			>
 				{progression === 100 ? (
@@ -17,9 +17,9 @@ const ProgressBar: React.FC<{ progression: number; labelOffset: number }> = ({
 				)}
 			</div>
 
-			<div className="theme-surface-alt h-[5px] w-full transition-all">
+			<div className="mt-1 h-1 w-full rounded-full bg-inset">
 				<div
-					className="theme-secondary-background h-full rounded-full"
+					className="h-full rounded-full bg-accent"
 					style={{ width: `${progression}%` }}
 				/>
 			</div>
