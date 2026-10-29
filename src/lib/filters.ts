@@ -8,62 +8,47 @@ const withoutItem = <T extends string>({
 	item: T;
 }) => items.filter((value) => value !== item);
 
-const toggleTechInclusion = ({
-	filter,
-	tech,
-}: {
-	filter: { included: string[]; excluded: string[] };
-	tech: string;
-}) => {
-	if (filter.included.includes(tech)) {
-		return {
-			...filter,
-			included: withoutItem({ items: filter.included, item: tech }),
-		};
-	}
-
-	if (filter.excluded.includes(tech)) {
-		return {
-			...filter,
-			excluded: withoutItem({ items: filter.excluded, item: tech }),
-		};
-	}
-
-	return { ...filter, included: [...filter.included, tech] };
-};
-
-const toggleCategoryInclusion = <T extends string>({
-	filter,
-	category,
-}: {
-	filter: { included: T[]; excluded: T[] };
-	category: T;
-}) => {
-	if (filter.included.includes(category)) {
-		return {
-			...filter,
-			included: withoutItem({ items: filter.included, item: category }),
-		};
-	}
-
-	return {
-		included: [...filter.included, category],
-		excluded: withoutItem({ items: filter.excluded, item: category }),
-	};
-};
-
-const toggleExclusion = <T extends string>({
+const cycleFilter = <T extends string>({
 	filter,
 	item,
 }: {
 	filter: { included: T[]; excluded: T[] };
 	item: T;
-}) => ({
-	included: withoutItem({ items: filter.included, item }),
-	excluded: filter.excluded.includes(item)
-		? withoutItem({ items: filter.excluded, item })
-		: [...filter.excluded, item],
-});
+}) => {
+	if (filter.included.includes(item)) {
+		return {
+			included: withoutItem({ items: filter.included, item }),
+			excluded: [...filter.excluded, item],
+		};
+	}
+
+	if (filter.excluded.includes(item)) {
+		return {
+			...filter,
+			excluded: withoutItem({ items: filter.excluded, item }),
+		};
+	}
+
+	return { ...filter, included: [...filter.included, item] };
+};
+
+const filterStateOf = <T extends string>({
+	filter,
+	item,
+}: {
+	filter: { included: T[]; excluded: T[] };
+	item: T;
+}) => {
+	if (filter.included.includes(item)) {
+		return "included";
+	}
+
+	if (filter.excluded.includes(item)) {
+		return "excluded";
+	}
+
+	return "off";
+};
 
 const matchesFilters = ({
 	project,
@@ -92,9 +77,4 @@ const matchesFilters = ({
 	);
 };
 
-export {
-	matchesFilters,
-	toggleCategoryInclusion,
-	toggleExclusion,
-	toggleTechInclusion,
-};
+export { cycleFilter, filterStateOf, matchesFilters };

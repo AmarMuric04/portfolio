@@ -1,73 +1,53 @@
 import { motion } from "framer-motion";
 
 import { FilterSVG, TECH_CATEGORIES, TECH_ICONS } from "@/assets";
-import {
-	toggleCategoryInclusion,
-	toggleExclusion,
-	toggleTechInclusion,
-} from "@/lib/filters";
+import { cycleFilter, filterStateOf } from "@/lib/filters";
 import { cn } from "@/lib/utils";
 
-const FilterHeading: React.FC<{ subject: string }> = ({ subject }) => {
+const FILTER_STATES = {
+	off: { description: "not filtered", className: "border-border-strong" },
+	included: {
+		description: "included",
+		className: "border-accent-text bg-accent-tint",
+	},
+	excluded: {
+		description: "excluded",
+		className: "border-danger bg-danger-tint line-through",
+	},
+};
+
+const FilterHeading: React.FC<{ title: string }> = ({ title }) => {
 	return (
-		<div className="mb-2 flex items-center gap-2">
+		<h3 className="flex items-center gap-2 text-label text-ink">
 			<FilterSVG />
-			<p>
-				Filter by {subject}{" "}
-				<em>
-					(Double click to <strong>exclude</strong>)
-				</em>
-			</p>
-		</div>
+			{title}
+		</h3>
 	);
 };
 
-const TechFilterButton: React.FC<{
-	icon: React.ElementType;
-	isIncluded: boolean;
-	isExcluded: boolean;
-	onClick: () => void;
-	onDoubleClick: () => void;
-}> = ({ icon: Icon, isIncluded, isExcluded, onClick, onDoubleClick }) => {
-	return (
-		<button
-			className={cn(
-				"grid size-10 cursor-pointer place-items-center rounded-full border-2 hover:bg-tech-hover",
-				{
-					"theme-accent-background border-green-500": isIncluded,
-					"border-red-500 hover:bg-excluded-faded": isExcluded,
-					"border-transparent": !isIncluded && !isExcluded,
-				},
-			)}
-			onDoubleClick={onDoubleClick}
-			onClick={onClick}
-		>
-			<Icon />
-		</button>
-	);
-};
+const FilterChip: React.FC<
+	React.PropsWithChildren<{
+		label: string;
+		filter: { included: string[]; excluded: string[] };
+		onClick: () => void;
+		className?: string;
+	}>
+> = ({ label, filter, onClick, className, children }) => {
+	const state = filterStateOf({ filter, item: label });
 
-const CategoryFilterButton: React.FC<{
-	category: string;
-	isIncluded: boolean;
-	isExcluded: boolean;
-	onClick: () => void;
-	onDoubleClick: () => void;
-}> = ({ category, isIncluded, isExcluded, onClick, onDoubleClick }) => {
 	return (
 		<button
 			className={cn(
-				"cursor-pointer rounded-lg px-2 py-1 transition-colors hover:bg-category-hover",
-				{
-					"theme-border-background": isIncluded,
-					"bg-excluded": isExcluded,
-					"theme-secondary-background": !isIncluded && !isExcluded,
-				},
+				"flex h-8 cursor-pointer items-center gap-2 rounded-lg border px-2 text-label text-ink transition-colors duration-200 hover:bg-accent-tint",
+				FILTER_STATES[state].className,
+				className,
 			)}
-			onDoubleClick={onDoubleClick}
+			aria-label={`${label}, ${FILTER_STATES[state].description}`}
 			onClick={onClick}
+			type="button"
 		>
-			{category}
+			{children}
+			{label}
 		</button>
 	);
 };
@@ -87,76 +67,74 @@ const ProjectFilters: React.FC<{
 			excluded: (typeof TECH_CATEGORIES)[number][];
 		}>
 	>;
-}> = ({ techFilter, categoryFilter, setTechFilter, setCategoryFilter }) => {
+	matchCount: number;
+	totalCount: number;
+}> = ({
+	techFilter,
+	categoryFilter,
+	setTechFilter,
+	setCategoryFilter,
+	matchCount,
+	totalCount,
+}) => {
 	const handleTechClick = (tech: string) =>
-		setTechFilter((filter) => toggleTechInclusion({ filter, tech }));
-
-	const handleTechDoubleClick = (tech: string) =>
-		setTechFilter((filter) => toggleExclusion({ filter, item: tech }));
+		setTechFilter((filter) => cycleFilter({ filter, item: tech }));
 
 	const handleCategoryClick = (category: (typeof TECH_CATEGORIES)[number]) =>
-		setCategoryFilter((filter) =>
-			toggleCategoryInclusion({ filter, category }),
-		);
-
-	const handleCategoryDoubleClick = (
-		category: (typeof TECH_CATEGORIES)[number],
-	) =>
-		setCategoryFilter((filter) =>
-			toggleExclusion({ filter, item: category }),
-		);
+		setCategoryFilter((filter) => cycleFilter({ filter, item: category }));
 
 	return (
 		<motion.section
-			className="theme-surface flex flex-col rounded-2xl p-3 shadow-xl"
+			className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-4 shadow-overlay"
 			transition={{ ease: "easeOut", duration: 0.3 }}
-			initial={{ opacity: 0, y: 20 }}
+			initial={{ opacity: 0, y: 16 }}
 			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, y: 20 }}
+			exit={{ opacity: 0, y: 16 }}
 		>
-			<section className="theme-border border-b-2 py-2">
-				<FilterHeading subject="inclusion" />
+			<p className="text-caption text-text-muted">
+				Tap once to include, again to exclude, a third time to clear.
+			</p>
+
+			<section className="flex flex-col gap-2">
+				<FilterHeading title="Technologies" />
 
 				<ul className="flex flex-wrap gap-2">
-					{Object.entries(TECH_ICONS).map(([tech, icon]) => (
-						<li className="flex items-center gap-2" key={tech}>
-							<TechFilterButton
-								onDoubleClick={() =>
-									handleTechDoubleClick(tech)
-								}
+					{Object.entries(TECH_ICONS).map(([tech, Icon]) => (
+						<li key={tech}>
+							<FilterChip
 								onClick={() => handleTechClick(tech)}
-								isIncluded={techFilter.included.includes(tech)}
-								isExcluded={techFilter.excluded.includes(tech)}
-								icon={icon}
-							/>
+								filter={techFilter}
+								label={tech}
+							>
+								<span className="grid size-4 shrink-0 place-items-center [&>svg]:size-4">
+									<Icon />
+								</span>
+							</FilterChip>
 						</li>
 					))}
 				</ul>
 			</section>
 
-			<section className="theme-border border-t-2 py-2">
-				<FilterHeading subject="category" />
+			<section className="flex flex-col gap-2 border-t border-hairline pt-4">
+				<FilterHeading title="Categories" />
 
 				<ul className="flex flex-wrap gap-2">
 					{TECH_CATEGORIES.map((category) => (
 						<li key={category}>
-							<CategoryFilterButton
-								onDoubleClick={() =>
-									handleCategoryDoubleClick(category)
-								}
+							<FilterChip
 								onClick={() => handleCategoryClick(category)}
-								isIncluded={categoryFilter.included.includes(
-									category,
-								)}
-								isExcluded={categoryFilter.excluded.includes(
-									category,
-								)}
-								category={category}
+								className="capitalize"
+								filter={categoryFilter}
+								label={category}
 							/>
 						</li>
 					))}
 				</ul>
 			</section>
+
+			<p className="text-label text-text tabular-nums" aria-live="polite">
+				Showing {matchCount} of {totalCount} projects
+			</p>
 		</motion.section>
 	);
 };

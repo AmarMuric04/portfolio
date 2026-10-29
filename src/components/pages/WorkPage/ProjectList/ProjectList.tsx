@@ -32,9 +32,13 @@ const ProjectList: React.FC = () => {
 
 	return (
 		<>
-			<ActionButton onClick={handleFilterToggle} className="my-4 px-2">
+			<ActionButton
+				onClick={handleFilterToggle}
+				aria-expanded={isFiltering}
+				className="self-start"
+			>
 				<ToggleArrow isOpen={isFiltering} />
-				<p>Add a filter</p>
+				{isFiltering ? "Clear filters" : "Add a filter"}
 			</ActionButton>
 
 			<AnimatePresence>
@@ -43,12 +47,14 @@ const ProjectList: React.FC = () => {
 						setCategoryFilter={setCategoryFilter}
 						categoryFilter={categoryFilter}
 						setTechFilter={setTechFilter}
+						matchCount={visibleProjects.length}
+						totalCount={WORK.length}
 						techFilter={techFilter}
 					/>
 				)}
 			</AnimatePresence>
 
-			<ul className="my-4 flex flex-col gap-4">
+			<ul className="flex flex-col gap-4">
 				{visibleProjects.map((project) => (
 					<Project key={project.title} project={project} />
 				))}
