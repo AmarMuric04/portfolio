@@ -1,20 +1,19 @@
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { ContactSVG, EducationSVG, FolderSVG, HomeSVG } from "@/assets";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useIntersectionObserver } from "@/hooks";
 import { cn } from "@/lib/utils";
 
+import { NavIcon } from "../NavIcon";
 import { ToggleThemeButton } from "../ToggleThemeButton";
 
 const NAV_ITEMS = [
-	{ to: "/", label: "Home", icon: HomeSVG },
-	{ to: "/projects", label: "Projects", icon: FolderSVG },
-	{ to: "/education", label: "Education", icon: EducationSVG },
-	{ to: "/experience", label: "Experience", icon: Briefcase },
+	{ to: "/", label: "Home", icon: "home" },
+	{ to: "/projects", label: "Projects", icon: "projects" },
+	{ to: "/education", label: "Education", icon: "education" },
+	{ to: "/experience", label: "Experience", icon: "experience" },
 ] as const;
 
 const Header: React.FC = () => {
@@ -72,56 +71,55 @@ const Header: React.FC = () => {
 									className="w-full gap-4 sm:w-auto"
 									variant="nav"
 								>
-									{NAV_ITEMS.map(
-										({ to, label, icon: Icon }) => (
-											<TabsTrigger
-												className="w-full justify-center opacity-70 transition-opacity data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
-												variant="nav"
-												value={to}
-												key={to}
-												asChild
+									{NAV_ITEMS.map(({ to, label, icon }) => (
+										<TabsTrigger
+											className="w-full justify-center opacity-70 transition-opacity data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
+											variant="nav"
+											value={to}
+											key={to}
+											asChild
+										>
+											<Link
+												aria-label={`Go to the ${label} page to learn more about me`}
+												to={to}
 											>
-												<Link
-													aria-label={`Go to the ${label} page to learn more about me`}
-													to={to}
-												>
-													<Icon />
-													<p className="hidden sm:flex">
-														{label}
-													</p>
+												<NavIcon
+													isFilled={
+														location.pathname === to
+													}
+													name={icon}
+												/>
+												<p className="hidden sm:flex">
+													{label}
+												</p>
 
-													{location.pathname ===
-														to && (
-														<motion.div
-															className="theme-primary-text-background absolute bottom-0 left-0 h-0.5 w-full"
-															transition={{
-																type: "spring",
-																duration: 0.6,
-																bounce: 0.2,
-															}}
-															layoutId="underline"
-														/>
-													)}
-												</Link>
-											</TabsTrigger>
-										),
-									)}
+												{location.pathname === to && (
+													<motion.div
+														className="theme-primary-text-background absolute bottom-0 left-0 h-0.5 w-full"
+														transition={{
+															type: "spring",
+															duration: 0.6,
+															bounce: 0.2,
+														}}
+														layoutId="underline"
+													/>
+												)}
+											</Link>
+										</TabsTrigger>
+									))}
 								</TabsList>
 							</Tabs>
 						</div>
 
-						<button
+						<a
+							className="group/fill hidden items-center gap-2 sm:flex"
 							aria-label="Say hi through an email"
+							href="mailto:muricamar2004@gmail.com"
 							id="contact"
 						>
-							<a
-								className="hidden items-center gap-2 sm:flex"
-								href="mailto:muricamar2004@gmail.com"
-							>
-								<ContactSVG />
-								<p>Say Hi</p>
-							</a>
-						</button>
+							<NavIcon name="contact" />
+							<p>Say Hi</p>
+						</a>
 					</div>
 				</nav>
 			</header>
@@ -130,7 +128,7 @@ const Header: React.FC = () => {
 
 			<a
 				className={cn(
-					"theme-background theme-title-text fixed right-5 bottom-5 z-50 flex h-[3rem] items-center justify-center gap-2 rounded-2xl shadow-xl transition-all sm:hidden",
+					"group/fill theme-background theme-title-text fixed right-5 bottom-5 z-50 flex h-[3rem] items-center justify-center gap-2 rounded-2xl shadow-xl transition-all sm:hidden",
 					{
 						"w-[6rem] rounded-br-none": !isScrollingDown,
 						"w-[3rem]": isScrollingDown,
@@ -138,7 +136,7 @@ const Header: React.FC = () => {
 				)}
 				href="mailto:muricamar2004@gmail.com"
 			>
-				<ContactSVG />
+				<NavIcon name="contact" />
 
 				{!isScrollingDown && <p className="flex-shrink-0">Say Hi</p>}
 			</a>

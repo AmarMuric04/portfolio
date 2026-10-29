@@ -908,62 +908,6 @@ const DrizzleSVG: React.FC = () => (
 	</svg>
 );
 
-const HomeSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="m12 4.367l9.307 7.238a.5.5 0 0 1-.614.79l-1.193-.928V20a.5.5 0 1 1-1 0v-9.311L12 5.633L5.5 10.69V20a.5.5 0 0 1-1 0v-8.533l-1.193.928a.5.5 0 1 1-.614-.79L4.5 10.2V7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.367zM6.5 8.55V7.5h-1v1.8z"
-			fill="currentColor"
-		/>
-		<path
-			d="M10.5 14.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 1-1 0v-5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 15v5a.5.5 0 1 1-1 0v-5a.5.5 0 0 0-.5-.5z"
-			fill="currentColor"
-		/>
-	</svg>
-);
-
-const ContactSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="M21.25 12a9.23 9.23 0 0 1-2.705 6.54A9.25 9.25 0 0 1 12 21.25a9.2 9.2 0 0 1-3.795-.81l-3.867.572a1.195 1.195 0 0 1-1.361-1.43l.537-3.923A8.9 8.9 0 0 1 2.75 12a9.23 9.23 0 0 1 2.705-6.54A9.25 9.25 0 0 1 12 2.75a9.26 9.26 0 0 1 6.545 2.71A9.24 9.24 0 0 1 21.25 12"
-			strokeLinejoin="round"
-			stroke="currentColor"
-			strokeLinecap="round"
-			strokeWidth="2"
-			fill="none"
-		/>
-	</svg>
-);
-
-const FolderSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<g fillRule="evenodd" fill="none">
-			<path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
-			<path
-				d="M2 5a2 2 0 0 1 2-2h5.52a2 2 0 0 1 1.561.75l1.4 1.75H20a2 2 0 0 1 2 2V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm7.52 0H4v14h16V7.5h-7.52a2 2 0 0 1-1.561-.75z"
-				fill="currentColor"
-			/>
-		</g>
-	</svg>
-);
-
 const WorldSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -1085,21 +1029,6 @@ const MailSVG: React.FC = () => (
 	</svg>
 );
 
-const EducationSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="M12 .807L23.835 8.5L22 9.693V16h-2v-5.007l-1 .65V17.5c0 1.47-1.014 2.615-2.253 3.339c-1.265.737-2.945 1.16-4.747 1.16s-3.483-.423-4.747-1.16C6.013 20.115 5 18.969 5 17.499v-5.856L.165 8.5zM7 12.943V17.5c0 .463.33 1.067 1.261 1.61c.908.53 2.227.89 3.739.89s2.831-.36 3.739-.89c.932-.543 1.26-1.147 1.26-1.61v-4.557l-5 3.25zM20.165 8.5L12 3.193L3.835 8.5L12 13.807z"
-			fill="currentColor"
-		/>
-	</svg>
-);
-
 const CrossSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -1154,21 +1083,17 @@ export {
 	BootstrapSVG,
 	CSSSVG,
 	CloudinarySVG,
-	ContactSVG,
 	CrossSVG,
 	DevelopmentSVG,
 	DrizzleSVG,
-	EducationSVG,
 	ExpressSVG,
 	ExternalLinkSVG,
 	FilterSVG,
 	FireBaseSVG,
 	FlaskSVG,
-	FolderSVG,
 	FramerMotionSVG,
 	GithubSVG,
 	HTMLSVG,
-	HomeSVG,
 	JWTSVG,
 	JavascriptSVG,
 	LinkedInSVG,
