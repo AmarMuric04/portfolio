@@ -45,8 +45,9 @@ npm run format      # prettier --write .
   renders the shared `Modal` shell, and is opened with
   `useModal(XModal).show(args)`. Never render a modal inline or keep open/closed
   state by hand.
-- Theme: `useTheme` sets `data-theme` on `<html>` and persists the choice. Colors
-  come from the theme variables and `theme-*` classes in `src/index.css`.
+- Theme: `useTheme` sets `data-theme` on `<html>` and persists the choice. The
+  design-system tokens in `src/index.css` switch with it, so components never
+  branch on the theme.
 
 ## Components
 
@@ -149,12 +150,21 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   values (e.g. a progress width). Never `<style>` tags.
 - Merge incoming `className` and conditional classes via `cn` — never string
   concatenation or template literals.
-- Theme-aware colors use the `theme-*` classes (`theme-surface`,
-  `theme-title-text`, …) defined in `src/index.css`.
+- Colors are the design-system tokens in `src/index.css`, used as Tailwind
+  classes. Page `bg-ground`; header, cards, panels and modals `bg-surface` with
+  `border-hairline` and `shadow-surface` (`shadow-overlay` for modals and the
+  filter panel); anything nested in a surface `bg-inset`. Headings and icons
+  `text-ink`, running text `text-text`, dates and helper lines
+  `text-text-muted`. Filled sage controls `bg-accent text-on-accent`; sage as
+  text `text-accent-text`; quiet selected states `bg-accent-tint`; excluded
+  `bg-danger-tint` with `border-danger`. Meaningful edges `border-border-strong`.
+  Status badges `text-status-live` / `-development` / `-archived`.
+- Never a Tailwind palette color (`green-400`, `white`, `gray-500`), never
+  translucent white or `backdrop-blur` on a surface that doesn't overlap
+  content (the modal overlay is the one blur).
 - No hardcoded color literals (`#hex`, `rgb()`, `rgba()`, `bg-[#…]`) in
-  components. Fixed colors are `@theme` tokens in `src/index.css` and are used
-  as classes (`text-sage`, `hover:bg-tech-hover`, `border-status-live`). A
-  color that isn't a token yet is added there first. Only legit literals:
+  components. A color that isn't a token yet is added to `src/index.css`
+  first, in both themes. Only legit literals:
   third-party brand logos in `src/assets/svgs.tsx` and keyframe values handed
   to Framer Motion (`textShadow` arrays), which can't animate CSS variables.
 - Radius scale: surfaces (header, cards, modals, panels, floating buttons)
@@ -162,7 +172,19 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   `rounded-xl`; buttons and chips `rounded-lg`. `rounded-full` only for shapes
   that are meant to be round (avatar, pills, dots, progress bars, icon
   circles). Never introduce another radius.
+- Type: only the seven styles `text-display` (Home name only),
+  `text-page-title` (each page's `h1`), `text-card-title` (card and modal
+  `h2`), `text-lead` (intros, Home bio), `text-body`, `text-label` (buttons,
+  chips, nav, small headings), `text-caption` (tags, badges, dates). One `h1`
+  per page; cards and modals are `h2`; anything inside them `h3` or text.
+- Buttons are `ActionButton` with `variant` `primary` (one per card),
+  `secondary` or `ghost`; links out are `ExternalLinkButton`. Sentence-case
+  labels ("Show more", "Visit GitHub").
+- Every interactive element keeps the global `:focus-visible` ring. Removing an
+  outline requires replacing it with `focus-visible:outline-*` classes.
 - Animations: default `ease-out`, 0.2–0.3s (never >1s); hover `ease` 200ms.
+  The theme reveal and nav icon drop are the only exceptions. Framer Motion
+  respects reduced motion through `MotionConfig` in `AppLayout`.
 
 ## File & Folder Structure
 
