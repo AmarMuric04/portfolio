@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 
-export const PageHelmet = () => {
+const PageHelmet: React.FC = () => {
 	return (
 		<Helmet>
 			<title>Amar Muric | Projects</title>
@@ -26,3 +26,5 @@ export const PageHelmet = () => {
 		</Helmet>
 	);
 };
+
+export { PageHelmet };

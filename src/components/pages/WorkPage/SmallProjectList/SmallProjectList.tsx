@@ -1,7 +1,8 @@
-import { ClassicExternalLink } from "../ClassicExternalLink";
 import { OTHER_WORK } from "@/assets";
 
-export const SmallProjectList = () => {
+import { ClassicExternalLink } from "../ClassicExternalLink";
+
+const SmallProjectList: React.FC = () => {
 	return (
 		<ul className="flex flex-col gap-2">
 			{OTHER_WORK.map((project) => (
@@ -15,3 +16,5 @@ export const SmallProjectList = () => {
 		</ul>
 	);
 };
+
+export { SmallProjectList };

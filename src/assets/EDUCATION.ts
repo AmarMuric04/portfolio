@@ -1,6 +1,4 @@
-import type { IEducation } from "@/types";
-
-export const EDUCATION: Array<IEducation> = [
+const EDUCATION = [
 	{
 		skills: [
 			"Software Engineering",
@@ -215,4 +213,6 @@ export const EDUCATION: Array<IEducation> = [
 		progression: 100,
 		teacher: "N/A",
 	},
-];
+] as const;
+
+export { EDUCATION };

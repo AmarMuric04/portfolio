@@ -1,7 +1,7 @@
-import { RouterProvider, createRouter } from "@tanstack/react-router";
 import NiceModal from "@ebay/nice-modal-react";
-import ReactDOM from "react-dom/client";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
 
 import { routeTree } from "./routeTree.gen";
 
@@ -13,10 +13,14 @@ declare module "@tanstack/react-router" {
 	}
 }
 
-const rootElement = document.getElementById("root")!;
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+	throw new Error("Missing #root element in index.html");
+}
+
 if (!rootElement.innerHTML) {
-	const root = ReactDOM.createRoot(rootElement);
-	root.render(
+	ReactDOM.createRoot(rootElement).render(
 		<StrictMode>
 			<NiceModal.Provider>
 				<RouterProvider router={router} />

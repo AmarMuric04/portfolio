@@ -1,18 +1,20 @@
-import { useLocation, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { Briefcase } from "lucide-react";
+import { Link, useLocation } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
+import { useEffect, useState } from "react";
 
-import { EducationSVG, ContactSVG, FolderSVG, HomeSVG } from "@/assets";
-import { ToggleThemeButton } from "../ToggleThemeButton";
+import { ContactSVG, EducationSVG, FolderSVG, HomeSVG } from "@/assets";
 import { useIntersectionObserver } from "@/hooks";
 import { cn } from "@/lib/utils";
+
+import { ToggleThemeButton } from "../ToggleThemeButton";
 
 const NavBarItem: React.FC<React.PropsWithChildren<{ to: string }>> = ({
 	children,
 	to,
 }) => {
 	const location = useLocation();
+
 	const isSelected = location.pathname === to;
 
 	return (
@@ -40,26 +42,24 @@ const NavBarItem: React.FC<React.PropsWithChildren<{ to: string }>> = ({
 	);
 };
 
-export const Header: React.FC = () => {
+const Header: React.FC = () => {
 	const { isIntersecting, targetRef } = useIntersectionObserver();
 
-	const [scrollY, setScrollY] = useState(0);
-	const [isVisible, setIsVisible] = useState(false);
+	const [isScrollingDown, setIsScrollingDown] = useState(false);
 
 	useEffect(() => {
+		let lastScrollY = window.scrollY;
+
 		const handleScroll = () => {
-			if (window.scrollY > scrollY) {
-				setIsVisible(true);
-			} else setIsVisible(false);
-			setScrollY(window.scrollY);
+			setIsScrollingDown(window.scrollY > lastScrollY);
+
+			lastScrollY = window.scrollY;
 		};
 
 		window.addEventListener("scroll", handleScroll);
 
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, [scrollY]);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	return (
 		<>
@@ -115,19 +115,23 @@ export const Header: React.FC = () => {
 			</header>
 
 			<ToggleThemeButton className="fixed bottom-5 left-5 z-50 flex h-[4rem] w-[4rem] items-center justify-center transition-all sm:hidden" />
+
 			<a
 				className={cn(
 					"theme-background theme-title-text fixed right-5 bottom-5 z-50 flex h-[3rem] items-center justify-center gap-2 rounded-full shadow-xl transition-all sm:hidden",
 					{
-						"w-[6rem] rounded-br-none": !isVisible,
-						"w-[3rem]": isVisible,
+						"w-[6rem] rounded-br-none": !isScrollingDown,
+						"w-[3rem]": isScrollingDown,
 					},
 				)}
 				href="mailto:muricamar2004@gmail.com"
 			>
 				<ContactSVG />
-				{!isVisible && <p className="flex-shrink-0">Say Hi</p>}
+
+				{!isScrollingDown && <p className="flex-shrink-0">Say Hi</p>}
 			</a>
 		</>
 	);
 };
+
+export { Header };

@@ -1,25 +1,24 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useCallback, useEffect } from "react";
 import { useModal } from "@ebay/nice-modal-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
 
 import { CrossSVG } from "@/assets";
 
-export const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
+const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 	children,
 	title,
 }) => {
 	const modal = useModal();
 
-	const closeModal = useCallback(() => {
-		modal.resolve();
-		modal.hide();
-	}, [modal]);
-
 	useEffect(() => {
-		if (!modal.visible) return;
+		if (!modal.visible) {
+			return;
+		}
 
-		const handleKeyDown = (e: KeyboardEvent) => {
-			if (e.key === "Escape") closeModal();
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				handleClose();
+			}
 		};
 
 		document.body.style.overflow = "hidden";
@@ -29,7 +28,12 @@ export const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 			document.body.style.overflow = "auto";
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [modal.visible, closeModal]);
+	}, [modal.visible]);
+
+	const handleClose = () => {
+		modal.resolve();
+		void modal.hide();
+	};
 
 	return (
 		<AnimatePresence onExitComplete={modal.remove}>
@@ -41,7 +45,7 @@ export const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 					animate={{ opacity: 1 }}
 					initial={{ opacity: 0 }}
 					exit={{ opacity: 0 }}
-					onClick={closeModal}
+					onClick={handleClose}
 					aria-modal="true"
 					role="dialog"
 				>
@@ -55,7 +59,7 @@ export const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 						initial={{ opacity: 0, scale: 0.9, y: 50 }}
 						exit={{ opacity: 0, scale: 0.9, y: 50 }}
 						animate={{ opacity: 1, scale: 1, y: 0 }}
-						onClick={(e) => e.stopPropagation()}
+						onClick={(event) => event.stopPropagation()}
 					>
 						<header className="mb-8 flex items-center justify-between">
 							<h1
@@ -64,14 +68,16 @@ export const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 							>
 								{title}
 							</h1>
+
 							<button
-								className="cursor-pointer rounded-md p-1 transition-all hover:bg-[#ffffff20]"
+								className="cursor-pointer rounded-md p-1 transition-all hover:bg-close-hover"
 								aria-label="Close modal"
-								onClick={closeModal}
+								onClick={handleClose}
 							>
 								<CrossSVG />
 							</button>
 						</header>
+
 						<main className="max-h-[60vh] overflow-y-auto">
 							{children}
 						</main>
@@ -81,3 +87,5 @@ export const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 		</AnimatePresence>
 	);
 };
+
+export { Modal };

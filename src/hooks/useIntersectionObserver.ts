@@ -1,41 +1,45 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-interface IntersectionObserverProps {
-	root?: Element | null;
-	rootMargin?: string;
-	threshold?: number;
-}
-
-export const useIntersectionObserver = <T extends HTMLElement = HTMLElement>({
+const useIntersectionObserver = <T extends HTMLElement = HTMLElement>({
 	rootMargin = "0px",
 	threshold = 0.1,
-	root = null,
-}: IntersectionObserverProps = {}) => {
-	const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
-	const [wasInView, setWasInView] = useState<boolean>(false);
-	const targetRef = useRef<null | T>(null);
+}: {
+	rootMargin?: string;
+	threshold?: number;
+} = {}) => {
+	const [isIntersecting, setIsIntersecting] = useState(false);
+	const [wasInView, setWasInView] = useState(false);
+
+	const targetRef = useRef<T>(null);
 
 	useEffect(() => {
 		const target = targetRef.current;
-		if (!target) return;
+
+		if (!target) {
+			return;
+		}
 
 		const observer = new IntersectionObserver(
 			([entry]) => {
-				if (!entry) return;
+				if (!entry) {
+					return;
+				}
 
 				setIsIntersecting(entry.isIntersecting);
-				if (entry.isIntersecting) setWasInView(true);
+
+				if (entry.isIntersecting) {
+					setWasInView(true);
+				}
 			},
-			{ rootMargin, threshold, root },
+			{ rootMargin, threshold },
 		);
 
 		observer.observe(target);
 
-		return () => {
-			observer.unobserve(target);
-			observer.disconnect();
-		};
-	}, [threshold, root, rootMargin]);
+		return () => observer.disconnect();
+	}, [threshold, rootMargin]);
 
 	return { isIntersecting, targetRef, wasInView };
 };
+
+export { useIntersectionObserver };

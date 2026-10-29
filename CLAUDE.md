@@ -73,7 +73,9 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
 
 - `const` arrow functions, never `function` declarations.
 - Named exports only, collected in one `export { … }` at the bottom of the file.
-  No `export default` (lazy routes map the named export instead).
+  No `export default` (lazy imports map the named export instead). The one
+  exception is `export const Route` in `src/routes/*`, which the TanStack router
+  plugin requires.
 - Event handlers are prefixed `handle` (`handleClick`, `handleKeyDown`,
   `handleThemeToggle`).
 - Early returns over nested conditionals. One responsibility per component.
@@ -106,8 +108,11 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   5. handlers (one blank line between handlers)
   6. early returns
   7. JSX
-- JSX: one blank line between sibling sections (each top-level block, list or
-  conditional inside a container). No ternary nested more than one level. An
+- JSX: one blank line between sibling sections — the block-level children of a
+  layout container (blocks, lists, conditionals, child components). A unit that
+  reads as one thing stays together with no blank line: an icon and its label
+  inside a button or link, a heading and its subtitle, a `<strong>` label and
+  the value it labels. No ternary nested more than one level. An
   inline conditional branch longer than ~15 lines becomes its own component.
 - An inline JSX arrow does exactly one call (`onClick={() => show({ project })}`);
   anything more becomes a `handle…` function.
@@ -118,7 +123,8 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
 - Strict mode with `noUncheckedIndexedAccess` and `verbatimModuleSyntax`. No
   `any` — use `unknown` and narrow, or a generic.
 - Never create a named type/interface alias unless the compiler literally cannot
-  infer and a call site breaks without it. DRY is not a reason to extract a
+  infer and a call site breaks without it (e.g. the router `Register`
+  augmentation in `main.tsx`). DRY is not a reason to extract a
   type — repeating an inline/inferred shape is preferred. Let inference,
   `typeof`, and generic call-sites carry the shape.
 - This ban covers DERIVED aliases too. A named alias wrapping an inferred shape
@@ -147,9 +153,10 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   `theme-title-text`, …) defined in `src/index.css`.
 - No hardcoded color literals (`#hex`, `rgb()`, `rgba()`, `bg-[#…]`) in
   components. Fixed colors are `@theme` tokens in `src/index.css` and are used
-  as classes (`bg-accent-dark`, `text-status-live`). A color that isn't a token
-  yet is added there first. Only legit literals: third-party brand logos in
-  `src/assets/svgs.tsx`.
+  as classes (`text-sage`, `hover:bg-tech-hover`, `border-status-live`). A
+  color that isn't a token yet is added there first. Only legit literals:
+  third-party brand logos in `src/assets/svgs.tsx` and keyframe values handed
+  to Framer Motion (`textShadow` arrays), which can't animate CSS variables.
 - Animations: default `ease-out`, 0.2–0.3s (never >1s); hover `ease` 200ms.
 
 ## File & Folder Structure

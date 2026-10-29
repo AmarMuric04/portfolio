@@ -1,29 +1,21 @@
-import type { IEducation } from "@/types";
-
-import { useIntersectionObserver, useAnimatedNumber } from "@/hooks";
+import type { EDUCATION } from "@/assets";
+import { useAnimatedNumber, useIntersectionObserver } from "@/hooks";
 
 import { ProgressBar } from "../ProgressBar";
 import { ProgressLabel } from "../ProgressLabel";
 
-export const EducationCard = ({
-	progression,
-	institution,
-	teacher,
-	skills,
-	name,
-	type,
-}: IEducation) => {
+const EducationCard: React.FC<{
+	education: (typeof EDUCATION)[number];
+}> = ({ education }) => {
 	const { targetRef, wasInView } = useIntersectionObserver<HTMLLIElement>({
 		rootMargin: "-150px",
 		threshold: 0,
 	});
 
-	const currentProgression = useAnimatedNumber(
-		wasInView ? progression : 0,
-		600,
-	);
-
-	const takeAway = progression > 90 ? 7 : 2;
+	const progression = useAnimatedNumber({
+		target: wasInView ? education.progression : 0,
+		duration: 600,
+	});
 
 	return (
 		<li
@@ -32,21 +24,27 @@ export const EducationCard = ({
 		>
 			<article>
 				<h1 className="theme-title-text py-2 text-lg font-semibold transition-all">
-					{name}
+					{education.name}
 				</h1>
-				<p>{type}</p>
+
+				<p>{education.type}</p>
+
 				<em className="block">
-					at {institution} {teacher !== "N/A" && "by " + teacher}
+					at {education.institution}{" "}
+					{education.teacher !== "N/A" && `by ${education.teacher}`}
 				</em>
+
 				<ProgressBar
-					currentProgression={currentProgression}
-					takeAway={takeAway}
+					labelOffset={education.progression > 90 ? 7 : 2}
+					progression={progression}
 				/>
-				<ProgressLabel type={type} />
+
+				<ProgressLabel type={education.type} />
 
 				<p className="my-4 font-semibold italic">Acquired Skills</p>
+
 				<ul className="flex flex-wrap gap-2">
-					{skills.map((skill) => (
+					{education.skills.map((skill) => (
 						<li
 							className="theme-secondary-background rounded-md px-2 py-1 text-white transition-all"
 							key={skill}
@@ -59,3 +57,5 @@ export const EducationCard = ({
 		</li>
 	);
 };
+
+export { EducationCard };
