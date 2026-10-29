@@ -1,3 +1,5 @@
+import React from "react";
+
 import { TECH_ICONS } from "@/assets";
 
 interface ProjectTechProps {
@@ -6,50 +8,41 @@ interface ProjectTechProps {
   };
 }
 
-const ProjectTech = ({ techs }: ProjectTechProps) => {
-  const categoryLabels: { [key: string]: string } = {
-    frontend: "Frontend",
-    database: "Database",
-    backend: "Backend",
-    other: "Other",
-  };
-
+const ProjectTech: React.FC<ProjectTechProps> = React.memo(({ techs }) => {
   return (
-    <div className="space-y-3 py-2">
-      {Object.entries(techs).map(
-        ([category, techList]: [string, readonly string[] | string[]]) => {
-          if (!techList || techList.length === 0) return null;
+    <section className="flex flex-wrap gap-[1%] my-4">
+      {Object.entries(techs).map(([category, techList]) => {
+        if (techList.length === 0) return null;
 
-          return (
-            <div className="flex flex-col gap-2" key={category}>
-              <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                {categoryLabels[category] || category}
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {techList.map((tech: string) => {
-                  const Icon = TECH_ICONS[tech as keyof typeof TECH_ICONS];
-                  return (
-                    <div
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border bg-card hover:bg-accent/50 transition-colors group"
-                      title={tech}
-                      key={tech}
-                    >
-                      {Icon && (
-                        <div className="w-3.5 h-3.5 flex items-center justify-center flex-shrink-0">
-                          <Icon />
-                        </div>
-                      )}
-                      <span className="text-xs font-medium">{tech}</span>
-                    </div>
-                  );
-                })}
-              </div>
+        return (
+          <div
+            className="transition-all theme-background w-[24.2%] min-w-[125px] min-h-[150px] rounded-xl p-2 flex-grow lg:flex-none"
+            key={category}
+          >
+            <p className="text-sm theme-accent-text uppercase mb-2">
+              {category}
+            </p>
+            <div className="flex items-center gap-4 flex-wrap max-w-full overflow-hidden">
+              {techList.map((tech) => {
+                const Icon = TECH_ICONS[tech as keyof typeof TECH_ICONS];
+                return (
+                  <div
+                    className="flex items-center gap-2 text-sm flex-shrink-0 overflow-hidden max-w-full"
+                    key={tech}
+                  >
+                    {Icon ? <Icon /> : <span className="w-6 h-6 flex-shrink-0" />}
+                    <span className="truncate whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
+                      {tech}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
-          );
-        }
-      )}
-    </div>
+          </div>
+        );
+      })}
+    </section>
   );
-};
+});
 
 export default ProjectTech;

@@ -1,18 +1,18 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Filter, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import * as FilterActions from "../../actions/filter.actions";
-import { TECH_ICONS } from "../../assets/projectTechs";
-import { TooltipProvider } from "../ui/tooltip";
-import { WORK } from "../../assets/WORK";
-import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
+import { MiniArrowDownSVG, TECH_ICONS, FilterSVG, WORK } from "@/assets";
+import * as FilterActions from "@/actions/filter.actions";
+import { ActionButton } from "@/components/atoms";
+import { cn } from "@/lib/utils";
+
 import { Project } from "./Project";
+
+type TechName = keyof typeof TECH_ICONS;
 
 export default function ProjectList() {
   const [addingFilter, setAddingFilter] = useState<boolean>(false);
-  const [showedProjects, setShowedProjects] = useState<Array<any>>([...WORK]);
+  const [showedProjects, setShowedProjects] = useState<Array<(typeof WORK)[number]>>([...WORK]);
   const [mustInclude, setMustInclude] = useState<Array<string>>([]);
   const [mustNotInclude, setMustNotInclude] = useState<Array<string>>([]);
   const [selectedCategories, setSelectedCategories] = useState<Array<string>>(
@@ -43,8 +43,8 @@ export default function ProjectList() {
     }
 
     setShowedProjects(
-      [...WORK].filter((project: any) => {
-        const projectTechs = Object.values(project.techs).flat();
+      [...WORK].filter((project) => {
+        const projectTechs: string[] = Object.values(project.techs).flat();
         const techMatch = mustInclude.every((tech) =>
           projectTechs.includes(tech)
         );
@@ -70,59 +70,107 @@ export default function ProjectList() {
   }, [mustInclude, mustNotInclude, selectedCategories, excludedCategories]);
 
   const availableCategories = ["frontend", "backend", "database", "other"];
-  const availableTechs = Object.keys(TECH_ICONS);
-
-  const activeFiltersCount =
-    mustInclude.length +
-    mustNotInclude.length +
-    selectedCategories.length +
-    excludedCategories.length;
+  const availableTechs = Object.keys(TECH_ICONS) as TechName[];
 
   return (
-    <TooltipProvider>
-      <div className="my-6 space-y-4">
-        <Button
-          onClick={() => setAddingFilter(!addingFilter)}
-          className="w-full sm:w-auto"
-          variant="outline"
-          size="lg"
-        >
-          <Filter className="w-4 h-4" />
-          <span>Filter Projects</span>
-          {activeFiltersCount > 0 && (
-            <Badge variant="secondary" className="ml-2">
-              {activeFiltersCount}
-            </Badge>
-          )}
-          <ChevronDown
-            className={`w-4 h-4 ml-auto transition-transform ${addingFilter ? "rotate-180" : ""}`}
-          />
-        </Button>
+    <>
+      <ActionButton
+        onClick={() => setAddingFilter(!addingFilter)}
+        className="my-4 px-2"
+      >
+        <div className={cn("transition-all", { "rotate-180": addingFilter })}>
+          <MiniArrowDownSVG />
+        </div>
+        <p>Add a filter</p>
+      </ActionButton>
 
-        <AnimatePresence>
-          {addingFilter && (
-            <motion.div
-              className="border rounded-lg p-6 space-y-6 bg-card shadow-lg overflow-hidden"
-              transition={{ ease: "easeOut", duration: 0.2 }}
-              animate={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              exit={{ opacity: 0 }}
-            >
-              {/* Category Filter */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Filter className="w-4 h-4 text-muted-foreground" />
-                  <h3 className="font-semibold text-sm">Filter by Category</h3>
-                  <span className="text-xs text-muted-foreground ml-auto">
-                    Click to include, double-click to exclude
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {availableCategories.map((category) => {
-                    const isSelected = selectedCategories.includes(category);
-                    const isExcluded = excludedCategories.includes(category);
-                    return (
-                      <Button
+      <AnimatePresence>
+        {addingFilter && (
+          <motion.section
+            className="flex flex-col shadow-xl p-3 rounded-lg theme-surface"
+            transition={{ ease: "easeOut", duration: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+          >
+            <section className="py-2 theme-border border-b-2">
+              <div className="flex items-center gap-2 mb-2">
+                <FilterSVG />
+                <p>
+                  Filter by inclusion{" "}
+                  <em>
+                    (Double click to <strong>exclude</strong>)
+                  </em>
+                </p>
+              </div>
+              <ul className="flex flex-wrap gap-2">
+                {availableTechs.map((key) => {
+                  const Icon = TECH_ICONS[key];
+                  const included = mustInclude.includes(key);
+                  const excluded = mustNotInclude.includes(key);
+                  return (
+                    <li className="flex items-center gap-2" key={key}>
+                      <button
+                        className={cn(
+                          "size-10 border-2 grid place-items-center rounded-full hover:bg-[#3C3D37] cursor-pointer",
+                          {
+                            "border-red-500 hover:bg-[#b91c1c70]":
+                              !included && excluded,
+                            "theme-accent-background border-green-500":
+                              included,
+                            "border-transparent": !included && !excluded,
+                          }
+                        )}
+                        onClick={() =>
+                          FilterActions.handleToggleInclusion(
+                            key,
+                            setMustInclude,
+                            setMustNotInclude,
+                            excluded
+                          )
+                        }
+                        onDoubleClick={() =>
+                          FilterActions.handleDoubleClickInclusion(
+                            key,
+                            setMustInclude,
+                            setMustNotInclude
+                          )
+                        }
+                      >
+                        <Icon />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+
+            <section className="py-2 theme-border border-t-2">
+              <div className="flex items-center gap-2 mb-2">
+                <FilterSVG />
+                <p>
+                  Filter by category{" "}
+                  <em>
+                    (Double click to <strong>exclude</strong>)
+                  </em>
+                </p>
+              </div>
+              <ul className="flex flex-wrap gap-2">
+                {availableCategories.map((category) => {
+                  const isSelected = selectedCategories.includes(category);
+                  const isExcluded = excludedCategories.includes(category);
+                  return (
+                    <li key={category}>
+                      <button
+                        className={cn(
+                          "px-2 py-1 cursor-pointer rounded-md hover:bg-[#53594E] transition-colors",
+                          {
+                            "theme-secondary-background":
+                              !isSelected && !isExcluded,
+                            "bg-[#b91c1c]": !isSelected && isExcluded,
+                            "theme-border-background": isSelected,
+                          }
+                        )}
                         onDoubleClick={() =>
                           FilterActions.handleDoubleClickCategory(
                             category,
@@ -137,146 +185,22 @@ export default function ProjectList() {
                             setExcludedCategories
                           )
                         }
-                        variant={
-                          isSelected
-                            ? "default"
-                            : isExcluded
-                              ? "destructive"
-                              : "outline"
-                        }
-                        className="capitalize"
-                        key={category}
-                        size="sm"
                       >
                         {category}
-                      </Button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Technology Filter */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Filter className="w-4 h-4 text-muted-foreground" />
-                  <h3 className="font-semibold text-sm">
-                    Filter by Technology
-                  </h3>
-                  <span className="text-xs text-muted-foreground ml-auto">
-                    Click to include, double-click to exclude
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {availableTechs.map((tech) => {
-                    const Icon = TECH_ICONS[tech as keyof typeof TECH_ICONS];
-                    const included = mustInclude.includes(tech);
-                    const excluded = mustNotInclude.includes(tech);
-                    return (
-                      <Button
-                        onClick={() =>
-                          FilterActions.handleToggleInclusion(
-                            tech,
-                            setMustInclude,
-                            setMustNotInclude,
-                            excluded
-                          )
-                        }
-                        onDoubleClick={() =>
-                          FilterActions.handleDoubleClickInclusion(
-                            tech,
-                            setMustInclude,
-                            setMustNotInclude
-                          )
-                        }
-                        variant={
-                          included
-                            ? "default"
-                            : excluded
-                              ? "destructive"
-                              : "outline"
-                        }
-                        className="gap-1.5"
-                        key={tech}
-                        size="sm"
-                      >
-                        {Icon && (
-                          <div className="w-3.5 h-3.5 flex items-center justify-center">
-                            <Icon />
-                          </div>
-                        )}
-                        <span className="text-xs">{tech}</span>
-                      </Button>
-                    );
-                  })}
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Active Filters Display - Below the collapsible filter panel */}
-        {activeFiltersCount > 0 && (
-          <div className="flex flex-wrap gap-2 p-4 border rounded-lg bg-muted/30">
-            <span className="text-sm font-medium text-muted-foreground">
-              Active filters:
-            </span>
-            {mustInclude.map((tech) => (
-              <Badge variant="default" className="gap-1" key={tech}>
-                {tech}
-                <X
-                  onClick={() =>
-                    setMustInclude(mustInclude.filter((t) => t !== tech))
-                  }
-                  className="w-3 h-3 cursor-pointer hover:opacity-70"
-                />
-              </Badge>
-            ))}
-            {mustNotInclude.map((tech) => (
-              <Badge variant="destructive" className="gap-1" key={tech}>
-                Not {tech}
-                <X
-                  onClick={() =>
-                    setMustNotInclude(mustNotInclude.filter((t) => t !== tech))
-                  }
-                  className="w-3 h-3 cursor-pointer hover:opacity-70"
-                />
-              </Badge>
-            ))}
-            {selectedCategories.map((cat) => (
-              <Badge variant="secondary" className="gap-1" key={cat}>
-                {cat}
-                <X
-                  onClick={() =>
-                    setSelectedCategories(
-                      selectedCategories.filter((c) => c !== cat)
-                    )
-                  }
-                  className="w-3 h-3 cursor-pointer hover:opacity-70"
-                />
-              </Badge>
-            ))}
-            {excludedCategories.map((cat) => (
-              <Badge variant="outline" className="gap-1" key={cat}>
-                Not {cat}
-                <X
-                  onClick={() =>
-                    setExcludedCategories(
-                      excludedCategories.filter((c) => c !== cat)
-                    )
-                  }
-                  className="w-3 h-3 cursor-pointer hover:opacity-70"
-                />
-              </Badge>
-            ))}
-          </div>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          </motion.section>
         )}
-
-        <ul className="flex flex-col gap-4">
-          {showedProjects.map((project) => (
-            <Project project={project as any} key={project.title} />
-          ))}
-        </ul>
-      </div>
-    </TooltipProvider>
+      </AnimatePresence>
+      <ul className="flex flex-col gap-4 my-4">
+        {showedProjects.map((project) => (
+          <Project key={project.title} project={project} />
+        ))}
+      </ul>
+    </>
   );
 }

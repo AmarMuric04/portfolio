@@ -1,36 +1,34 @@
-import { Lightbulb, FileText, Globe, Image, Info, List } from "lucide-react";
 import { useModal } from "@ebay/nice-modal-react";
 import { useEffect, useState } from "react";
 
+import {
+  MiniArrowDownSVG,
+  WORK_HIGHLIGHTS,
+  WORK_READMES,
+  GithubSVG,
+  WorldSVG,
+  PlusSVG,
+  WORK,
+} from "@/assets";
 import {
   WorkThoughtsModal,
   WorkDetailsModal,
   READMEmdModal,
 } from "@/components/organisms";
-import { WORK_HIGHLIGHTS } from "@/assets/WORK_HIGHLIGHTS";
-import { WORK_READMES, GithubSVG, WORK } from "@/assets";
+import { ExternalLinkButton, ActionButton } from "@/components/atoms";
 import { useIntersectionObserver } from "@/hooks";
 import { cn } from "@/lib/utils";
 
-import {
-  CardDescription,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  Card,
-} from "../ui/card";
-import { TooltipContent, TooltipTrigger, Tooltip } from "../ui/tooltip";
+import { ProjectStatus } from "./ProjectStatus";
 import { Highlights } from "./Highlights";
 import ProjectTech from "./ProjectTech";
-import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
 
 export const Project = ({ project }: { project: (typeof WORK)[number] }) => {
   const [hideHighlights, setHideHighlights] = useState<boolean>(true);
   const [isContentExpanded, setIsContentExpanded] = useState<boolean>(false);
   const [isShowingFeatures, setIsShowingFeatures] = useState<boolean>(false);
   const [wasInView, setWasInView] = useState<boolean>(false);
-  const { isIntersecting, targetRef } = useIntersectionObserver<HTMLLIElement>();
+  const { isIntersecting, targetRef } = useIntersectionObserver();
   const [section, setSection] = useState<number>(0);
   const images = WORK_HIGHLIGHTS[project.title.toLowerCase()];
 
@@ -56,210 +54,158 @@ export const Project = ({ project }: { project: (typeof WORK)[number] }) => {
     "/" + project.title.replace(" ", "").toLowerCase() + "-logo.png";
 
   return (
-    <li className="relative group" ref={targetRef}>
-      <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        {wasInView && projectLogo && (
+    <li className="relative bg-white/10 shadow-md p-3 border border-white/10 rounded-lg transition-all theme-surface">
+      <article ref={targetRef}>
+        {wasInView && (
           <img
-            className="top-4 right-4 absolute opacity-30 group-hover:opacity-50 rounded-lg w-16 h-16 object-contain transition-opacity duration-300"
+            className="top-5 right-5 absolute opacity-50 rounded-lg w-[5rem] h-[5rem] object-contain"
             alt={`${project.title} logo`}
             src={projectLogo}
           />
         )}
 
-        <CardHeader className="pb-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <CardTitle className="text-xl">{project.title}</CardTitle>
-            <Badge variant="secondary">{project.type}</Badge>
-            <Badge variant="outline">{project.status}</Badge>
+        <div className="flex flex-wrap items-center gap-x-2 mb-4 sm:mb-0 max-w-1/2 lg:max-w-4/5">
+          <p className="py-2 font-semibold text-lg transition-all theme-title-text">
+            {project.title}
+          </p>
+          {"info" in project && (
+            <p className="px-1 theme-primary-text-border border-2 rounded-full theme-text-primary text-xs transition-all cursor-pointer">
+              {project.info}
+            </p>
+          )}
+          {project.type && (
+            <p className="px-1 theme-primary-text-border border-2 rounded-full theme-text-primary text-xs transition-all cursor-pointer">
+              {project.type}
+            </p>
+          )}
+        </div>
+
+        <ProjectStatus status={project.status} />
+
+        <div className="relative flex flex-col items-start sm:max-w-4/5">
+          <div
+            className={cn("transition-all pr-12", {
+              "line-clamp-3": !isContentExpanded,
+            })}
+          >
+            {project.content}
           </div>
-          <CardDescription className="mt-3">
-            <div
-              className={cn("transition-all duration-300 pr-16", {
-                "line-clamp-2": !isContentExpanded,
-              })}
+          <button
+            className="theme-text-primary hover:underline transition-all cursor-pointer theme-surface"
+            onClick={() => setIsContentExpanded(!isContentExpanded)}
+          >
+            {isContentExpanded ? "show less" : "more...."}
+          </button>
+        </div>
+
+        <ProjectTech techs={project.techs} />
+
+        <div className="flex sm:flex-row flex-col-reverse justify-between items-center gap-2 sm:gap-0 mt-1 w-full text-sm">
+          <div className="flex gap-1 w-full">
+            <ActionButton
+              onClick={() => setIsShowingFeatures(!isShowingFeatures)}
+              className="py-1 w-1/2 sm:w-[8rem]"
             >
-              {project.content}
-            </div>
-            {project.content.length > 120 && (
-              <button
-                className="mt-1 text-primary hover:underline text-xs transition-all"
-                onClick={() => setIsContentExpanded(!isContentExpanded)}
+              <div
+                className={cn("transition-all", {
+                  "rotate-180": isShowingFeatures,
+                })}
               >
-                {isContentExpanded ? "Less" : "More"}
-              </button>
-            )}
-          </CardDescription>
-        </CardHeader>
-
-        <CardContent className="space-y-4">
-          {project.techs && <ProjectTech techs={project.techs} />}
-
-          {/* Action Bar */}
-          <div className="flex flex-wrap justify-between items-center gap-3 pt-2 border-t">
-            {/* Left side - Info actions */}
-            <div className="flex items-center gap-1">
-              <Tooltip>
-                <TooltipTrigger>
-                  <Button
-                    onClick={() => setIsShowingFeatures(!isShowingFeatures)}
-                    variant={isShowingFeatures ? "default" : "outline"}
-                    size="sm"
-                  >
-                    <List className="w-4 h-4" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>View Key Features</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {images?.length > 0 && (
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Button
-                      onClick={() => setHideHighlights(!hideHighlights)}
-                      variant={!hideHighlights ? "default" : "outline"}
-                      size="sm"
-                    >
-                      <Image className="w-4 h-4" />
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>View Screenshots</p>
-                  </TooltipContent>
-                </Tooltip>
-              )}
-
-              <Tooltip>
-                <TooltipTrigger>
-                  <Button
-                    onClick={() => showWorkDetailsModal({ project })}
-                    variant="outline"
-                    size="sm"
-                  >
-                    <Info className="w-4 h-4" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>More Details</p>
-                </TooltipContent>
-              </Tooltip>
-
-              <Tooltip>
-                <TooltipTrigger>
-                  <Button
-                    onClick={() => showWorkThoughtsModal({ project })}
-                    variant="outline"
-                    size="sm"
-                  >
-                    <Lightbulb className="w-4 h-4" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>My Thoughts</p>
-                </TooltipContent>
-              </Tooltip>
-
-              <Tooltip>
-                <TooltipTrigger>
-                  <Button
-                    onClick={() =>
-                      showREADMEmdModal({
-                        markdown: WORK_READMES[project.title],
-                      })
-                    }
-                    variant="outline"
-                    size="sm"
-                  >
-                    <FileText className="w-4 h-4" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>View README</p>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-
-            {/* Right side - External links */}
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground mr-2">
-                {project.duration}
-              </span>
-
-              {project.website && (
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Button variant="outline" size="sm" asChild>
-                      <a
-                        rel="noopener noreferrer"
-                        href={project.website}
-                        target="_blank"
-                      >
-                        <Globe className="w-4 h-4" />
-                      </a>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Visit Live Website</p>
-                  </TooltipContent>
-                </Tooltip>
-              )}
-
-              {project.github && (
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Button variant="outline" size="sm" asChild>
-                      <a
-                        rel="noopener noreferrer"
-                        href={project.github}
-                        target="_blank"
-                      >
-                        <div className="w-4 h-4">
-                          <GithubSVG />
-                        </div>
-                      </a>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>View GitHub Repository</p>
-                  </TooltipContent>
-                </Tooltip>
-              )}
-            </div>
+                <MiniArrowDownSVG />
+              </div>
+              <p>Features</p>
+            </ActionButton>
+            <ActionButton
+              onClick={() => showWorkDetailsModal({ project })}
+              className="py-1 w-1/2 sm:w-[8rem]"
+            >
+              <div className="transition-all">
+                <PlusSVG />
+              </div>
+              <p>More</p>
+            </ActionButton>
           </div>
+          <p
+            className="flex-shrink-0 text-xs select-none"
+            aria-label="Duration"
+            title="Duration"
+          >
+            {project.duration}
+          </p>
+        </div>
 
-          {/* Features Section */}
-          {isShowingFeatures && (
-            <div className="pt-3 border-t animate-in fade-in slide-in-from-top-2 duration-300">
-              <h3 className="mb-2 font-semibold text-sm">Key Features</h3>
-              <ul className="space-y-1.5 text-sm">
-                {project.keyFeatures.map((feature) => (
-                  <li
-                    className="flex items-start gap-2"
-                    key={feature + project.title}
-                  >
-                    <span className="mt-1.5 bg-primary rounded-full w-1.5 h-1.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+        {isShowingFeatures && (
+          <div>
+            <ul className="my-4 p-2 rounded-xl list-decimal theme-background">
+              {project.keyFeatures.map((feature) => (
+                <li key={feature + project.title} className="ml-5">
+                  <pre>{feature}</pre>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-          {/* Highlights Section */}
-          {!hideHighlights && images?.length > 0 && (
-            <div className="pt-3 border-t animate-in fade-in slide-in-from-top-2 duration-300">
-              <Highlights
-                handleClick={handleClick}
-                setSection={setSection}
-                title={project.title}
-                section={section}
-                images={images}
-              />
-            </div>
-          )}
-        </CardContent>
-      </Card>
+        <div className="flex flex-wrap justify-between items-center gap-2 sm:gap-0 mt-1 w-full text-sm">
+          <div className="flex gap-1 w-full sm:w-auto">
+            {images?.length > 0 && (
+              <ActionButton
+                onClick={() => setHideHighlights(!hideHighlights)}
+                className="py-1 w-1/2 sm:w-[8rem]"
+              >
+                <div
+                  className={cn("transition-all", {
+                    "rotate-180": !hideHighlights,
+                  })}
+                >
+                  <MiniArrowDownSVG />
+                </div>
+                <p>Highlights</p>
+              </ActionButton>
+            )}
+            <ActionButton
+              onClick={() => showWorkThoughtsModal({ project })}
+              className="py-1 w-1/2 sm:w-[8rem]"
+            >
+              <div className="transition-all">
+                <PlusSVG />
+              </div>
+              <p>My Thoughts</p>
+            </ActionButton>
+          </div>
+          <div className="flex flex-shrink-0 justify-center sm:justify-start items-center gap-4 w-full sm:w-auto">
+            {project.website && (
+              <ExternalLinkButton href={project.website} icon={WorldSVG}>
+                Visit Website
+              </ExternalLinkButton>
+            )}
+            {project.github && (
+              <ExternalLinkButton href={project.github} icon={GithubSVG}>
+                Visit Github
+              </ExternalLinkButton>
+            )}
+          </div>
+        </div>
+
+        {!hideHighlights && (
+          <Highlights
+            handleClick={handleClick}
+            setSection={setSection}
+            title={project.title}
+            section={section}
+            images={images}
+          />
+        )}
+
+        <ActionButton
+          onClick={() =>
+            showREADMEmdModal({ markdown: WORK_READMES[project.title] })
+          }
+          className="mt-4 float-right"
+        >
+          README.md
+        </ActionButton>
+      </article>
     </li>
   );
 };
