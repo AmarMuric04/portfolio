@@ -1,52 +1,30 @@
-import NiceModal, { useModal } from "@ebay/nice-modal-react";
+import NiceModal from "@ebay/nice-modal-react";
 
 import { WORK } from "@/assets";
 
-import { ResponsiveModal } from "../ResponsiveModal";
+import { Modal } from "../Modal";
 
 export const WorkThoughtsModal = NiceModal.create(
   ({ project }: { project: (typeof WORK)[number] }) => {
-    const modal = useModal();
-
-    const handleResolveModal = () => {
-      modal.resolve();
-      modal.hide();
-    };
-
     const projectLogo =
       "/" + project.title.replace(" ", "").toLowerCase() + "-logo.png";
 
     return (
-      <ResponsiveModal
-        classNameDrawer="max-h-[85vh]"
-        classNameDialog="sm:max-w-3xl"
-        onClose={handleResolveModal}
-        open={modal.visible}
-      >
-        <div className="space-y-6">
-          {/* Header with logo */}
-          <div className="flex items-start gap-6">
-            <div className="flex-1">
-              <h1 className="font-bold text-2xl mb-2">{project.title}</h1>
-              <p className="text-sm text-muted-foreground">
-                My Personal Reflections
-              </p>
-            </div>
-            {projectLogo && (
-              <img
-                className="opacity-30 w-20 h-20 object-contain"
-                alt={`${project.title} logo`}
-                src={projectLogo}
-              />
-            )}
+      <Modal title="My Thoughts on this project">
+        <div className="flex flex-col-reverse lg:flex-row items-start w-full">
+          <div>
+            <h1 className="theme-title-text font-semibold text-lg mb-4">
+              {project.title}
+            </h1>
+            <p className="xl:max-w-[80%]">{project.myThoughts}</p>
           </div>
-
-          {/* Thoughts content */}
-          <div className="prose prose-sm max-w-none">
-            <p className="text-base leading-relaxed">{project.myThoughts}</p>
-          </div>
+          <img
+            className="w-[10rem] object-contain opacity-50 mb-8"
+            alt={`${project.title} logo`}
+            src={projectLogo}
+          />
         </div>
-      </ResponsiveModal>
+      </Modal>
     );
   }
 );
