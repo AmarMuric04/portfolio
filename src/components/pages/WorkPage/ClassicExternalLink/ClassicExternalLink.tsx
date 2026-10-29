@@ -7,7 +7,7 @@ const ClassicExternalLink: React.FC<{
 }> = ({ description, title, href }) => {
 	return (
 		<a
-			className="theme-surface group flex cursor-pointer gap-2 rounded-lg p-2 transition-all hover:bg-link-hover"
+			className="theme-surface group flex cursor-pointer gap-2 rounded-xl p-2 transition-all hover:bg-link-hover"
 			target="_blank"
 			rel="noreferrer"
 			href={href}

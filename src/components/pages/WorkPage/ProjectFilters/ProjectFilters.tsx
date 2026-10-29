@@ -57,7 +57,7 @@ const CategoryFilterButton: React.FC<{
 	return (
 		<button
 			className={cn(
-				"cursor-pointer rounded-md px-2 py-1 transition-colors hover:bg-category-hover",
+				"cursor-pointer rounded-lg px-2 py-1 transition-colors hover:bg-category-hover",
 				{
 					"theme-border-background": isIncluded,
 					"bg-excluded": isExcluded,
@@ -108,7 +108,7 @@ const ProjectFilters: React.FC<{
 
 	return (
 		<motion.section
-			className="theme-surface flex flex-col rounded-lg p-3 shadow-xl"
+			className="theme-surface flex flex-col rounded-2xl p-3 shadow-xl"
 			transition={{ ease: "easeOut", duration: 0.3 }}
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}

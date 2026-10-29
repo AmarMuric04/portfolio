@@ -66,7 +66,7 @@ const Header: React.FC = () => {
 			<header className="mb-28" ref={targetRef}>
 				<nav
 					className={cn(
-						"theme-surface fixed top-4 left-1/2 z-50 h-[3.5rem] -translate-x-1/2 overflow-hidden rounded-full border border-white/10 bg-white/10 pr-4 shadow-md backdrop-blur-sm transition-all select-none",
+						"theme-surface fixed top-4 left-1/2 z-50 h-[3.5rem] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/10 bg-white/10 pr-4 shadow-md backdrop-blur-sm transition-all select-none",
 						{
 							"w-[80%] md:w-[38rem]": !isIntersecting,
 							"w-[95%] md:w-[45rem]": isIntersecting,
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
 					)}
 				>
 					<div className="flex h-full w-full items-center justify-between">
-						<ul className="flex h-full w-full gap-4 rounded-full transition-all duration-300 sm:w-auto">
+						<ul className="flex h-full w-full gap-4 transition-all duration-300 sm:w-auto">
 							<ToggleThemeButton className="hidden h-full w-[3.5rem] sm:grid" />
 
 							<NavBarItem to="/">
@@ -118,7 +118,7 @@ const Header: React.FC = () => {
 
 			<a
 				className={cn(
-					"theme-background theme-title-text fixed right-5 bottom-5 z-50 flex h-[3rem] items-center justify-center gap-2 rounded-full shadow-xl transition-all sm:hidden",
+					"theme-background theme-title-text fixed right-5 bottom-5 z-50 flex h-[3rem] items-center justify-center gap-2 rounded-2xl shadow-xl transition-all sm:hidden",
 					{
 						"w-[6rem] rounded-br-none": !isScrollingDown,
 						"w-[3rem]": isScrollingDown,

@@ -19,7 +19,7 @@ const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 				className="mx-1 inline cursor-pointer"
 				onClick={() => setIsRevealed(true)}
 			>
-				<span className="theme-border-background theme-surface-hover inline-flex items-center rounded-md px-1 transition-all">
+				<span className="theme-border-background theme-surface-hover inline-flex items-center rounded-lg px-1 transition-all">
 					<UnhideTextSVG />
 				</span>
 			</span>

@@ -81,7 +81,7 @@ const Highlights: React.FC<{
 				<picture key={selectedImage.image}>
 					<source srcSet={selectedImage.image} type="image/webp" />
 					<LazyLoadImage
-						className="showAnimation rounded-lg lg:min-h-[21rem]"
+						className="showAnimation rounded-xl lg:min-h-[21rem]"
 						alt={selectedImage.description}
 						src={selectedImage.image}
 						visibleByDefault

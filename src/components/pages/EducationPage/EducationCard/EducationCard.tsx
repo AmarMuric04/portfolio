@@ -19,7 +19,7 @@ const EducationCard: React.FC<{
 
 	return (
 		<li
-			className="theme-surface relative my-4 overflow-hidden rounded-lg border border-white/10 bg-white/10 p-3 shadow-md backdrop-blur-sm transition-all"
+			className="theme-surface relative my-4 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-3 shadow-md backdrop-blur-sm transition-all"
 			ref={targetRef}
 		>
 			<article>
@@ -46,7 +46,7 @@ const EducationCard: React.FC<{
 				<ul className="flex flex-wrap gap-2">
 					{education.skills.map((skill) => (
 						<li
-							className="theme-secondary-background rounded-md px-2 py-1 text-white transition-all"
+							className="theme-secondary-background rounded-lg px-2 py-1 text-white transition-all"
 							key={skill}
 						>
 							{skill}
