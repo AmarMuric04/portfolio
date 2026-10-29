@@ -1,34 +1,21 @@
-import { useEffect, useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
+import { useEffect } from "react";
 
 type ThemeType = "light" | "dark";
 
-const getPreferedTheme = () => {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-};
+const prefersLight = () =>
+  !window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState<ThemeType>(() => getPreferedTheme());
+  const [isLight, setIsLight] = useLocalStorage("isLight", prefersLight);
+
+  const theme: ThemeType = isLight ? "light" : "dark";
 
   useEffect(() => {
-    document.body.classList.remove("light", "dark");
-
-    document.body.classList.add(theme);
+    document.documentElement.dataset.theme = theme;
   }, [theme]);
 
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
-    }
+  const toggleTheme = () => setIsLight((prev) => !prev);
 
-    if (theme === "light") {
-      setTheme("dark");
-    }
-  };
-
-  const isDark = theme === "dark";
-  const isLight = theme === "light";
-
-  return { toggleTheme, isLight, isDark, theme };
+  return { isDark: !isLight, toggleTheme, isLight, theme };
 };
