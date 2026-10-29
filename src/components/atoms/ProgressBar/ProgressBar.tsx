@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Progress } from "@/components/ui/progress";
-
 interface ProgressBarProps {
   currentProgression: number;
   takeAway: number;
@@ -29,7 +27,14 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         )}
       </div>
 
-      <Progress value={currentProgression} />
+      <div className="h-[5px] w-full theme-surface-alt transition-all">
+        <div
+          style={{
+            width: `${currentProgression}%`,
+          }}
+          className="h-full rounded-full theme-secondary-background"
+        />
+      </div>
     </div>
   );
 };

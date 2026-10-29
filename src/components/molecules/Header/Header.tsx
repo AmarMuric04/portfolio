@@ -1,11 +1,11 @@
-import { GraduationCap, Briefcase, Contact, Folder, Home } from "lucide-react";
 import { useLocation, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 
+import { EducationSVG, ContactSVG, FolderSVG, HomeSVG } from "@/assets";
 import { ToggleThemeButton } from "@/components/atoms";
 import { useIntersectionObserver } from "@/hooks";
-import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 const NavBarItem: React.FC<React.PropsWithChildren<{ to: string }>> = ({
@@ -22,19 +22,8 @@ const NavBarItem: React.FC<React.PropsWithChildren<{ to: string }>> = ({
       initial={false}
     >
       <Link
-        className={cn(
-          "flex items-center gap-2 transition-all duration-300",
-          isSelected &&
-            "text-primary [&>svg]:text-primary [&>svg]:drop-shadow-[0_0_8px_oklch(0.648_0.2_131.684/0.5)]"
-        )}
-        style={
-          isSelected
-            ? {
-                textShadow: `0 0 5px oklch(0.648 0.2 131.684 / 0.5), 0 0 10px oklch(0.648 0.2 131.684 / 0.3)`,
-              }
-            : undefined
-        }
         aria-label={`Go to the ${to} page to learn more about me`}
+        className="flex items-center gap-2"
         to={to}
       >
         {children}
@@ -42,7 +31,7 @@ const NavBarItem: React.FC<React.PropsWithChildren<{ to: string }>> = ({
 
       {isSelected && (
         <motion.div
-          className="bottom-0 left-0 absolute w-full h-0.5 bg-primary shadow-[0_0_8px_oklch(0.648_0.2_131.684)]"
+          className="bottom-0 left-0 absolute w-full h-0.5 theme-primary-text-background"
           transition={{ type: "spring", duration: 0.6, bounce: 0.2 }}
           layoutId="underline"
         />
@@ -75,9 +64,9 @@ export const Header: React.FC = () => {
   return (
     <>
       <header className="mb-28" ref={targetRef}>
-        <Card
+        <nav
           className={cn(
-            "border py-0 h-16 shadow-md transition-[width] select-none top-4 rounded-full fixed z-50 left-1/2 -translate-x-1/2 pr-4 overflow-hidden",
+            "bg-white/10 backdrop-blur-sm border border-white/10 shadow-md theme-surface select-none h-[3.5rem] top-4 transition-all rounded-full fixed z-50 left-1/2 -translate-x-1/2 pr-4 overflow-hidden",
             {
               "md:w-[38rem] w-[80%]": !isIntersecting,
               "md:w-[45rem] w-[95%]": isIntersecting,
@@ -85,21 +74,21 @@ export const Header: React.FC = () => {
           )}
         >
           <div className="flex justify-between items-center w-full h-full">
-            <ul className="flex gap-4 rounded-full w-full sm:w-auto h-full">
-              <ToggleThemeButton />
+            <ul className="flex gap-4 rounded-full w-full sm:w-auto h-full transition-all duration-300">
+              <ToggleThemeButton className="hidden sm:grid h-full w-[3.5rem]" />
 
               <NavBarItem to="/">
-                <Home />
+                <HomeSVG />
                 <p className="hidden sm:flex">Home</p>
               </NavBarItem>
 
               <NavBarItem to="/work">
-                <Folder />
-                <p className="hidden sm:flex">Work</p>
+                <FolderSVG />
+                <p className="hidden sm:flex">Projects</p>
               </NavBarItem>
 
               <NavBarItem to="/education">
-                <GraduationCap />
+                <EducationSVG />
                 <p className="hidden sm:flex">Education</p>
               </NavBarItem>
 
@@ -114,25 +103,23 @@ export const Header: React.FC = () => {
                 className="hidden sm:flex items-center gap-2"
                 href="mailto:muricamar2004@gmail.com"
               >
-                <Contact />
+                <ContactSVG />
                 <p>Say Hi</p>
               </a>
             </button>
           </div>
-        </Card>
+        </nav>
       </header>
 
-      <div className="sm:hidden bottom-5 left-5 z-50 fixed flex justify-center items-center size-16">
-        <ToggleThemeButton />
-      </div>
+      <ToggleThemeButton className="sm:hidden fixed z-50 bottom-5 transition-all left-5 flex items-center justify-center h-[4rem] w-[4rem]" />
       <a
         className={cn(
-          "sm:hidden fixed z-50 bottom-5 right-5 flex items-center justify-center h-12 rounded-full gap-2 shadow-xl",
-          { "w-24 rounded-br-none": !isVisible, "w-12": isVisible }
+          "sm:hidden theme-background theme-title-text fixed z-50 bottom-5 transition-all right-5 flex items-center justify-center h-[3rem] rounded-full gap-2 shadow-xl",
+          { "w-[6rem] rounded-br-none": !isVisible, "w-[3rem]": isVisible }
         )}
         href="mailto:muricamar2004@gmail.com"
       >
-        <Contact />
+        <ContactSVG />
         {!isVisible && <p className="flex-shrink-0">Say Hi</p>}
       </a>
     </>
