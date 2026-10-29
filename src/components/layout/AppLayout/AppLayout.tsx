@@ -1,21 +1,24 @@
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { Outlet } from "@tanstack/react-router";
+import { MotionConfig } from "framer-motion";
 
 import { Header } from "../Header";
 
 const AppLayout: React.FC = () => {
 	return (
-		<main className="theme-background min-h-screen pb-32 transition-all">
-			<main className="theme-container-text flex w-full justify-center transition-all">
+		<MotionConfig reducedMotion="user">
+			<div className="flex min-h-screen justify-center bg-ground pb-32 text-text">
 				<div className="w-[95%] md:w-[40rem]">
 					<Header />
 
-					<Outlet />
+					<main>
+						<Outlet />
+					</main>
 				</div>
-			</main>
+			</div>
 
 			<TanStackRouterDevtools />
-		</main>
+		</MotionConfig>
 	);
 };
 
