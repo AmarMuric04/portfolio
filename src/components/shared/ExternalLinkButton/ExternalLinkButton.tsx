@@ -5,13 +5,15 @@ const ExternalLinkButton: React.FC<{
 }> = ({ icon: Icon, href, children }) => {
 	return (
 		<a
-			className="flex cursor-pointer items-center gap-2 transition-all hover:text-white"
+			className="flex h-8 items-center gap-2 rounded-lg text-label text-ink transition-colors duration-200 hover:text-accent-text"
 			rel="noopener noreferrer"
 			target="_blank"
 			href={href}
 		>
-			<Icon />
-			<p>{children}</p>
+			<span className="grid size-5 shrink-0 place-items-center [&>svg]:size-5">
+				<Icon />
+			</span>
+			{children}
 		</a>
 	);
 };

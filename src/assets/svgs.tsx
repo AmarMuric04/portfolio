@@ -979,10 +979,11 @@ const ArchiveSVG: React.FC<{ className?: string }> = ({ className }) => (
 	</OutlineIcon>
 );
 
-const PlusSVG: React.FC = () => (
+const InfoSVG: React.FC = () => (
 	<OutlineIcon>
-		<path d="M12 6v12" />
-		<path d="M6 12h12" />
+		<circle cx="12" cy="12" r="9" />
+		<path d="M12 11v5" />
+		<path d="M12 8h.01" />
 	</OutlineIcon>
 );
 
@@ -1046,6 +1047,7 @@ export {
 	GithubSVG,
 	GlobeSVG,
 	HTMLSVG,
+	InfoSVG,
 	JWTSVG,
 	JavascriptSVG,
 	LinkedInSVG,
@@ -1058,7 +1060,6 @@ export {
 	NeonSVG,
 	NextJsSVG,
 	NodeJsSVG,
-	PlusSVG,
 	PostgresqlSVG,
 	PythonSVG,
 	ReactSVG,

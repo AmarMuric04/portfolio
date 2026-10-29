@@ -6,20 +6,18 @@ const ProjectDescription: React.FC<{ content: string }> = ({ content }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
 	return (
-		<div className="relative flex flex-col items-start sm:max-w-4/5">
-			<div
-				className={cn("pr-12 transition-all", {
-					"line-clamp-3": !isExpanded,
-				})}
-			>
+		<div className="flex flex-col items-start gap-1">
+			<p className={cn("text-body", { "line-clamp-2": !isExpanded })}>
 				{content}
-			</div>
+			</p>
 
 			<button
-				className="theme-text-primary theme-surface cursor-pointer transition-all hover:underline"
+				className="cursor-pointer rounded-lg text-label text-accent-text hover:underline"
 				onClick={() => setIsExpanded(!isExpanded)}
+				aria-expanded={isExpanded}
+				type="button"
 			>
-				{isExpanded ? "show less" : "more...."}
+				{isExpanded ? "Show less" : "Show more"}
 			</button>
 		</div>
 	);

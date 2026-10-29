@@ -1,94 +1,85 @@
-import NiceModal, { useModal } from "@ebay/nice-modal-react";
+import NiceModal from "@ebay/nice-modal-react";
 
-import { GithubSVG, GlobeSVG, type WORK } from "@/assets";
+import { GithubSVG, GlobeSVG, type WORK, WORK_READMES } from "@/assets";
 import {
-	ActionButton,
+	ExternalLinkButton,
 	Modal,
 	ProjectStatus,
-	ProjectTech,
+	Tag,
 } from "@/components/shared";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { WorkThoughtsModal } from "../WorkThoughtsModal";
 import { NumberedList } from "./NumberedList";
+import { ProjectOverview } from "./ProjectOverview";
+import { Readme } from "./Readme";
 
 const WorkDetailsModal = NiceModal.create<{
 	project: (typeof WORK)[number];
 }>(({ project }) => {
-	const workThoughtsModal = useModal(WorkThoughtsModal);
+	const readme = WORK_READMES[project.title];
 
 	return (
-		<Modal title="More Information">
-			<section className="flex flex-wrap items-center justify-between gap-4">
-				<h1 className="theme-title-text text-lg font-semibold">
-					{project.title}
-				</h1>
+		<Modal title={project.title}>
+			<div className="flex flex-wrap items-center gap-2">
+				<Tag>{project.type}</Tag>
 
-				<div className="flex gap-4">
-					<ProjectStatus status={project.status} />
+				{"info" in project && <Tag isFilled>{project.info}</Tag>}
 
-					{project.github && (
-						<a
-							href={project.github}
-							target="_blank"
-							rel="noreferrer"
-						>
-							<GithubSVG />
-						</a>
-					)}
+				<ProjectStatus status={project.status} />
 
-					{project.website && (
-						<a
-							href={project.website}
-							target="_blank"
-							rel="noreferrer"
-						>
-							<GlobeSVG />
-						</a>
-					)}
-				</div>
-			</section>
+				<p className="text-caption text-text-muted tabular-nums">
+					{project.duration}
+				</p>
+			</div>
 
-			<section className="flex flex-col items-start xl:w-2/3">
-				<strong>Description</strong>
-				<em>&quot;{project.content}&quot;</em>
+			<div className="mt-3 flex flex-wrap gap-4">
+				{project.website && (
+					<ExternalLinkButton href={project.website} icon={GlobeSVG}>
+						Visit website
+					</ExternalLinkButton>
+				)}
 
-				<ActionButton
-					onClick={() => workThoughtsModal.show({ project })}
-					className="my-4 px-3"
-				>
-					My thoughts on this project
-				</ActionButton>
+				<ExternalLinkButton href={project.github} icon={GithubSVG}>
+					Visit GitHub
+				</ExternalLinkButton>
+			</div>
 
-				<strong>Duration</strong>
-				<p className="mb-4">{project.duration}</p>
+			<Tabs className="mt-4 gap-4" defaultValue="overview">
+				<TabsList variant="line">
+					<TabsTrigger value="overview">Overview</TabsTrigger>
+					<TabsTrigger value="features">Features</TabsTrigger>
+					<TabsTrigger value="thoughts">My thoughts</TabsTrigger>
+					{readme && <TabsTrigger value="readme">README</TabsTrigger>}
+				</TabsList>
 
-				<strong>Challenge I overcame during this project</strong>
-				<p className="mb-4">{project.challenges}</p>
+				<TabsContent value="overview">
+					<ProjectOverview project={project} />
+				</TabsContent>
 
-				<strong>Key features of this project</strong>
-				<NumberedList items={project.keyFeatures} />
+				<TabsContent className="flex flex-col gap-4" value="features">
+					<section className="flex flex-col gap-2">
+						<h3 className="text-label text-ink">What it does</h3>
+						<NumberedList items={project.keyFeatures} />
+					</section>
 
-				<strong>
-					Things I&apos;ve considered adding to the project in the
-					future
-				</strong>
-				<NumberedList items={project.futurePlans} />
+					<section className="flex flex-col gap-2">
+						<h3 className="text-label text-ink">
+							What I’d add next
+						</h3>
+						<NumberedList items={project.futurePlans} />
+					</section>
+				</TabsContent>
 
-				<strong>My contribution to the project</strong>
-				<p className="mb-4">{project.contributions}</p>
+				<TabsContent value="thoughts">
+					<p className="text-body">{project.myThoughts}</p>
+				</TabsContent>
 
-				<strong>Key thing I learned during this project</strong>
-				<p className="mb-4">{project.learningOutcomes}</p>
-
-				<strong>How I chose to deploy this project</strong>
-				<p className="mb-4">{project.deployment}</p>
-
-				<strong>Accessibility</strong>
-				<p className="mb-4">{project.accessibility}</p>
-
-				<strong>Technologies used</strong>
-				<ProjectTech techs={project.techs} />
-			</section>
+				{readme && (
+					<TabsContent value="readme">
+						<Readme markdown={readme} />
+					</TabsContent>
+				)}
+			</Tabs>
 		</Modal>
 	);
 });
