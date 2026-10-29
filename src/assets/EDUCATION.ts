@@ -1,3 +1,5 @@
+import type { IEducation } from "@/types";
+
 export const EDUCATION: Array<IEducation> = [
   {
     skills: [

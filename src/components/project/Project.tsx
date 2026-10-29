@@ -30,7 +30,7 @@ export const Project = ({ project }: { project: (typeof WORK)[number] }) => {
   const [isContentExpanded, setIsContentExpanded] = useState<boolean>(false);
   const [isShowingFeatures, setIsShowingFeatures] = useState<boolean>(false);
   const [wasInView, setWasInView] = useState<boolean>(false);
-  const { isIntersecting, targetRef } = useIntersectionObserver();
+  const { isIntersecting, targetRef } = useIntersectionObserver<HTMLLIElement>();
   const [section, setSection] = useState<number>(0);
   const images = WORK_HIGHLIGHTS[project.title.toLowerCase()];
 

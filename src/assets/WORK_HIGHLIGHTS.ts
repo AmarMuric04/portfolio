@@ -1,3 +1,5 @@
+import type { IImage } from "@/types";
+
 export const WORK_HIGHLIGHTS: Record<string, IImage[]> = {
   solvebox: [
     {
