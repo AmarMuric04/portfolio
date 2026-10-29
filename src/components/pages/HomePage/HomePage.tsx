@@ -1,7 +1,7 @@
 import { LinkedInSVG, GithubSVG, MailSVG } from "@/assets";
-import { UnhideButton } from "@/components/atoms";
 
-import { PageHelmet } from "./components";
+import { PageHelmet } from "./PageHelmet";
+import { UnhideButton } from "./UnhideButton";
 
 import Myself from "/myself.webp";
 

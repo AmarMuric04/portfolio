@@ -1,3 +1,3 @@
 export * from "./useIntersectionObserver";
-export * from "./useAnimateNumber";
+export * from "./useAnimatedNumber";
 export * from "./useTheme";
