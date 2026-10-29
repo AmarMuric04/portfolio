@@ -1,17 +1,17 @@
 import React from "react";
 
 export const StatusButton: React.FC<{
-  icon: React.ElementType;
-  status: string;
-  color: string;
+	icon: React.ElementType;
+	status: string;
+	color: string;
 }> = ({ icon: Icon, status, color }) => {
-  return (
-    <div
-      className="cursor-pointer border-2 text-xs px-1 rounded-full flex gap-1 items-center"
-      style={{ borderColor: color, color }}
-    >
-      <Icon />
-      <p>{status}</p>
-    </div>
-  );
+	return (
+		<div
+			className="flex cursor-pointer items-center gap-1 rounded-full border-2 px-1 text-xs"
+			style={{ borderColor: color, color }}
+		>
+			<Icon />
+			<p>{status}</p>
+		</div>
+	);
 };

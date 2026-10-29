@@ -3,17 +3,17 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 export const ActionButton: React.FC<
-  React.ButtonHTMLAttributes<HTMLButtonElement>
+	React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ className, disabled, ...props }) => {
-  return (
-    <button
-      className={cn(
-        "bg-white/10 backdrop-blur-sm border border-white/10 shadow-md flex justify-start transition-all items-center gap-1 theme-secondary-background text-white px-1 rounded-md cursor-pointer",
-        { "opacity-50 cursor-not-allowed": disabled },
-        className
-      )}
-      disabled={disabled}
-      {...props}
-    />
-  );
+	return (
+		<button
+			className={cn(
+				"theme-secondary-background flex cursor-pointer items-center justify-start gap-1 rounded-md border border-white/10 bg-white/10 px-1 text-white shadow-md backdrop-blur-sm transition-all",
+				{ "cursor-not-allowed opacity-50": disabled },
+				className,
+			)}
+			disabled={disabled}
+			{...props}
+		/>
+	);
 };
