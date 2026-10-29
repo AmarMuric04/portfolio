@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-import { MiniArrowDownSVG, type WORK_HIGHLIGHTS } from "@/assets";
+import {
+	ChevronLeftSVG,
+	ChevronRightSVG,
+	type WORK_HIGHLIGHTS,
+} from "@/assets";
 import { ActionButton } from "@/components/shared";
 import { cn } from "@/lib/utils";
 
@@ -64,15 +68,11 @@ const Highlights: React.FC<{
 						onClick={handlePreviousClick}
 						aria-label="Previous"
 					>
-						<div className="rotate-90">
-							<MiniArrowDownSVG />
-						</div>
+						<ChevronLeftSVG />
 					</ActionButton>
 
 					<ActionButton onClick={handleNextClick} aria-label="Next">
-						<div className="-rotate-90">
-							<MiniArrowDownSVG />
-						</div>
+						<ChevronRightSVG />
 					</ActionButton>
 				</div>
 			</div>
