@@ -1,7 +1,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { MiniArrowDownSVG, TECH_ICONS, FilterSVG, WORK } from "@/assets";
+import {
+  MiniArrowDownSVG,
+  TECH_CATEGORIES,
+  TECH_ICONS,
+  FilterSVG,
+  WORK,
+} from "@/assets";
 import * as FilterActions from "@/actions/filter.actions";
 import { ActionButton } from "@/components/atoms";
 import { cn } from "@/lib/utils";
@@ -69,7 +75,6 @@ export default function ProjectList() {
     );
   }, [mustInclude, mustNotInclude, selectedCategories, excludedCategories]);
 
-  const availableCategories = ["frontend", "backend", "database", "other"];
   const availableTechs = Object.keys(TECH_ICONS) as TechName[];
 
   return (
@@ -156,7 +161,7 @@ export default function ProjectList() {
                 </p>
               </div>
               <ul className="flex flex-wrap gap-2">
-                {availableCategories.map((category) => {
+                {TECH_CATEGORIES.map((category) => {
                   const isSelected = selectedCategories.includes(category);
                   const isExcluded = excludedCategories.includes(category);
                   return (

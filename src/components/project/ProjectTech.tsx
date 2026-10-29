@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TECH_ICONS } from "@/assets";
+import { TECH_CATEGORIES, TECH_ICONS } from "@/assets";
 
 interface ProjectTechProps {
   techs: {
@@ -11,8 +11,9 @@ interface ProjectTechProps {
 const ProjectTech: React.FC<ProjectTechProps> = React.memo(({ techs }) => {
   return (
     <section className="flex flex-wrap gap-[1%] my-4">
-      {Object.entries(techs).map(([category, techList]) => {
-        if (techList.length === 0) return null;
+      {TECH_CATEGORIES.map((category) => {
+        const techList = techs[category];
+        if (!techList?.length) return null;
 
         return (
           <div
