@@ -1,8 +1,8 @@
-import React from "react";
-
-export const ExternalLinkButton: React.FC<
-	React.PropsWithChildren<{ icon: React.ElementType; href: string }>
-> = ({ icon: Icon, children, href }) => {
+const ExternalLinkButton: React.FC<{
+	icon: React.ElementType;
+	href: string;
+	children: React.ReactNode;
+}> = ({ icon: Icon, href, children }) => {
 	return (
 		<a
 			className="flex cursor-pointer items-center gap-2 transition-all hover:text-white"
@@ -11,7 +11,9 @@ export const ExternalLinkButton: React.FC<
 			href={href}
 		>
 			<Icon />
-			{children && <p>{children}</p>}
+			<p>{children}</p>
 		</a>
 	);
 };
+
+export { ExternalLinkButton };

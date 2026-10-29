@@ -1,19 +1,29 @@
 import { EDUCATION } from "@/assets";
 
 import { EducationCard } from "./EducationCard";
-import { PageHeader } from "./PageHeader";
 import { PageHelmet } from "./PageHelmet";
 
-export const EducationPage = () => {
+const EducationPage: React.FC = () => {
 	return (
 		<>
 			<PageHelmet />
 
-			<PageHeader />
+			<h2 className="theme-title-text mb-8 text-2xl font-semibold transition-all">
+				My Education
+			</h2>
+
+			<p className="text-lg">
+				I’m currently in my second year of university, where I’ve been
+				actively exploring a mix of academic and hands-on projects. From
+				coursework to personal initiatives, I’ve worked on everything
+				from creative hobbies to practical solutions for everyday
+				problems. These experiences are helping me build a strong
+				foundation and develop skills that I’m excited to grow further.
+			</p>
 
 			<ul>
 				{EDUCATION.map((education) => (
-					<EducationCard key={education.name} {...education} />
+					<EducationCard key={education.name} education={education} />
 				))}
 			</ul>
 
@@ -27,7 +37,7 @@ export const EducationPage = () => {
 					I constantly seek new knowledge to refine my skills and
 					expand my perspective
 				</span>
-				. Whether it{"'"}s staying up to date with the latest
+				. Whether it&apos;s staying up to date with the latest
 				technologies, exploring best practices, or improving
 				problem-solving abilities,{" "}
 				<strong>
@@ -38,3 +48,5 @@ export const EducationPage = () => {
 		</>
 	);
 };
+
+export { EducationPage };

@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 
-export const useAnimatedNumber = (target: number, duration = 1000) => {
+const useAnimatedNumber = ({
+	target,
+	duration,
+}: {
+	target: number;
+	duration: number;
+}) => {
 	const [count, setCount] = useState(0);
 
 	useEffect(() => {
-		const start = 0;
-		const step = (target - start) / (duration / 10);
+		const step = target / (duration / 10);
+
 		const interval = setInterval(() => {
-			setCount((prev) => {
-				if (prev + step >= target) {
+			setCount((previous) => {
+				if (previous + step >= target) {
 					clearInterval(interval);
-					return parseFloat(target.toFixed(1));
+
+					return +target.toFixed(1);
 				}
-				return parseFloat((prev + step).toFixed(1));
+
+				return +(previous + step).toFixed(1);
 			});
 		}, 10);
 
@@ -21,3 +29,5 @@ export const useAnimatedNumber = (target: number, duration = 1000) => {
 
 	return count;
 };
+
+export { useAnimatedNumber };

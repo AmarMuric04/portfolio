@@ -1,6 +1,7 @@
-import type { IImage } from "@/types";
-
-export const WORK_HIGHLIGHTS: Record<string, IImage[]> = {
+const WORK_HIGHLIGHTS: Record<
+	string,
+	{ image: string; description: string }[]
+> = {
 	solvebox: [
 		{
 			image: "/solvebox/solvebox0.PNG",
@@ -240,3 +241,5 @@ export const WORK_HIGHLIGHTS: Record<string, IImage[]> = {
 		},
 	],
 };
+
+export { WORK_HIGHLIGHTS };

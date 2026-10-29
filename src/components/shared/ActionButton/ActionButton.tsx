@@ -2,9 +2,11 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-export const ActionButton: React.FC<
-	React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ className, disabled, ...props }) => {
+const ActionButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
+	className,
+	disabled,
+	...props
+}) => {
 	return (
 		<button
 			className={cn(
@@ -17,3 +19,5 @@ export const ActionButton: React.FC<
 		/>
 	);
 };
+
+export { ActionButton };

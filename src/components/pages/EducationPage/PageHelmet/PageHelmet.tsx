@@ -1,8 +1,8 @@
-import { Helmet as ReactHelmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 
-export const PageHelmet = () => {
+const PageHelmet: React.FC = () => {
 	return (
-		<ReactHelmet>
+		<Helmet>
 			<title>Amar Muric | Education</title>
 			<meta
 				content="Explore the educational background of Amar Muric, a MERN full-stack developer. Learn about his skills and the institutions that shaped his career."
@@ -19,6 +19,8 @@ export const PageHelmet = () => {
 			/>
 			<meta property="og:type" content="website" />
 			<meta content="/portfolio-logo.png" property="og:image" />
-		</ReactHelmet>
+		</Helmet>
 	);
 };
+
+export { PageHelmet };

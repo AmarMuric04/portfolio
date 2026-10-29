@@ -1,4 +1,4 @@
-export const WORK_READMES: { [key: string]: string } = {
+const WORK_READMES: Record<string, string> = {
 	"Lelegram": `
 # Lelegram
 
@@ -1213,3 +1213,5 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 
 Happy shopping with Shopping!`,
 };
+
+export { WORK_READMES };

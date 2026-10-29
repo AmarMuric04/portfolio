@@ -1,13 +1,11 @@
-import "@theme-toggles/react/css/Around.css";
 import { Around } from "@theme-toggles/react";
+import "@theme-toggles/react/css/Around.css";
 
 import { useTheme } from "@/hooks";
 import { cn } from "@/lib/utils";
 
-export const ToggleThemeButton: React.FC<{ className: string }> = ({
-	className,
-}) => {
-	const { toggleTheme, isLight } = useTheme();
+const ToggleThemeButton: React.FC<{ className: string }> = ({ className }) => {
+	const { isLight, toggleTheme } = useTheme();
 
 	return (
 		<Around
@@ -25,3 +23,5 @@ export const ToggleThemeButton: React.FC<{ className: string }> = ({
 		/>
 	);
 };
+
+export { ToggleThemeButton };

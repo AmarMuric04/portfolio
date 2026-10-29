@@ -1,4 +1,4 @@
-export const GithubSVG = () => (
+const GithubSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 64 64"
@@ -13,7 +13,7 @@ export const GithubSVG = () => (
 	</svg>
 );
 
-export const LinkedInSVG = () => (
+const LinkedInSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 20 20"
@@ -28,7 +28,7 @@ export const LinkedInSVG = () => (
 	</svg>
 );
 
-export const TailwindSVG = () => (
+const TailwindSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -43,7 +43,7 @@ export const TailwindSVG = () => (
 	</svg>
 );
 
-export const ReactSVG = () => (
+const ReactSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 228"
@@ -58,7 +58,7 @@ export const ReactSVG = () => (
 	</svg>
 );
 
-export const ReduxSVG = () => (
+const ReduxSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -73,7 +73,7 @@ export const ReduxSVG = () => (
 	</svg>
 );
 
-export const NodeJsSVG = () => (
+const NodeJsSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 289"
@@ -88,7 +88,7 @@ export const NodeJsSVG = () => (
 	</svg>
 );
 
-export const NextJsSVG = () => (
+const NextJsSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -103,7 +103,7 @@ export const NextJsSVG = () => (
 	</svg>
 );
 
-export const FramerMotionSVG = () => (
+const FramerMotionSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -115,7 +115,7 @@ export const FramerMotionSVG = () => (
 	</svg>
 );
 
-export const MaterialUiSVG = () => (
+const MaterialUiSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 222"
@@ -130,7 +130,7 @@ export const MaterialUiSVG = () => (
 	</svg>
 );
 
-export const JavascriptSVG = () => (
+const JavascriptSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 256"
@@ -143,7 +143,7 @@ export const JavascriptSVG = () => (
 	</svg>
 );
 
-export const FireBaseSVG = () => (
+const FireBaseSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -173,7 +173,7 @@ export const FireBaseSVG = () => (
 	</svg>
 );
 
-export const SocketIoSVG = () => (
+const SocketIoSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -192,7 +192,7 @@ export const SocketIoSVG = () => (
 	</svg>
 );
 
-export const ExpressSVG = () => (
+const ExpressSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 256"
@@ -210,7 +210,7 @@ export const ExpressSVG = () => (
 	</svg>
 );
 
-export const MongoDBSVG = () => (
+const MongoDBSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -353,7 +353,7 @@ export const MongoDBSVG = () => (
 	</svg>
 );
 
-export const JWTSVG = () => (
+const JWTSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 257"
@@ -384,7 +384,7 @@ export const JWTSVG = () => (
 	</svg>
 );
 
-export const CloudinarySVG = () => (
+const CloudinarySVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 168"
@@ -399,7 +399,7 @@ export const CloudinarySVG = () => (
 	</svg>
 );
 
-export const RestAPISVG = () => (
+const RestAPISVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 20 20"
@@ -414,7 +414,7 @@ export const RestAPISVG = () => (
 	</svg>
 );
 
-export const LocalStorageSVG = () => (
+const LocalStorageSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		className="text-[#2c31a5]"
@@ -432,7 +432,7 @@ export const LocalStorageSVG = () => (
 	</svg>
 );
 
-export const APISVG = () => (
+const APISVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -447,7 +447,7 @@ export const APISVG = () => (
 	</svg>
 );
 
-export const HTMLSVG = () => (
+const HTMLSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -471,7 +471,7 @@ export const HTMLSVG = () => (
 	</svg>
 );
 
-export const CSSSVG = () => (
+const CSSSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -506,7 +506,7 @@ export const CSSSVG = () => (
 	</svg>
 );
 
-export const StripeSVG = () => (
+const StripeSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 512 214"
@@ -521,7 +521,7 @@ export const StripeSVG = () => (
 	</svg>
 );
 
-export const AISVG = () => (
+const AISVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 512 512"
@@ -538,7 +538,7 @@ export const AISVG = () => (
 	</svg>
 );
 
-export const AlgorithmSVG = () => (
+const AlgorithmSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		className="text-[#cfafbc]"
@@ -561,7 +561,7 @@ export const AlgorithmSVG = () => (
 	</svg>
 );
 
-export const MongooseSVG = () => (
+const MongooseSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -584,7 +584,7 @@ export const MongooseSVG = () => (
 	</svg>
 );
 
-export const WebSocketSVG = () => (
+const WebSocketSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 193"
@@ -599,7 +599,7 @@ export const WebSocketSVG = () => (
 	</svg>
 );
 
-export const AISVG2 = () => (
+const AISVG2: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		className="text-yellow-500"
@@ -618,7 +618,7 @@ export const AISVG2 = () => (
 	</svg>
 );
 
-export const FlaskSVG = () => (
+const FlaskSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 256"
@@ -635,7 +635,7 @@ export const FlaskSVG = () => (
 	</svg>
 );
 
-export const PythonSVG = () => (
+const PythonSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -653,7 +653,7 @@ export const PythonSVG = () => (
 	</svg>
 );
 
-export const BootstrapSVG = () => (
+const BootstrapSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 128 128"
@@ -670,8 +670,8 @@ export const BootstrapSVG = () => (
 				y1="10.798"
 				y2="365.95"
 			>
-				<stop stop-color="#9013fe" offset="0" />
-				<stop stop-color="#6610f2" offset="1" />
+				<stop stopColor="#9013fe" offset="0" />
+				<stop stopColor="#6610f2" offset="1" />
 			</linearGradient>
 			<linearGradient
 				gradientTransform="translate(0 52)"
@@ -682,11 +682,11 @@ export const BootstrapSVG = () => (
 				y1="109.74"
 				y2="278.87"
 			>
-				<stop stop-color="#fff" offset="0" />
-				<stop stop-color="#f1e5fc" offset="1" />
+				<stop stopColor="#fff" offset="0" />
+				<stop stopColor="#f1e5fc" offset="1" />
 			</linearGradient>
 			<filter
-				color-interpolation-filters="sRGB"
+				colorInterpolationFilters="sRGB"
 				filterUnits="userSpaceOnUse"
 				id="deviconBootstrap2"
 				height="249"
@@ -694,7 +694,7 @@ export const BootstrapSVG = () => (
 				y="135.46"
 				x="161.9"
 			>
-				<feFlood result="BackgroundImageFix" flood-opacity="0" />
+				<feFlood result="BackgroundImageFix" floodOpacity="0" />
 				<feColorMatrix
 					values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
 					in="SourceAlpha"
@@ -723,7 +723,7 @@ export const BootstrapSVG = () => (
 	</svg>
 );
 
-export const SqliteSVG = () => (
+const SqliteSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 256"
@@ -731,7 +731,7 @@ export const SqliteSVG = () => (
 		width="20"
 	>
 		<g fill="none">
-			<g clip-path="url(#skillIconsSqlite1)">
+			<g clipPath="url(#skillIconsSqlite1)">
 				<path
 					d="M60 0C26.863 0 0 26.863 0 60v136c0 33.137 26.863 60 60 60h108.46c-1.779-5.243-3.172-13.546-3.956-23.023c-.675-8.152-.899-17.171-.525-25.87c-.101-1.286-.162-2.122-.162-2.122s-1.874-12.61-4.571-22.969c-1.194-4.598-2.553-8.756-3.98-11.166c-.735-1.243.08-6.351 2.131-13.916c1.2 2.071 6.263 10.932 7.28 13.788c1.145 3.228 1.385 4.153 1.385 4.153s-2.777-14.272-7.333-22.6a303 303 0 0 1 3.542-11.066c1.578 2.767 5.165 9.121 6.461 12.132c.12.279.228.541.307.757c.184.522.339.965.478 1.371c.731 2.118.909 2.792.909 2.792s-.271-1.386-.775-3.524c-.213-.903-.478-1.965-.773-3.096c-1.148-4.409-2.892-10.181-5.125-14.704c5.732-29.794 24.181-68.807 44.057-89.868c1.713-1.814 3.434-3.511 5.158-5.041c11.619-10.3 23.392-13.78 33.115-5.118c7.034 6.267 9.912 14.925 9.917 24.89V60c0-33.137-26.863-60-60-60z"
 					fill="#d9d9d9"
@@ -754,9 +754,9 @@ export const SqliteSVG = () => (
 					y2="241.763"
 					y1="5.239"
 				>
-					<stop stop-color="#97d9f6" />
-					<stop stop-color="#0f80cc" offset=".92" />
-					<stop stop-color="#0f80cc" offset="1" />
+					<stop stopColor="#97d9f6" />
+					<stop stopColor="#0f80cc" offset=".92" />
+					<stop stopColor="#0f80cc" offset="1" />
 				</linearGradient>
 				<clipPath id="skillIconsSqlite1">
 					<rect height="256" width="256" fill="#fff" rx="60" />
@@ -766,7 +766,7 @@ export const SqliteSVG = () => (
 	</svg>
 );
 
-export const PostgresqlSVG = () => (
+const PostgresqlSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 256"
@@ -775,14 +775,14 @@ export const PostgresqlSVG = () => (
 	>
 		<g fill="none">
 			<rect fill="#f4f2ed" height="256" width="256" rx="60" />
-			<g clip-path="url(#skillIconsPostgresqlLight0)">
+			<g clipPath="url(#skillIconsPostgresqlLight0)">
 				<path
 					d="M171.474 169.034c1.146-9.541.802-10.933 7.903-9.393l1.807.161c5.464.246 12.607-.879 16.875-2.826c9.036-4.191 14.393-11.194 5.485-9.352c-20.321 4.191-21.797-2.693-21.797-2.693c21.466-31.851 30.445-72.281 22.69-82.174c-21.122-27-57.692-14.231-58.303-13.894l-.197.035c-4.008-.843-8.438-1.336-13.571-1.406c-9.196-.14-16.171 2.412-21.473 6.427c0 0-65.229-26.874-62.198 33.799c.646 12.909 18.492 97.734 39.796 72.07c7.798-9.379 15.322-17.304 15.322-17.304c3.726 2.482 8.205 3.748 12.895 3.291l.365-.309a14.2 14.2 0 0 0 .148 3.642c-5.484 6.131-3.867 7.207-14.836 9.464c-11.095 2.285-4.57 6.356-.323 7.425c5.161 1.294 17.1 3.122 25.172-8.17l-.324 1.286c2.152 1.723 2.004 12.375 2.32 19.983c.317 7.608.816 14.717 2.37 18.9c1.554 4.184 3.375 14.977 17.789 11.953c12.045-2.58 21.256-6.3 22.099-40.851"
 					fill="#000"
 				/>
 				<path
 					d="M171.474 169.034c1.146-9.541.802-10.933 7.903-9.393l1.807.161c5.464.246 12.607-.879 16.875-2.826c9.036-4.191 14.393-11.194 5.485-9.352c-20.321 4.191-21.797-2.693-21.797-2.693c21.466-31.851 30.445-72.281 22.69-82.174c-21.122-27-57.692-14.231-58.303-13.894l-.197.035c-4.008-.843-8.438-1.336-13.571-1.406c-9.196-.14-16.171 2.412-21.473 6.427c0 0-65.229-26.874-62.198 33.799c.646 12.909 18.492 97.734 39.796 72.07c7.798-9.379 15.322-17.304 15.322-17.304c3.726 2.482 8.205 3.748 12.895 3.291l.365-.309a14.2 14.2 0 0 0 .148 3.642c-5.484 6.131-3.867 7.207-14.836 9.464c-11.095 2.285-4.57 6.356-.323 7.425c5.161 1.294 17.1 3.122 25.172-8.17l-.324 1.286c2.152 1.723 2.004 12.375 2.32 19.983c.317 7.608.816 14.717 2.37 18.9c1.554 4.184 3.375 14.977 17.789 11.953c12.045-2.58 21.256-6.3 22.099-40.851"
-					stroke-width="15.11"
+					strokeWidth="15.11"
 					stroke="#000"
 				/>
 				<path
@@ -791,48 +791,48 @@ export const PostgresqlSVG = () => (
 				/>
 				<path
 					d="M146.07 48.596c-2.25.703 36.31-14.097 58.233 13.908c7.735 9.893-1.23 50.323-22.697 82.174m-53.508 9.106c-.562 20.011.141 40.162 2.096 45c1.954 4.837 6.152 14.414 20.573 11.334c12.045-2.58 16.432-7.58 18.331-18.612l4.45-35.275zM110.816 53.469S45.537 26.779 48.575 87.45c.647 12.909 18.492 97.734 39.797 72.07c7.776-9.373 14.808-16.706 14.808-16.706z"
-					stroke-linejoin="round"
-					stroke-linecap="round"
-					stroke-width="5.034"
+					strokeLinejoin="round"
+					strokeLinecap="round"
+					strokeWidth="5.034"
 					stroke="#fff"
 				/>
 				<path
 					d="M181.613 144.664s1.407 6.891 21.797 2.686c8.909-1.842 3.544 5.161-5.484 9.352c-7.411 3.445-24.033 4.324-24.307-.422c-.703-12.27 8.747-8.543 8.065-11.616c-.619-2.77-4.852-5.484-7.636-12.262c-2.44-5.907-33.469-51.258 8.606-44.53c1.547-.316-10.969-40.077-50.344-40.654s-38.13 48.41-38.13 48.41"
-					stroke-linejoin="bevel"
-					stroke-linecap="round"
-					stroke-width="5.034"
+					strokeLinejoin="bevel"
+					strokeLinecap="round"
+					strokeWidth="5.034"
 					stroke="#fff"
 				/>
 				<path
 					d="M117.08 148.869c-5.484 6.131-3.867 7.207-14.835 9.464c-11.096 2.285-4.57 6.356-.324 7.425c5.161 1.294 17.1 3.122 25.172-8.178c2.461-3.445-.014-8.929-3.389-10.321c-1.631-.675-3.811-1.519-6.609 1.617z"
-					stroke-linejoin="round"
-					stroke-width="5.034"
+					strokeLinejoin="round"
+					strokeWidth="5.034"
 					stroke="#fff"
 				/>
 				<path
 					d="M116.722 148.763c-.563-3.607 1.181-7.889 3.044-12.909c2.799-7.523 9.254-15.047 4.093-38.932c-3.847-17.79-29.672-3.706-29.672-1.294s1.167 12.235-.422 23.66c-2.088 14.921 9.492 27.535 22.823 26.248"
-					stroke-linejoin="round"
-					stroke-linecap="round"
-					stroke-width="5.034"
+					strokeLinejoin="round"
+					strokeLinecap="round"
+					strokeWidth="5.034"
 					stroke="#fff"
 				/>
 				<path
 					d="M110.577 95.27c-.12.822 1.511 3.023 3.628 3.318c2.116.296 3.923-1.42 4.043-2.25c.119-.83-1.512-1.73-3.628-2.025s-3.938.14-4.043.956Z"
-					stroke-width="1.68"
+					strokeWidth="1.68"
 					stroke="#fff"
 					fill="#fff"
 				/>
 				<path
 					d="M175.011 93.59c.112.822-1.512 3.022-3.628 3.318c-2.117.295-3.938-1.42-4.043-2.25c-.106-.83 1.512-1.73 3.628-2.025s3.937.14 4.043.956Z"
-					stroke-width="0.837"
+					strokeWidth="0.837"
 					stroke="#fff"
 					fill="#fff"
 				/>
 				<path
 					d="M182.577 87.887c.351 6.469-1.393 10.863-1.618 17.747c-.323 9.998 4.768 21.445-2.904 32.906"
-					stroke-linejoin="round"
-					stroke-linecap="round"
-					stroke-width="5.034"
+					strokeLinejoin="round"
+					strokeLinecap="round"
+					strokeWidth="5.034"
 					stroke="#fff"
 				/>
 			</g>
@@ -845,7 +845,7 @@ export const PostgresqlSVG = () => (
 	</svg>
 );
 
-export const NeonSVG = () => (
+const NeonSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 256 256"
@@ -860,8 +860,8 @@ export const NeonSVG = () => (
 				y1="100%"
 				y2="0%"
 			>
-				<stop stop-color="#62f755" offset="0%" />
-				<stop stop-color="#8ff986" stop-opacity="0" offset="100%" />
+				<stop stopColor="#62f755" offset="0%" />
+				<stop stopColor="#8ff986" stopOpacity="0" offset="100%" />
 			</linearGradient>
 			<linearGradient
 				id="logosNeonIcon1"
@@ -870,8 +870,8 @@ export const NeonSVG = () => (
 				x1="100%"
 				y1="100%"
 			>
-				<stop stop-opacity="0.9" offset="0%" />
-				<stop stop-color="#1a1a1a" stop-opacity="0" offset="100%" />
+				<stop stopOpacity="0.9" offset="0%" />
+				<stop stopColor="#1a1a1a" stopOpacity="0" offset="100%" />
 			</linearGradient>
 		</defs>
 		<path
@@ -885,7 +885,7 @@ export const NeonSVG = () => (
 		<path
 			d="M0 44.139C0 19.762 19.762 0 44.139 0H211.86C236.238 0 256 19.762 256 44.139v142.649c0 25.216-31.915 36.16-47.388 16.256l-48.392-62.251v75.484c0 21.939-17.784 39.723-39.722 39.723h-76.36C19.763 256 0 236.238 0 211.861zm44.139-8.825a8.817 8.817 0 0 0-8.825 8.818v167.73c0 4.878 3.946 8.831 8.818 8.831h77.688c2.44 0 3.087-1.977 3.087-4.416v-101.22c0-25.222 31.914-36.166 47.395-16.255l48.391 62.243V44.14c0-4.879.455-8.825-4.416-8.825z"
 			fill="url(#logosNeonIcon1)"
-			fill-opacity="0.4"
+			fillOpacity="0.4"
 		/>
 		<path
 			d="M211.861 0C236.238 0 256 19.762 256 44.139v142.649c0 25.216-31.915 36.16-47.388 16.256l-48.392-62.251v75.484c0 21.939-17.784 39.723-39.722 39.723a4.41 4.41 0 0 0 4.409-4.409V115.058c0-25.223 31.914-36.167 47.395-16.256l48.391 62.243V8.825c0-4.871-3.953-8.825-8.832-8.825"
@@ -894,7 +894,7 @@ export const NeonSVG = () => (
 	</svg>
 );
 
-export const DrizzleSVG = () => (
+const DrizzleSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 32 32"
@@ -908,7 +908,7 @@ export const DrizzleSVG = () => (
 	</svg>
 );
 
-export const HomeSVG = () => (
+const HomeSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -927,7 +927,7 @@ export const HomeSVG = () => (
 	</svg>
 );
 
-export const ContactSVG = () => (
+const ContactSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -946,7 +946,7 @@ export const ContactSVG = () => (
 	</svg>
 );
 
-export const FolderSVG = () => (
+const FolderSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -964,7 +964,7 @@ export const FolderSVG = () => (
 	</svg>
 );
 
-export const WorldSVG = () => (
+const WorldSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -979,7 +979,7 @@ export const WorldSVG = () => (
 	</svg>
 );
 
-export const MiniArrowDownSVG = () => (
+const MiniArrowDownSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -998,7 +998,7 @@ export const MiniArrowDownSVG = () => (
 	</svg>
 );
 
-export const LiveSVG = () => (
+const LiveSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 20 20"
@@ -1013,7 +1013,7 @@ export const LiveSVG = () => (
 	</svg>
 );
 
-export const DevelopmentSVG = () => (
+const DevelopmentSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1028,7 +1028,7 @@ export const DevelopmentSVG = () => (
 	</svg>
 );
 
-export const ArchiveSVG = () => (
+const ArchiveSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1043,7 +1043,7 @@ export const ArchiveSVG = () => (
 	</svg>
 );
 
-export const PlusSVG = () => (
+const PlusSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1055,7 +1055,7 @@ export const PlusSVG = () => (
 	</svg>
 );
 
-export const ExternalLinkSVG = () => (
+const ExternalLinkSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1070,7 +1070,7 @@ export const ExternalLinkSVG = () => (
 	</svg>
 );
 
-export const MailSVG = () => (
+const MailSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1085,7 +1085,7 @@ export const MailSVG = () => (
 	</svg>
 );
 
-export const EducationSVG = () => (
+const EducationSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1100,7 +1100,7 @@ export const EducationSVG = () => (
 	</svg>
 );
 
-export const CrossSVG = () => (
+const CrossSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 16 16"
@@ -1115,7 +1115,7 @@ export const CrossSVG = () => (
 	</svg>
 );
 
-export const FilterSVG = () => (
+const FilterSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1130,7 +1130,7 @@ export const FilterSVG = () => (
 	</svg>
 );
 
-export const UnhideTextSVG = () => (
+const UnhideTextSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -1144,3 +1144,55 @@ export const UnhideTextSVG = () => (
 		/>
 	</svg>
 );
+
+export {
+	AISVG,
+	AISVG2,
+	APISVG,
+	AlgorithmSVG,
+	ArchiveSVG,
+	BootstrapSVG,
+	CSSSVG,
+	CloudinarySVG,
+	ContactSVG,
+	CrossSVG,
+	DevelopmentSVG,
+	DrizzleSVG,
+	EducationSVG,
+	ExpressSVG,
+	ExternalLinkSVG,
+	FilterSVG,
+	FireBaseSVG,
+	FlaskSVG,
+	FolderSVG,
+	FramerMotionSVG,
+	GithubSVG,
+	HTMLSVG,
+	HomeSVG,
+	JWTSVG,
+	JavascriptSVG,
+	LinkedInSVG,
+	LiveSVG,
+	LocalStorageSVG,
+	MailSVG,
+	MaterialUiSVG,
+	MiniArrowDownSVG,
+	MongoDBSVG,
+	MongooseSVG,
+	NeonSVG,
+	NextJsSVG,
+	NodeJsSVG,
+	PlusSVG,
+	PostgresqlSVG,
+	PythonSVG,
+	ReactSVG,
+	ReduxSVG,
+	RestAPISVG,
+	SocketIoSVG,
+	SqliteSVG,
+	StripeSVG,
+	TailwindSVG,
+	UnhideTextSVG,
+	WebSocketSVG,
+	WorldSVG,
+};

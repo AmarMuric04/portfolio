@@ -1,11 +1,30 @@
-import { LinkedInSVG, GithubSVG, MailSVG } from "@/assets";
+import { GithubSVG, LinkedInSVG, MailSVG } from "@/assets";
 
 import { PageHelmet } from "./PageHelmet";
 import { UnhideButton } from "./UnhideButton";
 
-import Myself from "/myself.webp";
+const SOCIAL_LINKS = [
+	{
+		label: "GitHub",
+		href: "https://github.com/AmarMuric04",
+		icon: GithubSVG,
+		isExternal: true,
+	},
+	{
+		label: "LinkedIn",
+		href: "https://www.linkedin.com/in/amar-muri%C4%87-52564b2a2/",
+		icon: LinkedInSVG,
+		isExternal: true,
+	},
+	{
+		label: "Email",
+		href: "mailto:muricamar2004@gmail.com",
+		icon: MailSVG,
+		isExternal: false,
+	},
+];
 
-export const HomePage = () => {
+const HomePage: React.FC = () => {
 	return (
 		<>
 			<PageHelmet />
@@ -14,8 +33,9 @@ export const HomePage = () => {
 				<img
 					className="h-[3rem] w-[3rem] rounded-full sm:h-[5rem] sm:w-[5rem]"
 					alt="Amar Murić"
-					src={Myself}
+					src="/myself.webp"
 				/>
+
 				<div>
 					<h2 className="theme-title-text text-xl font-bold transition-all sm:text-4xl">
 						Amar Murić
@@ -25,6 +45,7 @@ export const HomePage = () => {
 					</p>
 				</div>
 			</section>
+
 			<section className="my-8 leading-8 sm:text-lg">
 				<p>
 					I’m a 20-year-old full-stack developer with a deep passion
@@ -60,6 +81,7 @@ export const HomePage = () => {
 					</UnhideButton>
 					.
 				</p>
+
 				<p className="mt-4">
 					<UnhideButton>
 						{"Although I don’t have formal work experience yet, "}
@@ -81,6 +103,7 @@ export const HomePage = () => {
 					new frameworks, libraries, and tools to expand my skill set
 					and stay ahead in the ever-evolving tech landscape.
 				</p>
+
 				<p className="mt-4">
 					So far, I’ve built a variety of projects
 					<UnhideButton>
@@ -109,6 +132,7 @@ export const HomePage = () => {
 						.
 					</UnhideButton>
 				</p>
+
 				<p className="mt-4">
 					While I’m still early in my career, I’m incredibly excited
 					about the future and the opportunities to{" "}
@@ -133,31 +157,23 @@ export const HomePage = () => {
 					</UnhideButton>
 				</p>
 			</section>
+
 			<section className="flex flex-wrap items-center gap-8">
-				<a
-					className="theme-text-secondary-hover flex cursor-pointer items-center gap-3 text-lg transition-all"
-					href="https://github.com/AmarMuric04"
-					target="_blank"
-				>
-					<GithubSVG />
-					<p>GitHub</p>
-				</a>
-				<a
-					className="theme-text-secondary-hover flex cursor-pointer items-center gap-3 text-lg transition-all"
-					href="https://www.linkedin.com/in/amar-muri%C4%87-52564b2a2/"
-					target="_blank"
-				>
-					<LinkedInSVG />
-					<p>LinkedIn</p>
-				</a>
-				<a
-					className="theme-text-secondary-hover flex cursor-pointer items-center gap-3 text-lg transition-all"
-					href="mailto:muricamar2004@gmail.com"
-				>
-					<MailSVG />
-					<p>Email</p>
-				</a>
+				{SOCIAL_LINKS.map(({ label, href, icon: Icon, isExternal }) => (
+					<a
+						className="theme-text-secondary-hover flex cursor-pointer items-center gap-3 text-lg transition-all"
+						target={isExternal ? "_blank" : undefined}
+						rel={isExternal ? "noreferrer" : undefined}
+						href={href}
+						key={label}
+					>
+						<Icon />
+						<p>{label}</p>
+					</a>
+				))}
 			</section>
 		</>
 	);
 };
+
+export { HomePage };

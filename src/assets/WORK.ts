@@ -1,4 +1,4 @@
-export const WORK = [
+const WORK = [
 	{
 		myThoughts: `ModernShop reflects my goal to simplify the process of launching an online store. Built as a customizable e-commerce template using Next.js and modern tooling, it enables developers or entrepreneurs to plug in their backend and database with minimal configuration. This project reinforced my focus on scalability, modular design, and ease of developer adoption.`,
 		content:
@@ -452,7 +452,7 @@ What makes this project so special to me is not just the functionality, but how 
 	},
 ] as const;
 
-export const OTHER_WORK = [
+const OTHER_WORK = [
 	{
 		github: "https://github.com/AmarMuric04/electron-react-bootstrap-zustand-express-boilerplate",
 		description:
@@ -546,3 +546,5 @@ export const OTHER_WORK = [
 		title: "Amazon Clone",
 	},
 ] as const;
+
+export { WORK, OTHER_WORK };

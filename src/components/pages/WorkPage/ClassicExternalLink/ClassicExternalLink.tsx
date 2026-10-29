@@ -1,16 +1,15 @@
-import React from "react";
-
 import { ExternalLinkSVG } from "@/assets";
 
-export const ClassicExternalLink: React.FC<{
+const ClassicExternalLink: React.FC<{
 	description: string;
 	title: string;
 	href: string;
 }> = ({ description, title, href }) => {
 	return (
 		<a
-			className="theme-surface group flex cursor-pointer gap-2 rounded-lg p-2 transition-all hover:bg-[#26282580]"
+			className="theme-surface group flex cursor-pointer gap-2 rounded-lg p-2 transition-all hover:bg-link-hover"
 			target="_blank"
+			rel="noreferrer"
 			href={href}
 		>
 			<span className="theme-title-text flex items-center gap-2 font-semibold transition-all">
@@ -23,3 +22,5 @@ export const ClassicExternalLink: React.FC<{
 		</a>
 	);
 };
+
+export { ClassicExternalLink };

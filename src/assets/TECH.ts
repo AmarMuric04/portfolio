@@ -33,8 +33,7 @@ import {
 	AISVG,
 } from "./svgs";
 
-/* eslint-disable perfectionist/sort-objects -- key order is the filter display order */
-export const TECH_ICONS = {
+const TECH_ICONS = {
 	"Node.js": NodeJsSVG,
 	"Next.js": NextJsSVG,
 	"Express": ExpressSVG,
@@ -68,6 +67,7 @@ export const TECH_ICONS = {
 	"Neon": NeonSVG,
 	"Postgresql": PostgresqlSVG,
 };
-/* eslint-enable perfectionist/sort-objects */
 
-export const TECH_CATEGORIES = ["frontend", "backend", "database", "other"];
+const TECH_CATEGORIES = ["frontend", "backend", "database", "other"] as const;
+
+export { TECH_ICONS, TECH_CATEGORIES };

@@ -1,68 +1,100 @@
-import type { SetStateAction, Dispatch } from "react";
+import type { TECH_CATEGORIES, WORK } from "@/assets";
 
-export const handleToggleInclusion = (
-	key: string,
-	setMustInclude: Dispatch<SetStateAction<string[]>>,
-	setMustNotInclude: Dispatch<SetStateAction<string[]>>,
-	notIncluded: boolean,
-) => {
-	setMustInclude((prevMustInclude) => {
-		if (prevMustInclude.includes(key)) {
-			return prevMustInclude.filter((prev) => prev !== key);
-		} else if (notIncluded) {
-			setMustNotInclude((prev) => prev.filter((item) => item !== key));
-			return prevMustInclude.filter((prev) => prev !== key);
-		} else {
-			setMustNotInclude((prev) => prev.filter((item) => item !== key));
-			return [...prevMustInclude, key];
-		}
-	});
+const withoutItem = <T extends string>({
+	items,
+	item,
+}: {
+	items: T[];
+	item: T;
+}) => items.filter((value) => value !== item);
+
+const toggleTechInclusion = ({
+	filter,
+	tech,
+}: {
+	filter: { included: string[]; excluded: string[] };
+	tech: string;
+}) => {
+	if (filter.included.includes(tech)) {
+		return {
+			...filter,
+			included: withoutItem({ items: filter.included, item: tech }),
+		};
+	}
+
+	if (filter.excluded.includes(tech)) {
+		return {
+			...filter,
+			excluded: withoutItem({ items: filter.excluded, item: tech }),
+		};
+	}
+
+	return { ...filter, included: [...filter.included, tech] };
 };
 
-export const handleDoubleClickInclusion = (
-	key: string,
-	setMustInclude: Dispatch<SetStateAction<string[]>>,
-	setMustNotInclude: Dispatch<SetStateAction<string[]>>,
-) => {
-	setMustInclude((prev) => prev.filter((item) => item !== key));
+const toggleCategoryInclusion = <T extends string>({
+	filter,
+	category,
+}: {
+	filter: { included: T[]; excluded: T[] };
+	category: T;
+}) => {
+	if (filter.included.includes(category)) {
+		return {
+			...filter,
+			included: withoutItem({ items: filter.included, item: category }),
+		};
+	}
 
-	setMustNotInclude((prev) => {
-		if (prev.includes(key)) {
-			return prev.filter((item) => item !== key);
-		} else {
-			return [...prev, key];
-		}
-	});
+	return {
+		included: [...filter.included, category],
+		excluded: withoutItem({ items: filter.excluded, item: category }),
+	};
 };
 
-export const handleToggleCategory = (
-	category: string,
-	setSelectedCategories: Dispatch<SetStateAction<string[]>>,
-	setExcludedCategories: Dispatch<SetStateAction<string[]>>,
-) => {
-	setSelectedCategories((prevSelected) => {
-		if (prevSelected.includes(category)) {
-			return prevSelected.filter((prev) => prev !== category);
-		} else {
-			setExcludedCategories((prev) =>
-				prev.filter((item) => item !== category),
-			);
-			return [...prevSelected, category];
-		}
-	});
+const toggleExclusion = <T extends string>({
+	filter,
+	item,
+}: {
+	filter: { included: T[]; excluded: T[] };
+	item: T;
+}) => ({
+	included: withoutItem({ items: filter.included, item }),
+	excluded: filter.excluded.includes(item)
+		? withoutItem({ items: filter.excluded, item })
+		: [...filter.excluded, item],
+});
+
+const matchesFilters = ({
+	project,
+	techFilter,
+	categoryFilter,
+}: {
+	project: (typeof WORK)[number];
+	techFilter: { included: string[]; excluded: string[] };
+	categoryFilter: {
+		included: (typeof TECH_CATEGORIES)[number][];
+		excluded: (typeof TECH_CATEGORIES)[number][];
+	};
+}) => {
+	const projectTechs: string[] = Object.values(project.techs).flat();
+
+	return (
+		techFilter.included.every((tech) => projectTechs.includes(tech)) &&
+		techFilter.excluded.every((tech) => !projectTechs.includes(tech)) &&
+		(categoryFilter.included.length === 0 ||
+			categoryFilter.included.some(
+				(category) => project.techs[category].length > 0,
+			)) &&
+		categoryFilter.excluded.every(
+			(category) => project.techs[category].length === 0,
+		)
+	);
 };
 
-export const handleDoubleClickCategory = (
-	category: string,
-	setSelectedCategories: Dispatch<SetStateAction<string[]>>,
-	setExcludedCategories: Dispatch<SetStateAction<string[]>>,
-) => {
-	setSelectedCategories((prev) => prev.filter((item) => item !== category));
-	setExcludedCategories((prev) => {
-		if (prev.includes(category)) {
-			return prev.filter((item) => item !== category);
-		} else {
-			return [...prev, category];
-		}
-	});
+export {
+	matchesFilters,
+	toggleCategoryInclusion,
+	toggleExclusion,
+	toggleTechInclusion,
 };
