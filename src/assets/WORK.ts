@@ -239,6 +239,7 @@ This project features an extensive array of functionalities and I’m incredibly
     accessibility: "Added keyboard navigation and screen reader support.",
     github: "https://github.com/AmarMuric04/Hackathon-UNINP-24",
     duration: "Apr 28, 2024 - Apr 28, 2024 (1 day)",
+    info: "Team Project - 1st Place Winner",
     type: "Learning Platform",
     status: "Archived",
     title: "Learnify",

@@ -82,7 +82,7 @@ export const Header: React.FC = () => {
                 <p className="hidden sm:flex">Home</p>
               </NavBarItem>
 
-              <NavBarItem to="/work">
+              <NavBarItem to="/projects">
                 <FolderSVG />
                 <p className="hidden sm:flex">Projects</p>
               </NavBarItem>
