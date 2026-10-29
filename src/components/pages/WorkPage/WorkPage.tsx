@@ -1,17 +1,6 @@
-import { lazy, Suspense } from "react";
-
 import { PageHelmet } from "./PageHelmet";
-import { ProjectSkeleton } from "./ProjectSkeleton";
-
-const ProjectList = lazy(() =>
-	import("./ProjectList").then((module) => ({ default: module.ProjectList })),
-);
-
-const SmallProjectList = lazy(() =>
-	import("./SmallProjectList").then((module) => ({
-		default: module.SmallProjectList,
-	})),
-);
+import { ProjectList } from "./ProjectList";
+import { SmallProjectList } from "./SmallProjectList";
 
 const WorkPage: React.FC = () => {
 	return (
@@ -29,33 +18,23 @@ const WorkPage: React.FC = () => {
 				what I’ve worked on.
 			</p>
 
-			<Suspense
-				fallback={
-					<ul className="mt-15 flex flex-col gap-4">
-						{Array.from({ length: 3 }, (_, index) => (
-							<ProjectSkeleton key={index} />
-						))}
-					</ul>
-				}
-			>
-				<ProjectList />
+			<ProjectList />
 
-				<p className="my-4 text-lg">
-					Here are a few more projects I’ve tackled. For the full
-					collection, feel free to check out my{" "}
-					<a
-						className="cursor-pointer font-semibold underline transition-all hover:text-sage"
-						href="https://github.com/AmarMuric04"
-						target="_blank"
-						rel="noreferrer"
-					>
-						GitHub profile
-					</a>
-					.
-				</p>
+			<p className="my-4 text-lg">
+				Here are a few more projects I’ve tackled. For the full
+				collection, feel free to check out my{" "}
+				<a
+					className="cursor-pointer font-semibold underline transition-all hover:text-sage"
+					href="https://github.com/AmarMuric04"
+					target="_blank"
+					rel="noreferrer"
+				>
+					GitHub profile
+				</a>
+				.
+			</p>
 
-				<SmallProjectList />
-			</Suspense>
+			<SmallProjectList />
 		</>
 	);
 };
