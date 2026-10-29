@@ -6,20 +6,23 @@ const ClassicExternalLink: React.FC<{
 	href: string;
 }> = ({ description, title, href }) => {
 	return (
-		<a
-			className="theme-surface group flex cursor-pointer gap-2 rounded-xl p-2 transition-all hover:bg-link-hover"
-			target="_blank"
-			rel="noreferrer"
-			href={href}
-		>
-			<span className="theme-title-text flex items-center gap-2 font-semibold transition-all">
-				<div className="group-hover:scale-120">
+		<li>
+			<a
+				className="group flex gap-3 rounded-xl border border-hairline bg-surface p-3 text-body transition-colors duration-200 hover:bg-accent-tint"
+				target="_blank"
+				rel="noreferrer"
+				href={href}
+			>
+				<span className="mt-0.5 shrink-0 text-ink">
 					<ExternalLinkSVG />
-				</div>
-				{title}
-			</span>{" "}
-			- {description}
-		</a>
+				</span>
+
+				<span>
+					<span className="font-semibold text-ink">{title}</span>
+					<span className="text-text"> — {description}</span>
+				</span>
+			</a>
+		</li>
 	);
 };
 
