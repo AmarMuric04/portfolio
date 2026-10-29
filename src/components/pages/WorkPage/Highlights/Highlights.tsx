@@ -28,50 +28,45 @@ const Highlights: React.FC<{
 		);
 
 	return (
-		<section aria-labelledby="highlights-heading" className="mt-4">
-			<h2 id="highlights-heading" className="sr-only">
-				{title} Highlights
-			</h2>
+		<section className="flex flex-col gap-3">
+			<h3 className="sr-only">{title} highlights</h3>
 
-			<div className="flex items-center justify-between">
-				<ul
-					className="my-4 flex items-center gap-1 text-xs"
-					role="list"
-				>
+			<div className="flex items-center justify-between gap-4">
+				<ul className="flex flex-wrap items-center gap-2">
 					{images.map((image, index) => (
-						<button
-							className={cn(
-								"relative cursor-pointer rounded-full p-1.25 text-white",
-								{
-									"theme-secondary-background":
-										index === selectedIndex,
-									"theme-accent-background":
-										index !== selectedIndex,
-								},
-							)}
-							aria-label={`Select ${image.description}`}
-							aria-pressed={index === selectedIndex}
-							onClick={() => setSelectedIndex(index)}
-							key={image.image}
-						>
-							{index === selectedIndex && (
-								<span className="relative z-50">
-									{image.description}
-								</span>
-							)}
-						</button>
+						<li key={image.image}>
+							<button
+								className={cn(
+									"grid h-6 cursor-pointer place-items-center rounded-full text-caption transition-colors duration-200",
+									index === selectedIndex
+										? "bg-accent px-2 text-on-accent"
+										: "w-6 before:size-2 before:rounded-full before:bg-border-strong before:content-[''] hover:bg-accent-tint",
+								)}
+								aria-label={image.description}
+								aria-pressed={index === selectedIndex}
+								onClick={() => setSelectedIndex(index)}
+								type="button"
+							>
+								{index === selectedIndex && image.description}
+							</button>
+						</li>
 					))}
 				</ul>
 
-				<div className="flex gap-1">
+				<div className="flex shrink-0 gap-2">
 					<ActionButton
 						onClick={handlePreviousClick}
-						aria-label="Previous"
+						aria-label="Previous image"
+						className="w-8 px-0"
 					>
 						<ChevronLeftSVG />
 					</ActionButton>
 
-					<ActionButton onClick={handleNextClick} aria-label="Next">
+					<ActionButton
+						onClick={handleNextClick}
+						aria-label="Next image"
+						className="w-8 px-0"
+					>
 						<ChevronRightSVG />
 					</ActionButton>
 				</div>
@@ -81,7 +76,7 @@ const Highlights: React.FC<{
 				<picture key={selectedImage.image}>
 					<source srcSet={selectedImage.image} type="image/webp" />
 					<LazyLoadImage
-						className="showAnimation rounded-xl lg:min-h-[21rem]"
+						className="rounded-xl fade-in lg:min-h-[21rem]"
 						alt={selectedImage.description}
 						src={selectedImage.image}
 						visibleByDefault

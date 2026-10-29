@@ -3,9 +3,14 @@ import { cn } from "@/lib/utils";
 
 const ToggleArrow: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
 	return (
-		<div className={cn("transition-all", { "rotate-180": isOpen })}>
+		<span
+			className={cn(
+				"grid place-items-center transition-transform duration-300 ease-out",
+				{ "rotate-180": isOpen },
+			)}
+		>
 			<ChevronDownSVG />
-		</div>
+		</span>
 	);
 };
 
