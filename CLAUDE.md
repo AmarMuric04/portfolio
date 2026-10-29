@@ -157,6 +157,11 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   color that isn't a token yet is added there first. Only legit literals:
   third-party brand logos in `src/assets/svgs.tsx` and keyframe values handed
   to Framer Motion (`textShadow` arrays), which can't animate CSS variables.
+- Radius scale: surfaces (header, cards, modals, panels, floating buttons)
+  `rounded-2xl`; tiles nested inside a surface (tech tiles, lists, images)
+  `rounded-xl`; buttons and chips `rounded-lg`. `rounded-full` only for shapes
+  that are meant to be round (avatar, pills, dots, progress bars, icon
+  circles). Never introduce another radius.
 - Animations: default `ease-out`, 0.2–0.3s (never >1s); hover `ease` 200ms.
 
 ## File & Folder Structure

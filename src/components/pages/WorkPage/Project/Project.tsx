@@ -43,11 +43,11 @@ const Project: React.FC<{ project: (typeof WORK)[number] }> = ({ project }) => {
 	const images = WORK_HIGHLIGHTS[project.title.toLowerCase()];
 
 	return (
-		<li className="theme-surface relative rounded-lg border border-white/10 bg-white/10 p-3 shadow-md transition-all">
+		<li className="theme-surface relative rounded-2xl border border-white/10 bg-white/10 p-3 shadow-md transition-all">
 			<article ref={targetRef}>
 				{wasInView && (
 					<img
-						className="absolute top-5 right-5 h-[5rem] w-[5rem] rounded-lg object-contain opacity-50"
+						className="absolute top-5 right-5 h-[5rem] w-[5rem] rounded-xl object-contain opacity-50"
 						src={`/${project.title.replace(" ", "").toLowerCase()}-logo.png`}
 						alt={`${project.title} logo`}
 					/>

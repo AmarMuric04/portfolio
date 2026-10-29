@@ -50,7 +50,7 @@ const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 					role="dialog"
 				>
 					<motion.div
-						className="theme-surface theme-container-text absolute top-1/2 left-1/2 min-h-[40vh] w-[95%] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-white/10 bg-white/10 p-8 shadow-md backdrop-blur-sm lg:w-[40rem]"
+						className="theme-surface theme-container-text absolute top-1/2 left-1/2 min-h-[40vh] w-[95%] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/10 p-8 shadow-md backdrop-blur-sm lg:w-[40rem]"
 						transition={{
 							type: "spring",
 							stiffness: 200,
@@ -70,7 +70,7 @@ const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 							</h1>
 
 							<button
-								className="cursor-pointer rounded-md p-1 transition-all hover:bg-close-hover"
+								className="cursor-pointer rounded-lg p-1 transition-all hover:bg-close-hover"
 								aria-label="Close modal"
 								onClick={handleClose}
 							>
