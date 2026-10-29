@@ -3,19 +3,6 @@
 
 @custom-variant dark (&:is([data-theme="dark"] *));
 
-@theme {
-	--color-sage: #697565;
-	--color-tech-hover: #3c3d37;
-	--color-category-hover: #53594e;
-	--color-excluded: #b91c1c;
-	--color-excluded-faded: #b91c1c70;
-	--color-status-live: #df2038;
-	--color-status-development: yellow;
-	--color-status-archived: gray;
-	--color-link-hover: #26282580;
-	--color-close-hover: #ffffff20;
-}
-
 @theme inline {
 	--color-ground: var(--ground);
 	--color-surface: var(--surface);
@@ -165,94 +152,6 @@
 	}
 }
 
-:root {
-	--bg-color: #faf7f2;
-	--surface-color: #ede9e1;
-	--surface-alt-color: #e0dbd0;
-	--border-color: #cfc9bb;
-	--text-primary: #1e201e;
-	--text-secondary: #6f9072;
-	--accent-color: #697565;
-	--container-text: #444;
-	--title-color: #000;
-}
-
-[data-theme="dark"] {
-	--bg-color: #1e201e;
-	--surface-color: #262825;
-	--surface-alt-color: #2d2f2b;
-	--border-color: #3c3d37;
-	--text-primary: #ecdfcc;
-	--text-secondary: #697565;
-	--accent-color: #53594e;
-	--container-text: #ddd;
-	--title-color: #fff;
-}
-
-.theme-title-text {
-	color: var(--title-color);
-}
-
-.theme-container-text {
-	color: var(--container-text);
-}
-
-.theme-background {
-	background-color: var(--bg-color);
-}
-
-.theme-surface {
-	background-color: var(--surface-color);
-}
-
-.theme-surface-border {
-	border-color: var(--surface-color);
-}
-
-.theme-surface-alt {
-	background-color: var(--surface-alt-color);
-}
-
-.theme-border-background {
-	background-color: var(--border-color);
-}
-
-.theme-surface-hover:hover {
-	background-color: var(--surface-color);
-}
-
-.theme-primary-text-border {
-	border-color: var(--text-primary);
-}
-
-.theme-primary-text-background {
-	background-color: var(--text-primary);
-}
-
-.theme-border {
-	border-color: var(--border-color);
-}
-
-.theme-text-primary {
-	color: var(--text-primary);
-}
-
-.theme-text-secondary-hover:hover {
-	color: var(--text-secondary);
-}
-
-.theme-secondary-background {
-	background-color: var(--text-secondary);
-}
-
-.theme-accent-background {
-	background-color: var(--accent-color);
-}
-
-.theme-accent-text {
-	color: var(--accent-color);
-}
-
 html {
 	background-color: var(--ground);
 }
@@ -288,11 +187,4 @@ body {
 
 .fade-in {
 	animation: show forwards 300ms ease-out;
-}
-
-.line-clamp-3 {
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
 }
