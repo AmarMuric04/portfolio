@@ -222,7 +222,7 @@ html {
 	mix-blend-mode: normal;
 }
 
-html[data-theme-switching] * {
+html[data-theme-switching] *:not(.theme-toggle, .theme-toggle *) {
 	transition: none !important;
 }
 
