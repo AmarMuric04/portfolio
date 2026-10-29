@@ -1,11 +1,13 @@
 import { EDUCATION } from "@/assets";
 
-import { EducationCard, PageHeader, Helmet } from "./components";
+import { EducationCard } from "./EducationCard";
+import { PageHeader } from "./PageHeader";
+import { PageHelmet } from "./PageHelmet";
 
 export const EducationPage = () => {
 	return (
 		<>
-			<Helmet />
+			<PageHelmet />
 
 			<PageHeader />
 

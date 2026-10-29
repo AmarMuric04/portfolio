@@ -1,12 +1,16 @@
 import { Suspense, lazy } from "react";
 
-import { ProjectSkeleton } from "@/components/project/ProjectSkeleton";
+import { ProjectSkeleton } from "./ProjectSkeleton";
 
-import { PageHelmet } from "./components";
+import { PageHelmet } from "./PageHelmet";
 
-const ProjectList = lazy(() => import("@/components/project/ProjectList"));
-const SmallProjectList = lazy(
-	() => import("@/components/project/SmallProjectList"),
+const ProjectList = lazy(() =>
+	import("./ProjectList").then((module) => ({ default: module.ProjectList })),
+);
+const SmallProjectList = lazy(() =>
+	import("./SmallProjectList").then((module) => ({
+		default: module.SmallProjectList,
+	})),
 );
 
 export const WorkPage = () => {
