@@ -73,7 +73,7 @@ const Header: React.FC = () => {
 								>
 									{NAV_ITEMS.map(({ to, label, icon }) => (
 										<TabsTrigger
-											className="w-full justify-center text-label opacity-70 transition-opacity duration-200 hover:opacity-100 data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
+											className="w-full justify-center text-label opacity-70 transition-opacity duration-200 hover:opacity-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus focus-visible:outline-solid data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
 											variant="nav"
 											value={to}
 											key={to}
@@ -101,9 +101,8 @@ const Header: React.FC = () => {
 													<motion.div
 														className="absolute bottom-0 left-0 h-0.5 w-full bg-ink"
 														transition={{
-															type: "spring",
-															duration: 0.6,
-															bounce: 0.2,
+															ease: "easeOut",
+															duration: 0.3,
 														}}
 														layoutId="underline"
 													/>
