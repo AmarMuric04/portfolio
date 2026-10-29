@@ -27,7 +27,7 @@ const WorkPage: React.FC = () => {
 						Here are a few more projects I’ve tackled. For the full
 						collection, feel free to check out my{" "}
 						<a
-							className="font-semibold text-ink underline transition-colors duration-200 hover:text-accent-text"
+							className="text-ink underline transition-colors duration-200 hover:text-accent-text"
 							href="https://github.com/AmarMuric04"
 							target="_blank"
 							rel="noreferrer"
