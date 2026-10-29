@@ -2,7 +2,7 @@ import { useModal } from "@ebay/nice-modal-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 
-import { CrossSVG } from "@/assets";
+import { CloseSVG } from "@/assets";
 
 const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 	children,
@@ -74,7 +74,7 @@ const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 								aria-label="Close modal"
 								onClick={handleClose}
 							>
-								<CrossSVG />
+								<CloseSVG />
 							</button>
 						</header>
 

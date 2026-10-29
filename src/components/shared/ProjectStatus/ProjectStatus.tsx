@@ -1,10 +1,10 @@
-import { ArchiveSVG, DevelopmentSVG, LiveSVG, type WORK } from "@/assets";
+import { ArchiveSVG, LiveSVG, type WORK, WrenchSVG } from "@/assets";
 import { cn } from "@/lib/utils";
 
 const STATUS_APPEARANCES = {
 	Live: { icon: LiveSVG, className: "border-status-live text-status-live" },
 	Development: {
-		icon: DevelopmentSVG,
+		icon: WrenchSVG,
 		className: "border-status-development text-status-development",
 	},
 	Archived: {
@@ -26,7 +26,7 @@ const ProjectStatus: React.FC<{
 					className,
 				)}
 			>
-				<Icon />
+				<Icon className="size-4" />
 				<p>{status}</p>
 			</div>
 		</div>

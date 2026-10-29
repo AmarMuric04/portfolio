@@ -1,6 +1,6 @@
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 
-import { GithubSVG, type WORK, WorldSVG } from "@/assets";
+import { GithubSVG, GlobeSVG, type WORK } from "@/assets";
 import {
 	ActionButton,
 	Modal,
@@ -42,7 +42,7 @@ const WorkDetailsModal = NiceModal.create<{
 							target="_blank"
 							rel="noreferrer"
 						>
-							<WorldSVG />
+							<GlobeSVG />
 						</a>
 					)}
 				</div>

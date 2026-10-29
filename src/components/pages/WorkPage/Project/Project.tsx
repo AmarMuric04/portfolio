@@ -3,11 +3,11 @@ import { useState } from "react";
 
 import {
 	GithubSVG,
+	GlobeSVG,
 	PlusSVG,
 	type WORK,
 	WORK_HIGHLIGHTS,
 	WORK_READMES,
-	WorldSVG,
 } from "@/assets";
 import {
 	ReadmeModal,
@@ -142,7 +142,7 @@ const Project: React.FC<{ project: (typeof WORK)[number] }> = ({ project }) => {
 						{project.website && (
 							<ExternalLinkButton
 								href={project.website}
-								icon={WorldSVG}
+								icon={GlobeSVG}
 							>
 								Visit Website
 							</ExternalLinkButton>

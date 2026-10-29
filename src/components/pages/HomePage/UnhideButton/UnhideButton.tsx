@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { UnhideTextSVG } from "@/assets";
+import { CodeSVG } from "@/assets";
 
 const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 	const [isRevealed, setIsRevealed] = useState(false);
@@ -20,7 +20,7 @@ const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 				onClick={() => setIsRevealed(true)}
 			>
 				<span className="theme-border-background theme-surface-hover inline-flex items-center rounded-lg px-1 transition-all">
-					<UnhideTextSVG />
+					<CodeSVG />
 				</span>
 			</span>
 		);

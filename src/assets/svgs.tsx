@@ -1,3 +1,21 @@
+import { cn } from "@/lib/utils";
+
+const OutlineIcon: React.FC<
+	React.PropsWithChildren<{ className?: string }>
+> = ({ className, children }) => (
+	<svg
+		className={cn(
+			"size-5 shrink-0 fill-none stroke-current [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]",
+			className,
+		)}
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		aria-hidden="true"
+	>
+		{children}
+	</svg>
+);
+
 const GithubSVG: React.FC = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -908,170 +926,100 @@ const DrizzleSVG: React.FC = () => (
 	</svg>
 );
 
-const WorldSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="M24 12v-.006c0-3.551-1.546-6.74-4.001-8.933l-.012-.01a.6.6 0 0 0-.101-.087l-.002-.001A11.92 11.92 0 0 0 11.998.001c-3.032 0-5.8 1.126-7.91 2.984l.013-.011a.5.5 0 0 0-.07.065v.001A11.96 11.96 0 0 0 0 12.003c0 3.55 1.544 6.739 3.997 8.933l.012.01a.7.7 0 0 0 .106.097l.002.001a11.92 11.92 0 0 0 7.881 2.958a11.93 11.93 0 0 0 7.911-2.984l-.013.011a11.94 11.94 0 0 0 4.106-9.021v-.007zm-4.462 7.805a12 12 0 0 0-1.909-1.262l-.065-.032c.613-1.767.982-3.804 1.017-5.923v-.016h4.261a10.82 10.82 0 0 1-3.301 7.23zM12.572 18.3c1.283.069 2.482.351 3.588.81l-.072-.026c-.886 2.02-2.133 3.408-3.516 3.713zm0-1.144v-4.584h4.868a18.6 18.6 0 0 1-.976 5.578l.039-.131a11.6 11.6 0 0 0-3.903-.862l-.027-.001zm0-5.728V6.844a11.9 11.9 0 0 0 4.007-.891l-.079.029c.555 1.619.896 3.485.94 5.425v.021zm0-5.728V1.205c1.383.305 2.63 1.687 3.516 3.713c-1.034.43-2.233.711-3.487.781zm2.854-4a10.8 10.8 0 0 1 3.258 1.752l-.023-.018c-.443.348-.94.676-1.464.961l-.056.028a10 10 0 0 0-1.724-2.737l.009.011zm-4-.492V5.7a10.8 10.8 0 0 1-3.588-.81l.072.026c.89-2.02 2.135-3.407 3.518-3.712zM6.858 4.42a11 11 0 0 1-1.544-1.007l.024.018a10.7 10.7 0 0 1 3.158-1.712l.076-.023a10 10 0 0 0-1.689 2.658zm4.57 2.423v4.584H6.56c.044-1.961.385-3.827.979-5.577l-.039.131a11.7 11.7 0 0 0 3.901.861zm0 5.728v4.584a11.9 11.9 0 0 0-4.007.891l.079-.029c-.555-1.618-.896-3.485-.94-5.425v-.021zm0 5.728v4.495c-1.383-.305-2.63-1.687-3.516-3.713c1.034-.43 2.233-.71 3.487-.78zm-2.85 4a10.9 10.9 0 0 1-3.258-1.748l.024.018c.443-.348.94-.676 1.464-.961l.056-.028a9.8 9.8 0 0 0 1.723 2.733l-.009-.01zm8.564-2.72c.58.315 1.077.642 1.544 1.007l-.024-.018a10.7 10.7 0 0 1-3.158 1.712l-.076.023a10 10 0 0 0 1.689-2.657l.025-.065zm5.7-8.151h-4.261a19.7 19.7 0 0 0-1.058-6.078l.041.138a12.4 12.4 0 0 0 1.997-1.312l-.024.018a10.8 10.8 0 0 1 3.303 7.205zM4.462 4.195c.576.468 1.223.897 1.909 1.262l.065.032c-.613 1.767-.982 3.804-1.017 5.923v.016H1.157a10.82 10.82 0 0 1 3.301-7.23zm-3.304 8.377h4.261a19.7 19.7 0 0 0 1.058 6.078l-.041-.138c-.751.399-1.397.828-1.997 1.312l.024-.018a10.8 10.8 0 0 1-3.303-7.205l-.001-.028z"
-			fill="currentColor"
-		/>
-	</svg>
+const GlobeSVG: React.FC = () => (
+	<OutlineIcon>
+		<circle cx="12" cy="12" r="9" />
+		<path d="M12 3v18" />
+		<ellipse cx="12" cy="12" rx="4.6" ry="9" />
+		<path d="M3 12h18" />
+		<path d="M4.2 7.5c5-2.2 10.6-2.2 15.6 0" />
+		<path d="M4.2 16.5c5 2.2 10.6 2.2 15.6 0" />
+	</OutlineIcon>
 );
 
-const MiniArrowDownSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			strokeLinejoin="round"
-			stroke="currentColor"
-			strokeLinecap="round"
-			d="m7 10l5 5m0 0l5-5"
-			strokeWidth="2"
-			fill="none"
-		/>
-	</svg>
+const ChevronDownSVG: React.FC = () => (
+	<OutlineIcon>
+		<path d="m6 9 6 6 6-6" />
+	</OutlineIcon>
 );
 
-const LiveSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 20 20"
-		height="20"
-		width="20"
-	>
-		<rect height="20" fill="none" width="20" />
-		<path
-			d="M5.453 4.167a.726.726 0 0 0-1.027-.01A8.23 8.23 0 0 0 2 10a8.23 8.23 0 0 0 2.604 6.015a.725.725 0 0 0 1.01-.025c.316-.316.277-.819-.027-1.11A6.73 6.73 0 0 1 3.5 10c0-1.846.741-3.52 1.943-4.738c.29-.295.32-.785.01-1.095M7.214 5.93a.714.714 0 0 0-1.008-.016A5.73 5.73 0 0 0 4.5 10c0 1.692.73 3.213 1.893 4.265a.713.713 0 0 0 .983-.038c.328-.328.267-.844-.041-1.134A4.24 4.24 0 0 1 6 10c0-1.15.457-2.194 1.2-2.96c.286-.294.333-.793.014-1.111m5.572 0a.714.714 0 0 1 1.008-.016A5.73 5.73 0 0 1 15.5 10c0 1.692-.73 3.213-1.893 4.265a.713.713 0 0 1-.983-.038c-.328-.328-.267-.844.041-1.134A4.24 4.24 0 0 0 14 10c0-1.15-.457-2.194-1.2-2.96c-.286-.294-.333-.793-.014-1.111m1.761-1.762a.726.726 0 0 1 1.027-.01A8.23 8.23 0 0 1 18 10a8.23 8.23 0 0 1-2.604 6.015a.725.725 0 0 1-1.01-.025c-.316-.316-.277-.819.028-1.11A6.73 6.73 0 0 0 16.5 10c0-1.846-.741-3.52-1.943-4.738c-.29-.295-.32-.785-.01-1.095M10 8.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3"
-			fill="currentColor"
-		/>
-	</svg>
+const ChevronLeftSVG: React.FC = () => (
+	<OutlineIcon>
+		<path d="m15 6-6 6 6 6" />
+	</OutlineIcon>
 );
 
-const DevelopmentSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="M15.25 2a.75.75 0 0 1 .743.648L16 2.75v2.325A3.75 3.75 0 0 1 18.926 8h2.325a.75.75 0 0 1 .102 1.493l-.102.007H19v1.75h2.25a.75.75 0 0 1 .743.648L22 12a.75.75 0 0 1-.648.743l-.102.007H19v1.75h2.25a.75.75 0 0 1 .743.648l.007.102a.75.75 0 0 1-.648.743L21.25 16h-2.325A3.75 3.75 0 0 1 16 18.926v2.325a.75.75 0 0 1-1.493.102l-.007-.102V19h-1.751l.001 2.251a.75.75 0 0 1-.648.743L12 22a.75.75 0 0 1-.743-.648l-.007-.102l-.001-2.251H9.5v2.251a.75.75 0 0 1-.648.743L8.75 22a.75.75 0 0 1-.743-.648L8 21.25v-2.325A3.75 3.75 0 0 1 5.075 16H2.75a.75.75 0 0 1-.102-1.493l.102-.007L5 14.499v-1.75l-2.25.001a.75.75 0 0 1-.743-.648L2 12a.75.75 0 0 1 .648-.743l.102-.007L5 11.249v-1.75L2.75 9.5a.75.75 0 0 1-.743-.648L2 8.75a.75.75 0 0 1 .648-.743L2.75 8l2.325-.001A3.75 3.75 0 0 1 8 5.075V2.75a.75.75 0 0 1 1.493-.102l.007.102v2.249h1.749l.001-2.249a.75.75 0 0 1 .648-.743L12 2a.75.75 0 0 1 .743.648l.007.102l-.001 2.249H14.5V2.75a.75.75 0 0 1 .55-.723l.098-.02zm0 4.5h-6.5A2.25 2.25 0 0 0 6.5 8.75v6.5a2.25 2.25 0 0 0 2.25 2.25h6.5a2.25 2.25 0 0 0 2.25-2.25v-6.5a2.25 2.25 0 0 0-2.25-2.25m-3.245 2.505a3 3 0 1 1 0 6a3 3 0 0 1 0-6m0 1.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3"
-			fill="currentColor"
-		/>
-	</svg>
+const ChevronRightSVG: React.FC = () => (
+	<OutlineIcon>
+		<path d="m9 6 6 6-6 6" />
+	</OutlineIcon>
 );
 
-const ArchiveSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="m20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27M6.24 5h11.52l.81.97H5.44zM5 19V8h14v11zm8.45-9h-2.9v3H8l4 4l4-4h-2.55z"
-			fill="currentColor"
-		/>
-	</svg>
+const LiveSVG: React.FC<{ className?: string }> = ({ className }) => (
+	<OutlineIcon className={className}>
+		<circle cx="12" cy="12" r="2" />
+		<path d="M8.1 8.1a5.5 5.5 0 0 0 0 7.8" />
+		<path d="M15.9 8.1a5.5 5.5 0 0 1 0 7.8" />
+		<path d="M5.6 5.6a9 9 0 0 0 0 12.8" />
+		<path d="M18.4 5.6a9 9 0 0 1 0 12.8" />
+	</OutlineIcon>
+);
+
+const WrenchSVG: React.FC<{ className?: string }> = ({ className }) => (
+	<OutlineIcon className={className}>
+		<path d="M16.71 4.46 13.93 7.24l2.83 2.83 2.78-2.78A5.5 5.5 0 0 1 12 14.4l-4.08 4.08a1.7 1.7 0 0 1-2.4-2.4L9.6 12a5.5 5.5 0 0 1 7.11-7.54z" />
+	</OutlineIcon>
+);
+
+const ArchiveSVG: React.FC<{ className?: string }> = ({ className }) => (
+	<OutlineIcon className={className}>
+		<path d="M4.5 4h15A1.5 1.5 0 0 1 21 5.5v2A1.5 1.5 0 0 1 19.5 9h-15A1.5 1.5 0 0 1 3 7.5v-2A1.5 1.5 0 0 1 4.5 4z" />
+		<path d="M4.5 9v9a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V9" />
+		<path d="M10 13h4" />
+	</OutlineIcon>
 );
 
 const PlusSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" fill="currentColor" />
-	</svg>
+	<OutlineIcon>
+		<path d="M12 6v12" />
+		<path d="M6 12h12" />
+	</OutlineIcon>
 );
 
 const ExternalLinkSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6v2H5v12h12v-6zM13 3v2h4.586l-7.793 7.793l1.414 1.414L19 6.414V11h2V3z"
-			fill="currentColor"
-		/>
-	</svg>
+	<OutlineIcon>
+		<path d="M14 4h6v6" />
+		<path d="m20 4-8.5 8.5" />
+		<path d="M18 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4.5" />
+	</OutlineIcon>
 );
 
 const MailSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<g fill="currentColor">
-			<path d="M22 7.535V17a3 3 0 0 1-2.824 2.995L19 20H5a3 3 0 0 1-2.995-2.824L2 17V7.535l9.445 6.297l.116.066a1 1 0 0 0 .878 0l.116-.066z" />
-			<path d="M19 4c1.08 0 2.027.57 2.555 1.427L12 11.797l-9.555-6.37a3 3 0 0 1 2.354-1.42L5 4z" />
-		</g>
-	</svg>
+	<OutlineIcon>
+		<path d="M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+		<path d="m3 7 9 6 9-6" />
+	</OutlineIcon>
 );
 
-const CrossSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 16 16"
-		height="20"
-		width="20"
-	>
-		<rect height="16" fill="none" width="16" />
-		<path
-			d="M7.293 8L3.146 3.854a.5.5 0 1 1 .708-.708L8 7.293l4.146-4.147a.5.5 0 0 1 .708.708L8.707 8l4.147 4.146a.5.5 0 0 1-.708.708L8 8.707l-4.146 4.147a.5.5 0 0 1-.708-.708z"
-			fill="currentColor"
-		/>
-	</svg>
+const CloseSVG: React.FC = () => (
+	<OutlineIcon>
+		<path d="m6 6 12 12" />
+		<path d="m18 6-12 12" />
+	</OutlineIcon>
 );
 
 const FilterSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="20"
-		width="20"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="M14 12v7.88c.04.3-.06.62-.29.83a.996.996 0 0 1-1.41 0l-2.01-2.01a.99.99 0 0 1-.29-.83V12h-.03L4.21 4.62a1 1 0 0 1 .17-1.4c.19-.14.4-.22.62-.22h14c.22 0 .43.08.62.22a1 1 0 0 1 .17 1.4L14.03 12z"
-			fill="currentColor"
-		/>
-	</svg>
+	<OutlineIcon>
+		<path d="M4 5h16l-6 7.5V19l-4-2v-4.5z" />
+	</OutlineIcon>
 );
 
-const UnhideTextSVG: React.FC = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		height="18"
-		width="18"
-	>
-		<rect height="24" fill="none" width="24" />
-		<path
-			d="M4.825 12.025L8.7 15.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-4.6-4.6q-.15-.15-.213-.325T2.426 12t.063-.375t.212-.325l4.6-4.6q.3-.3.713-.3t.712.3t.3.713t-.3.712zm14.35-.05L15.3 8.1q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.6 4.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.6 4.6q-.3.3-.7.288t-.7-.313t-.3-.712t.3-.713z"
-			fill="currentColor"
-		/>
-	</svg>
+const CodeSVG: React.FC = () => (
+	<OutlineIcon className="size-4.5">
+		<path d="m8 7-5 5 5 5" />
+		<path d="m16 7 5 5-5 5" />
+		<path d="m14 4.5-4 15" />
+	</OutlineIcon>
 );
 
 export {
@@ -1082,9 +1030,12 @@ export {
 	ArchiveSVG,
 	BootstrapSVG,
 	CSSSVG,
+	ChevronDownSVG,
+	ChevronLeftSVG,
+	ChevronRightSVG,
+	CloseSVG,
 	CloudinarySVG,
-	CrossSVG,
-	DevelopmentSVG,
+	CodeSVG,
 	DrizzleSVG,
 	ExpressSVG,
 	ExternalLinkSVG,
@@ -1093,6 +1044,7 @@ export {
 	FlaskSVG,
 	FramerMotionSVG,
 	GithubSVG,
+	GlobeSVG,
 	HTMLSVG,
 	JWTSVG,
 	JavascriptSVG,
@@ -1101,7 +1053,6 @@ export {
 	LocalStorageSVG,
 	MailSVG,
 	MaterialUiSVG,
-	MiniArrowDownSVG,
 	MongoDBSVG,
 	MongooseSVG,
 	NeonSVG,
@@ -1117,7 +1068,6 @@ export {
 	SqliteSVG,
 	StripeSVG,
 	TailwindSVG,
-	UnhideTextSVG,
 	WebSocketSVG,
-	WorldSVG,
+	WrenchSVG,
 };
