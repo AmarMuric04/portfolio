@@ -213,6 +213,10 @@
 	color: var(--accent-color);
 }
 
+html {
+	background-color: var(--bg-color);
+}
+
 body {
 	font-family: "Inter", sans-serif;
 	color: var(--text-primary);
