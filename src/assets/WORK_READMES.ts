@@ -1,5 +1,5 @@
 export const WORK_READMES: { [key: string]: string } = {
-  Lelegram: `
+	"Lelegram": `
 # Lelegram
 
 **Messaging Clone**
@@ -179,7 +179,7 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 ---
 
 Happy messaging with Lelegram!`,
-  DineDivine: `# DineDivine
+	"DineDivine": `# DineDivine
 
 **Modern Culinary Experience Platform**
 
@@ -328,7 +328,7 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 ---
 
 Happy dining with DineDivine!`,
-  "Social Media": `# Social Media
+	"Social Media": `# Social Media
 
 **Social Platform**
 
@@ -478,7 +478,7 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 ---
 
 Connect and share with Social Media!`,
-  Blajvinance: `# Blajvinance
+	"Blajvinance": `# Blajvinance
 
 **Crypto Clone**
 
@@ -624,7 +624,7 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 ---
 
 Happy trading with Blajvinance!`,
-  Learnify: `# Learnify
+	"Learnify": `# Learnify
 
 **Learning Platform**
 
@@ -774,7 +774,7 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 ---
 
 Happy learning with Learnify!`,
-  SolveBox: `# SolveBox
+	"SolveBox": `# SolveBox
 
 **Educational Tool**
 
@@ -919,7 +919,7 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 ---
 
 Happy learning with SolveBox!`,
-  Newsly: `# Newsly
+	"Newsly": `# Newsly
 
 **News Clone**
 
@@ -1065,7 +1065,7 @@ For inquiries or feedback, please open an issue on the [GitHub repository](https
 ---
 
 Stay informed with Newsly!`,
-  Shopping: `# Shopping
+	"Shopping": `# Shopping
 
 **Shopping Platform**
 
