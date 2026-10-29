@@ -21,6 +21,8 @@ export const useIntersectionObserver = <T extends HTMLElement = HTMLElement>({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (!entry) return;
+
         setIsIntersecting(entry.isIntersecting);
         if (entry.isIntersecting) setWasInView(true);
       },

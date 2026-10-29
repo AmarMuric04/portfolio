@@ -1,27 +1,17 @@
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
-import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vite";
-import svgr from "vite-plugin-svgr";
-import path from "path";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    tsconfigPaths(),
-    tanstackRouter({
-      autoCodeSplitting: true,
-      target: "react",
-    }),
-    react(),
-    tailwindcss(),
-    svgr(),
-  ],
-  resolve: {
-    alias: {
-      "@/shadcn": path.resolve(__dirname, "./src/components/ui"),
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+	plugins: [
+		tsconfigPaths(),
+		tanstackRouter({
+			autoCodeSplitting: true,
+			target: "react",
+		}),
+		react(),
+		tailwindcss(),
+	],
 });

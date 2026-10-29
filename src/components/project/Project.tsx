@@ -30,7 +30,7 @@ export const Project = ({ project }: { project: (typeof WORK)[number] }) => {
   const [wasInView, setWasInView] = useState<boolean>(false);
   const { isIntersecting, targetRef } = useIntersectionObserver();
   const [section, setSection] = useState<number>(0);
-  const images = WORK_HIGHLIGHTS[project.title.toLowerCase()];
+  const images = WORK_HIGHLIGHTS[project.title.toLowerCase()] ?? [];
 
   const { show: showWorkDetailsModal } = useModal(WorkDetailsModal);
   const { show: showWorkThoughtsModal } = useModal(WorkThoughtsModal);
@@ -148,7 +148,7 @@ export const Project = ({ project }: { project: (typeof WORK)[number] }) => {
 
         <div className="flex flex-wrap justify-between items-center gap-2 sm:gap-0 mt-1 w-full text-sm">
           <div className="flex gap-1 w-full sm:w-auto">
-            {images?.length > 0 && (
+            {images.length > 0 && (
               <ActionButton
                 onClick={() => setHideHighlights(!hideHighlights)}
                 className="py-1 w-1/2 sm:w-[8rem]"
