@@ -48,10 +48,10 @@ const Header: React.FC = () => {
 
 	return (
 		<>
-			<header className="mb-28" ref={targetRef}>
+			<header className="mb-8 h-18" ref={targetRef}>
 				<nav
 					className={cn(
-						"theme-surface fixed top-4 left-1/2 z-50 h-[3.5rem] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/10 bg-white/10 pr-4 shadow-md backdrop-blur-sm transition-all select-none",
+						"fixed top-4 left-1/2 z-50 h-14 -translate-x-1/2 overflow-hidden rounded-2xl border border-hairline bg-surface pr-4 text-ink shadow-surface transition-[width] duration-300 ease-out select-none",
 						{
 							"w-[80%] md:w-[38rem]": !isIntersecting,
 							"w-[95%] md:w-[45rem]": isIntersecting,
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
 				>
 					<div className="flex h-full w-full items-center justify-between">
 						<div className="flex h-full w-full gap-4 sm:w-auto">
-							<ToggleThemeButton className="hidden h-full w-[3.5rem] sm:grid" />
+							<ToggleThemeButton className="hidden h-full w-14 sm:grid" />
 
 							<Tabs
 								className="h-full w-full gap-4 data-[orientation=horizontal]:flex-row sm:w-auto"
@@ -73,14 +73,18 @@ const Header: React.FC = () => {
 								>
 									{NAV_ITEMS.map(({ to, label, icon }) => (
 										<TabsTrigger
-											className="w-full justify-center opacity-70 transition-opacity data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
+											className="w-full justify-center text-label opacity-70 transition-opacity duration-200 hover:opacity-100 data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
 											variant="nav"
 											value={to}
 											key={to}
 											asChild
 										>
 											<Link
-												aria-label={`Go to the ${label} page to learn more about me`}
+												aria-current={
+													location.pathname === to
+														? "page"
+														: undefined
+												}
 												to={to}
 											>
 												<NavIcon
@@ -89,13 +93,13 @@ const Header: React.FC = () => {
 													}
 													name={icon}
 												/>
-												<p className="hidden sm:flex">
+												<span className="sr-only sm:not-sr-only">
 													{label}
-												</p>
+												</span>
 
 												{location.pathname === to && (
 													<motion.div
-														className="theme-primary-text-background absolute bottom-0 left-0 h-0.5 w-full"
+														className="absolute bottom-0 left-0 h-0.5 w-full bg-ink"
 														transition={{
 															type: "spring",
 															duration: 0.6,
@@ -112,33 +116,33 @@ const Header: React.FC = () => {
 						</div>
 
 						<a
-							className="group/fill hidden items-center gap-2 sm:flex"
-							aria-label="Say hi through an email"
+							className="group/fill hidden items-center gap-2 rounded-lg text-label sm:flex"
 							href="mailto:muricamar2004@gmail.com"
 							id="contact"
 						>
 							<NavIcon name="contact" />
-							<p>Say Hi</p>
+							Say Hi
 						</a>
 					</div>
 				</nav>
 			</header>
 
-			<ToggleThemeButton className="fixed bottom-5 left-5 z-50 flex h-[4rem] w-[4rem] items-center justify-center transition-all sm:hidden" />
+			<ToggleThemeButton className="fixed bottom-4 left-4 z-50 flex size-14 items-center justify-center sm:hidden" />
 
 			<a
 				className={cn(
-					"group/fill theme-background theme-title-text fixed right-5 bottom-5 z-50 flex h-[3rem] items-center justify-center gap-2 rounded-2xl shadow-xl transition-all sm:hidden",
+					"group/fill fixed right-4 bottom-4 z-50 flex h-14 items-center justify-center gap-2 rounded-2xl border border-hairline bg-surface text-label text-ink shadow-overlay transition-[width] duration-300 ease-out sm:hidden",
 					{
-						"w-[6rem] rounded-br-none": !isScrollingDown,
-						"w-[3rem]": isScrollingDown,
+						"w-28": !isScrollingDown,
+						"w-14": isScrollingDown,
 					},
 				)}
 				href="mailto:muricamar2004@gmail.com"
+				aria-label="Say Hi"
 			>
 				<NavIcon name="contact" />
 
-				{!isScrollingDown && <p className="flex-shrink-0">Say Hi</p>}
+				{!isScrollingDown && <span className="shrink-0">Say Hi</span>}
 			</a>
 		</>
 	);

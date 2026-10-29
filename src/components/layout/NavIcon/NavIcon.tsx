@@ -25,10 +25,7 @@ const NAV_ICON_SHAPES = {
 					className="fill-current"
 					d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
 				/>
-				<path
-					className="stroke-[var(--surface-color)]"
-					d="M4.5 11h15"
-				/>
+				<path className="stroke-surface" d="M4.5 11h15" />
 			</>
 		),
 	},
@@ -66,10 +63,7 @@ const NAV_ICON_SHAPES = {
 					d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
 				/>
 				<path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7" />
-				<path
-					className="stroke-[var(--surface-color)]"
-					d="M4.5 12.5h15"
-				/>
+				<path className="stroke-surface" d="M4.5 12.5h15" />
 			</>
 		),
 	},
