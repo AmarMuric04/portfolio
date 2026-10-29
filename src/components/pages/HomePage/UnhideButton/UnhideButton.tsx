@@ -15,19 +15,19 @@ const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 	if (!isRevealed) {
 		return (
-			<span
-				className="mx-1 inline cursor-pointer"
+			<button
+				className="mx-1 inline-flex h-6 cursor-pointer items-center rounded-lg border border-hairline bg-inset px-1 align-middle text-ink transition-colors duration-200 hover:bg-accent-tint"
+				aria-label="Show more of this sentence"
 				onClick={() => setIsRevealed(true)}
+				type="button"
 			>
-				<span className="theme-border-background theme-surface-hover inline-flex items-center rounded-lg px-1 transition-all">
-					<CodeSVG />
-				</span>
-			</span>
+				<CodeSVG />
+			</button>
 		);
 	}
 
 	if (!isAnimationEnabled) {
-		return <span className="inline text-green-400">{children}</span>;
+		return <span className="inline text-accent-text">{children}</span>;
 	}
 
 	return (
@@ -43,8 +43,8 @@ const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 				textShadow: "0px 0px 0px rgba(255,255,255,0)",
 				scale: 0.95,
 			}}
-			transition={{ ease: "easeInOut", duration: 0.2 }}
-			className="inline text-green-400"
+			transition={{ ease: "easeOut", duration: 0.2 }}
+			className="inline text-accent-text"
 		>
 			{children}
 		</motion.span>

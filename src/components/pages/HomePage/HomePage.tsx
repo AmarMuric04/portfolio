@@ -29,24 +29,22 @@ const HomePage: React.FC = () => {
 		<>
 			<PageHelmet />
 
-			<section className="mt-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:text-start">
+			<section className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-start">
 				<img
-					className="h-[3rem] w-[3rem] rounded-full sm:h-[5rem] sm:w-[5rem]"
+					className="size-16 rounded-full sm:size-20"
 					alt="Amar Murić"
 					src="/myself.webp"
 				/>
 
 				<div>
-					<h2 className="theme-title-text text-xl font-bold transition-all sm:text-4xl">
-						Amar Murić
-					</h2>
-					<p className="sm:text-xl">
+					<h1 className="text-display text-ink">Amar Murić</h1>
+					<p className="text-lead text-text-muted">
 						Fullstack Software Engineer based in Serbia
 					</p>
 				</div>
 			</section>
 
-			<section className="my-8 leading-8 sm:text-lg">
+			<section className="my-8 flex flex-col gap-4 text-lead">
 				<p>
 					I’m a 20-year-old full-stack developer with a deep passion
 					for building polished, impactful, and innovative products.
@@ -82,7 +80,7 @@ const HomePage: React.FC = () => {
 					.
 				</p>
 
-				<p className="mt-4">
+				<p>
 					<UnhideButton>
 						{"Although I don’t have formal work experience yet, "}
 					</UnhideButton>
@@ -104,7 +102,7 @@ const HomePage: React.FC = () => {
 					and stay ahead in the ever-evolving tech landscape.
 				</p>
 
-				<p className="mt-4">
+				<p>
 					So far, I’ve built a variety of projects
 					<UnhideButton>
 						, from dynamic web applications and e-commerce platforms
@@ -133,7 +131,7 @@ const HomePage: React.FC = () => {
 					</UnhideButton>
 				</p>
 
-				<p className="mt-4">
+				<p>
 					While I’m still early in my career, I’m incredibly excited
 					about the future and the opportunities to{" "}
 					<UnhideButton>
@@ -158,17 +156,19 @@ const HomePage: React.FC = () => {
 				</p>
 			</section>
 
-			<section className="flex flex-wrap items-center gap-8">
+			<section className="flex flex-wrap items-center gap-6">
 				{SOCIAL_LINKS.map(({ label, href, icon: Icon, isExternal }) => (
 					<a
-						className="theme-text-secondary-hover flex cursor-pointer items-center gap-3 text-lg transition-all"
+						className="flex h-8 items-center gap-2 rounded-lg text-label text-ink transition-colors duration-200 hover:text-accent-text"
 						target={isExternal ? "_blank" : undefined}
 						rel={isExternal ? "noreferrer" : undefined}
 						href={href}
 						key={label}
 					>
-						<Icon />
-						<p>{label}</p>
+						<span className="grid size-5 shrink-0 place-items-center [&>svg]:size-5">
+							<Icon />
+						</span>
+						{label}
 					</a>
 				))}
 			</section>
