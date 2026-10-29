@@ -7,6 +7,15 @@ import { cn } from "@/lib/utils";
 const ToggleThemeButton: React.FC<{ className: string }> = ({ className }) => {
 	const { isLight, toggleTheme } = useTheme();
 
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		const bounds = event.currentTarget.getBoundingClientRect();
+
+		toggleTheme({
+			x: bounds.left + bounds.width / 2,
+			y: bounds.top + bounds.height / 2,
+		});
+	};
+
 	return (
 		<Around
 			className={cn(
@@ -15,7 +24,7 @@ const ToggleThemeButton: React.FC<{ className: string }> = ({ className }) => {
 			)}
 			onPointerLeaveCapture={() => {}}
 			onPointerEnterCapture={() => {}}
-			toggle={toggleTheme}
+			onClickCapture={handleClick}
 			toggled={isLight}
 			duration={300}
 			placeholder=""

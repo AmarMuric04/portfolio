@@ -216,6 +216,16 @@ html {
 	background-color: var(--bg-color);
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+html[data-theme-switching] * {
+	transition: none !important;
+}
+
 body {
 	font-family: "Inter", sans-serif;
 	color: var(--text-primary);
