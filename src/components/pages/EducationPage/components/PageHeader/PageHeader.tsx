@@ -1,7 +1,7 @@
 export const PageHeader = () => {
   return (
     <>
-      <h2 className="mb-8 font-semibold text-2xl transition-all">
+      <h2 className="transition-all theme-title-text font-semibold text-2xl mb-8">
         My Education
       </h2>
 
