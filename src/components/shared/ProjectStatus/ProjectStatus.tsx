@@ -19,17 +19,15 @@ const ProjectStatus: React.FC<{
 	const { icon: Icon, className } = STATUS_APPEARANCES[status];
 
 	return (
-		<div className="mb-2 flex">
-			<div
-				className={cn(
-					"flex cursor-pointer items-center gap-1 rounded-full border-2 px-1 text-xs",
-					className,
-				)}
-			>
-				<Icon className="size-4" />
-				<p>{status}</p>
-			</div>
-		</div>
+		<span
+			className={cn(
+				"inline-flex h-5 items-center gap-1 rounded-full border px-2 text-caption",
+				className,
+			)}
+		>
+			<Icon className="size-4" />
+			{status}
+		</span>
 	);
 };
 

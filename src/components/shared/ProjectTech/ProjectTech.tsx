@@ -4,44 +4,37 @@ const ProjectTech: React.FC<{
 	techs: (typeof WORK)[number]["techs"];
 }> = ({ techs }) => {
 	return (
-		<section className="my-4 flex flex-wrap gap-[1%]">
+		<ul className="grid grid-cols-2 items-start gap-2 sm:grid-cols-4">
 			{TECH_CATEGORIES.filter(
 				(category) => techs[category].length > 0,
 			).map((category) => (
-				<div
-					className="theme-background min-h-[150px] w-[24.2%] min-w-[125px] flex-grow rounded-xl p-2 transition-all lg:flex-none"
-					key={category}
-				>
-					<p className="theme-accent-text mb-2 text-sm uppercase">
+				<li className="rounded-xl bg-inset p-3" key={category}>
+					<p className="mb-2 text-caption text-accent-text uppercase">
 						{category}
 					</p>
 
-					<div className="flex max-w-full flex-wrap items-center gap-4 overflow-hidden">
+					<ul className="flex flex-col gap-2">
 						{techs[category].map((tech: string) => {
 							const Icon =
 								TECH_ICONS[tech as keyof typeof TECH_ICONS];
 
 							return (
-								<div
-									className="flex max-w-full flex-shrink-0 items-center gap-2 overflow-hidden text-sm"
+								<li
+									className="flex min-w-0 items-center gap-2 text-label text-text"
 									key={tech}
 								>
-									{Icon ? (
-										<Icon />
-									) : (
-										<span className="h-6 w-6 flex-shrink-0" />
-									)}
-
-									<span className="max-w-full truncate overflow-hidden text-ellipsis whitespace-nowrap">
-										{tech}
+									<span className="grid size-4 shrink-0 place-items-center [&>svg]:size-4">
+										{Icon && <Icon />}
 									</span>
-								</div>
+
+									<span className="truncate">{tech}</span>
+								</li>
 							);
 						})}
-					</div>
-				</div>
+					</ul>
+				</li>
 			))}
-		</section>
+		</ul>
 	);
 };
 
