@@ -1,3 +1,5 @@
+import type { IEducation } from "@/types";
+
 import {
   CardContent,
   CardHeader,
@@ -18,7 +20,7 @@ export const EducationCard = ({
   skills,
   name,
   type,
-}) => {
+}: IEducation) => {
   const { targetRef, wasInView } = useIntersectionObserver<HTMLLIElement>({
     rootMargin: "-150px",
     threshold: 0,
