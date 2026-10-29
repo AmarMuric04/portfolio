@@ -18,7 +18,7 @@ const ClassicExternalLink: React.FC<{
 				</span>
 
 				<span>
-					<span className="font-semibold text-ink">{title}</span>
+					<span className="text-ink">{title}</span>
 					<span className="text-text"> — {description}</span>
 				</span>
 			</a>
