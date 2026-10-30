@@ -108,7 +108,7 @@ const WorkDetailsModal = NiceModal.create<{
 					className="min-h-0 overflow-y-auto"
 					value="thoughts"
 				>
-					<p className="rounded-xl bg-inset p-3 text-body whitespace-pre-line">
+					<p className="rounded-xl border border-hairline bg-inset p-3 text-body whitespace-pre-line">
 						{project.myThoughts.trim()}
 					</p>
 				</TabsContent>
