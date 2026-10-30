@@ -51,7 +51,7 @@ const Header: React.FC = () => {
 			<header className="mb-8 h-18" ref={targetRef}>
 				<nav
 					className={cn(
-						"fixed top-4 left-1/2 z-50 h-14 -translate-x-1/2 overflow-hidden rounded-2xl border border-hairline bg-surface sheen pr-4 text-ink shadow-surface transition-[width] duration-300 ease-out select-none",
+						"fixed top-4 left-1/2 z-50 h-14 -translate-x-1/2 overflow-hidden rounded-2xl border border-hairline bg-surface glow pr-4 text-ink shadow-surface transition-[width] duration-300 ease-out select-none",
 						{
 							"w-[80%] md:w-[38rem]": !isIntersecting,
 							"w-[95%] md:w-[45rem]": isIntersecting,
@@ -113,7 +113,7 @@ const Header: React.FC = () => {
 
 			<a
 				className={cn(
-					"group/fill fixed right-4 bottom-4 z-50 flex h-14 items-center justify-center gap-2 rounded-2xl border border-hairline bg-surface sheen text-label text-ink shadow-overlay transition-[width] duration-300 ease-out sm:hidden",
+					"group/fill fixed right-4 bottom-4 z-50 flex h-14 items-center justify-center gap-2 rounded-2xl border border-hairline bg-surface glow text-label text-ink shadow-overlay transition-[width] duration-300 ease-out sm:hidden",
 					{
 						"w-28": !isScrollingDown,
 						"w-14": isScrollingDown,
