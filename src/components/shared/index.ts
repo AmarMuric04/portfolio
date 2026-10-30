@@ -4,3 +4,4 @@ export * from "./Modal";
 export * from "./ProjectStatus";
 export * from "./ProjectTech";
 export * from "./Tag";
+export * from "./UnderlineTab";
