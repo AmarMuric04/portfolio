@@ -4,63 +4,63 @@ const WORK_HIGHLIGHTS: Record<
 > = {
 	solvebox: [
 		{
-			image: "/solvebox/solvebox0.PNG",
+			image: "/solvebox/solvebox0.webp",
 			description: "Sign Up",
 		},
 		{
-			image: "/solvebox/solvebox1.PNG",
+			image: "/solvebox/solvebox1.webp",
 			description: "Sign In",
 		},
 		{
-			image: "/solvebox/solvebox2.PNG",
+			image: "/solvebox/solvebox2.webp",
 			description: "Forgot password",
 		},
 		{
-			image: "/solvebox/solvebox3.PNG",
+			image: "/solvebox/solvebox3.webp",
 			description: "Landing Page",
 		},
 		{
-			image: "/solvebox/solvebox4.PNG",
+			image: "/solvebox/solvebox4.webp",
 			description: "About",
 		},
 		{
-			image: "/solvebox/solvebox5.PNG",
+			image: "/solvebox/solvebox5.webp",
 			description: "Categories",
 		},
 		{
-			image: "/solvebox/solvebox6.PNG",
+			image: "/solvebox/solvebox6.webp",
 			description: "Subscribe",
 		},
 		{
-			image: "/solvebox/solvebox7.PNG",
+			image: "/solvebox/solvebox7.webp",
 			description: "Contact Us",
 		},
 		{
-			image: "/solvebox/solvebox8.PNG",
+			image: "/solvebox/solvebox8.webp",
 			description: "Credits",
 		},
 		{
-			image: "/solvebox/solvebox9.PNG",
+			image: "/solvebox/solvebox9.webp",
 			description: "The API",
 		},
 		{
-			image: "/solvebox/solvebox10.PNG",
+			image: "/solvebox/solvebox10.webp",
 			description: "Algorithms",
 		},
 		{
-			image: "/solvebox/solvebox11.PNG",
+			image: "/solvebox/solvebox11.webp",
 			description: "Visual Tutorials",
 		},
 		{
-			image: "/solvebox/solvebox12.PNG",
+			image: "/solvebox/solvebox12.webp",
 			description: "Advanced Tips",
 		},
 		{
-			image: "/solvebox/solvebox13.PNG",
+			image: "/solvebox/solvebox13.webp",
 			description: "Puzzle Variations",
 		},
 		{
-			image: "/solvebox/solvebox14.PNG",
+			image: "/solvebox/solvebox14.webp",
 			description: "Footer",
 		},
 	],
@@ -116,127 +116,127 @@ const WORK_HIGHLIGHTS: Record<
 	],
 	blajvinance: [
 		{
-			image: "/blajvinance/blajvinance0.PNG",
+			image: "/blajvinance/blajvinance0.webp",
 			description: "Landing Page",
 		},
 		{
-			image: "/blajvinance/blajvinance1.PNG",
+			image: "/blajvinance/blajvinance1.webp",
 			description: "Market Overview",
 		},
 		{
-			image: "/blajvinance/blajvinance2.PNG",
+			image: "/blajvinance/blajvinance2.webp",
 			description: "Cryptocurrencies",
 		},
 		{
-			image: "/blajvinance/blajvinance3.PNG",
+			image: "/blajvinance/blajvinance3.webp",
 			description: "Buy Crypto",
 		},
 		{
-			image: "/blajvinance/blajvinance4.PNG",
+			image: "/blajvinance/blajvinance4.webp",
 			description: "Sell Crypto",
 		},
 		{
-			image: "/blajvinance/blajvinance5.PNG",
+			image: "/blajvinance/blajvinance5.webp",
 			description: "My Wallet",
 		},
 		{
-			image: "/blajvinance/blajvinance6.PNG",
+			image: "/blajvinance/blajvinance6.webp",
 			description: "Calculate earnings",
 		},
 		{
-			image: "/blajvinance/blajvinance7.PNG",
+			image: "/blajvinance/blajvinance7.webp",
 			description: "Contact",
 		},
 		{
-			image: "/blajvinance/blajvinance8.PNG",
+			image: "/blajvinance/blajvinance8.webp",
 			description: "Log in",
 		},
 		{
-			image: "/blajvinance/blajvinance9.PNG",
+			image: "/blajvinance/blajvinance9.webp",
 			description: "Log out",
 		},
 	],
 	dinedivine: [
 		{
-			image: "/dinedivine/dinedivine0.PNG",
+			image: "/dinedivine/dinedivine0.webp",
 			description: "Landing Page",
 		},
 		{
-			image: "/dinedivine/dinedivine1.PNG",
+			image: "/dinedivine/dinedivine1.webp",
 			description: "Call to Action",
 		},
 		{
-			image: "/dinedivine/dinedivine2.PNG",
+			image: "/dinedivine/dinedivine2.webp",
 			description: "Best Selling Items",
 		},
 		{
-			image: "/dinedivine/dinedivine3.PNG",
+			image: "/dinedivine/dinedivine3.webp",
 			description: "Customer's Choice",
 		},
 		{
-			image: "/dinedivine/dinedivine4.PNG",
+			image: "/dinedivine/dinedivine4.webp",
 			description: "Masterpieces",
 		},
 		{
-			image: "/dinedivine/dinedivine5.PNG",
+			image: "/dinedivine/dinedivine5.webp",
 			description: "Reserve a Dining",
 		},
 		{
-			image: "/dinedivine/dinedivine6.PNG",
+			image: "/dinedivine/dinedivine6.webp",
 			description: "Our Patrons",
 		},
 		{
-			image: "/dinedivine/dinedivine7.PNG",
+			image: "/dinedivine/dinedivine7.webp",
 			description: "Our Blog",
 		},
 		{
-			image: "/dinedivine/dinedivine8.PNG",
+			image: "/dinedivine/dinedivine8.webp",
 			description: "Other Blog Dates",
 		},
 		{
-			image: "/dinedivine/dinedivine9.PNG",
+			image: "/dinedivine/dinedivine9.webp",
 			description: "Footer",
 		},
 	],
 	shopping: [
 		{
-			image: "/shopping/shopping0.PNG",
+			image: "/shopping/shopping0.webp",
 			description: "Home Page",
 		},
 		{
-			image: "/shopping/shopping1.PNG",
+			image: "/shopping/shopping1.webp",
 			description: "Store Page",
 		},
 		{
 			description: "Searching for items",
-			image: "/shopping/shopping2.PNG",
+			image: "/shopping/shopping2.webp",
 		},
 		{
 			description: "Choosing a Category",
-			image: "/shopping/shopping3.PNG",
+			image: "/shopping/shopping3.webp",
 		},
 		{
-			image: "/shopping/shopping4.PNG",
+			image: "/shopping/shopping4.webp",
 			description: "Adding an item",
 		},
 		{
-			image: "/shopping/shopping5.PNG",
+			image: "/shopping/shopping5.webp",
 			description: "Item preview",
 		},
 		{
-			image: "/shopping/shopping6.PNG",
+			image: "/shopping/shopping6.webp",
 			description: "Similar items",
 		},
 		{
-			image: "/shopping/shopping7.PNG",
+			image: "/shopping/shopping7.webp",
 			description: "Cart",
 		},
 		{
-			image: "/shopping/shopping8.PNG",
+			image: "/shopping/shopping8.webp",
 			description: "Checkout",
 		},
 		{
-			image: "/shopping/shopping9.PNG",
+			image: "/shopping/shopping9.webp",
 			description: "Pagination",
 		},
 	],
