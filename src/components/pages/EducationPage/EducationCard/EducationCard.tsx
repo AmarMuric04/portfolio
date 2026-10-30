@@ -19,7 +19,7 @@ const EducationCard: React.FC<{
 
 	return (
 		<li
-			className="rounded-2xl border border-hairline bg-surface sheen p-3 shadow-surface sm:p-4"
+			className="rounded-2xl border border-hairline bg-surface glow p-3 shadow-surface sm:p-4"
 			ref={targetRef}
 		>
 			<article className="flex flex-col gap-1">

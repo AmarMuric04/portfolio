@@ -160,9 +160,8 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   classes. Page `bg-ground`; header, cards, panels and modals `bg-surface` with
   `border-hairline` and `shadow-surface` (`shadow-overlay` for modals and the
   filter panel); anything nested in a surface `bg-inset` with `border border-hairline`.
-  Every `bg-surface` (and floating `bg-inset` button) also gets `sheen`, the
-  brushed-steel top highlight; modals use `sheen-glow` instead (the sheen
-  plus an accent radial glow from the top-left corner). Headings and icons
+  Every `bg-surface` (and floating `bg-inset` button) also gets `glow`, the
+  accent radial gradient from the top-left corner. Headings and icons
   `text-ink`, running text `text-text`, dates and helper lines
   `text-text-muted`. Filled sage controls `bg-accent text-on-accent`; sage as
   text `text-accent-text`; quiet selected states `bg-accent-tint`; excluded
