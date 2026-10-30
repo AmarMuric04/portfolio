@@ -82,7 +82,7 @@ const ProjectFilters: React.FC<{
 		setCategoryFilter((filter) => cycleFilter({ filter, item: category }));
 
 	return (
-		<section className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-4 shadow-surface">
+		<section className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface sheen p-4 shadow-surface">
 			<p className="text-caption text-text-muted">
 				Tap once to include, again to exclude, a third time to clear.
 			</p>

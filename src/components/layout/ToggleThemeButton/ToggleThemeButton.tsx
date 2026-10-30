@@ -19,7 +19,7 @@ const ToggleThemeButton: React.FC<{ className: string }> = ({ className }) => {
 	return (
 		<Around
 			className={cn(
-				"cursor-pointer place-items-center rounded-2xl border border-hairline bg-inset text-ink shadow-surface",
+				"cursor-pointer place-items-center rounded-2xl border border-hairline bg-inset sheen text-ink shadow-surface",
 				className,
 			)}
 			onPointerLeaveCapture={() => {}}

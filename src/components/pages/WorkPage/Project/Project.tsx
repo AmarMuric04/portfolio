@@ -33,7 +33,7 @@ const Project: React.FC<{ project: (typeof WORK)[number] }> = ({ project }) => {
 
 	return (
 		<article
-			className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-3 shadow-surface sm:p-4"
+			className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface sheen p-3 shadow-surface sm:p-4"
 			ref={targetRef}
 		>
 			<header className="flex items-start gap-4">
