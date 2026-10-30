@@ -127,14 +127,6 @@
 	--overlay-shadow: 0 12px 32px #00000080;
 }
 
-@utility glow {
-	background-image: radial-gradient(
-		circle at top left,
-		color-mix(in oklab, var(--accent) 22%, transparent),
-		transparent 28rem
-	);
-}
-
 @layer base {
 	::selection {
 		@apply bg-accent text-on-accent;
