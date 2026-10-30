@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import {
 	ChevronLeftSVG,
@@ -9,45 +9,81 @@ import {
 import { ActionButton } from "@/components/shared";
 import { cn } from "@/lib/utils";
 
+const SLIDE_VARIANTS = {
+	enter: (direction: number) => ({ x: `${direction * 100}%` }),
+	center: { x: 0 },
+	exit: (direction: number) => ({ x: `${direction * -100}%` }),
+};
+
 const Highlights: React.FC<{
 	images: NonNullable<(typeof WORK_HIGHLIGHTS)[string]>;
 	title: string;
 }> = ({ images, title }) => {
-	const [selectedIndex, setSelectedIndex] = useState(0);
+	const [slide, setSlide] = useState({ index: 0, direction: 1 });
 
-	const selectedImage = images[selectedIndex];
+	const selectedImage = images[slide.index];
+
+	useEffect(() => {
+		[slide.index - 1, slide.index + 1].forEach((index) => {
+			const neighbour = images[(index + images.length) % images.length];
+
+			if (neighbour) {
+				new Image().src = neighbour.image;
+			}
+		});
+	}, [images, slide.index]);
 
 	const handlePreviousClick = () =>
-		setSelectedIndex((index) =>
-			index === 0 ? images.length - 1 : index - 1,
-		);
+		setSlide((current) => ({
+			index: (current.index - 1 + images.length) % images.length,
+			direction: -1,
+		}));
 
 	const handleNextClick = () =>
-		setSelectedIndex((index) =>
-			index === images.length - 1 ? 0 : index + 1,
-		);
+		setSlide((current) => ({
+			index: (current.index + 1) % images.length,
+			direction: 1,
+		}));
+
+	const handleIndicatorClick = (index: number) =>
+		setSlide((current) => ({
+			index,
+			direction: index > current.index ? 1 : -1,
+		}));
+
+	const handleKeyDown = (event: React.KeyboardEvent) => {
+		if (event.key === "ArrowLeft") {
+			event.preventDefault();
+			handlePreviousClick();
+		}
+
+		if (event.key === "ArrowRight") {
+			event.preventDefault();
+			handleNextClick();
+		}
+	};
 
 	return (
-		<section className="flex flex-col gap-3">
+		<section className="flex flex-col gap-3" onKeyDown={handleKeyDown}>
 			<h3 className="sr-only">{title} highlights</h3>
 
 			<div className="flex items-center justify-between gap-4">
-				<ul className="flex flex-wrap items-center gap-2">
+				<ul className="flex flex-wrap items-center gap-1">
 					{images.map((image, index) => (
 						<li key={image.image}>
 							<button
 								className={cn(
-									"grid h-6 cursor-pointer place-items-center rounded-full text-caption transition-colors duration-200",
-									index === selectedIndex
+									"grid h-6 cursor-pointer place-items-center rounded-md text-caption transition-colors duration-200",
+									index === slide.index
 										? "bg-accent px-2 text-on-accent"
-										: "w-6 before:size-2 before:rounded-full before:bg-border-strong before:content-[''] hover:bg-accent-tint",
+										: "w-5 before:size-2 before:rounded-xs before:bg-border-strong before:content-[''] hover:bg-accent-tint",
 								)}
+								onClick={() => handleIndicatorClick(index)}
+								aria-pressed={index === slide.index}
 								aria-label={image.description}
-								aria-pressed={index === selectedIndex}
-								onClick={() => setSelectedIndex(index)}
 								type="button"
 							>
-								{index === selectedIndex && image.description}
+								{index === slide.index && image.description}
 							</button>
 						</li>
 					))}
@@ -72,18 +108,34 @@ const Highlights: React.FC<{
 				</div>
 			</div>
 
-			{selectedImage && (
-				<picture key={selectedImage.image}>
-					<source srcSet={selectedImage.image} type="image/webp" />
-					<LazyLoadImage
-						className="rounded-xl fade-in lg:min-h-[21rem]"
-						alt={selectedImage.description}
-						src={selectedImage.image}
-						visibleByDefault
-						effect="blur"
-					/>
-				</picture>
-			)}
+			<div
+				className="relative aspect-[1.9] overflow-hidden rounded-xl bg-inset"
+				aria-label={`${title} screenshots, use the arrow keys to browse`}
+				aria-roledescription="carousel"
+				tabIndex={0}
+			>
+				<AnimatePresence custom={slide.direction} initial={false}>
+					{selectedImage && (
+						<motion.img
+							className="absolute inset-0 size-full object-cover object-top"
+							transition={{ ease: "easeOut", duration: 0.3 }}
+							alt={selectedImage.description}
+							custom={slide.direction}
+							key={selectedImage.image}
+							variants={SLIDE_VARIANTS}
+							src={selectedImage.image}
+							decoding="async"
+							initial="enter"
+							animate="center"
+							exit="exit"
+						/>
+					)}
+				</AnimatePresence>
+			</div>
+
+			<p className="sr-only" aria-live="polite">
+				{selectedImage?.description}
+			</p>
 		</section>
 	);
 };
