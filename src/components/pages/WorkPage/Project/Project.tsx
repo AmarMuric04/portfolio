@@ -32,88 +32,86 @@ const Project: React.FC<{ project: (typeof WORK)[number] }> = ({ project }) => {
 	const images = WORK_HIGHLIGHTS[project.title.toLowerCase()];
 
 	return (
-		<li className="rounded-2xl border border-hairline bg-surface p-3 shadow-surface sm:p-4">
-			<article className="flex flex-col gap-4" ref={targetRef}>
-				<header className="flex items-start gap-4">
-					<div className="flex min-w-0 flex-1 flex-col gap-2">
-						<div className="flex flex-wrap items-center gap-2">
-							<h2 className="text-card-title text-ink">
-								{project.title}
-							</h2>
-							<Tag>{project.type}</Tag>
+		<article
+			className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-3 shadow-surface sm:p-4"
+			ref={targetRef}
+		>
+			<header className="flex items-start gap-4">
+				<div className="flex min-w-0 flex-1 flex-col gap-2">
+					<div className="flex flex-wrap items-center gap-2">
+						<h2 className="text-card-title text-ink">
+							{project.title}
+						</h2>
+						<Tag>{project.type}</Tag>
 
-							{"info" in project && (
-								<Tag isFilled>{project.info}</Tag>
-							)}
-
-							<ProjectStatus status={project.status} />
-						</div>
-
-						<ProjectDescription content={project.content} />
-					</div>
-
-					{wasInView && (
-						<img
-							className="size-12 shrink-0 rounded-xl object-contain opacity-50 sm:size-16"
-							src={`/${project.title.replace(" ", "").toLowerCase()}-logo.png`}
-							alt=""
-						/>
-					)}
-				</header>
-
-				<ProjectTech techs={project.techs} />
-
-				<footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-					<div className="flex gap-2">
-						<ActionButton
-							onClick={() => workDetailsModal.show({ project })}
-							variant="primary"
-						>
-							<InfoSVG />
-							Details
-						</ActionButton>
-
-						{images && (
-							<ActionButton
-								onClick={() =>
-									setIsShowingHighlights(!isShowingHighlights)
-								}
-								aria-expanded={isShowingHighlights}
-							>
-								<ToggleArrow isOpen={isShowingHighlights} />
-								Highlights
-							</ActionButton>
-						)}
-					</div>
-
-					<div className="flex gap-4">
-						{project.website && (
-							<ExternalLinkButton
-								href={project.website}
-								icon={GlobeSVG}
-							>
-								Visit website
-							</ExternalLinkButton>
+						{"info" in project && (
+							<Tag isFilled>{project.info}</Tag>
 						)}
 
-						<ExternalLinkButton
-							href={project.github}
-							icon={GithubSVG}
-						>
-							Visit GitHub
-						</ExternalLinkButton>
+						<ProjectStatus status={project.status} />
 					</div>
 
-					<p className="w-full text-caption text-text-muted tabular-nums">
-						{project.duration}
-					</p>
-				</footer>
+					<ProjectDescription content={project.content} />
+				</div>
 
-				{isShowingHighlights && images && (
-					<Highlights title={project.title} images={images} />
+				{wasInView && (
+					<img
+						className="size-12 shrink-0 rounded-xl object-contain opacity-50 sm:size-16"
+						src={`/${project.title.replace(" ", "").toLowerCase()}-logo.png`}
+						alt=""
+					/>
 				)}
-			</article>
-		</li>
+			</header>
+
+			<ProjectTech techs={project.techs} />
+
+			<footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+				<div className="flex gap-2">
+					<ActionButton
+						onClick={() => workDetailsModal.show({ project })}
+						variant="primary"
+					>
+						<InfoSVG />
+						Details
+					</ActionButton>
+
+					{images && (
+						<ActionButton
+							onClick={() =>
+								setIsShowingHighlights(!isShowingHighlights)
+							}
+							aria-expanded={isShowingHighlights}
+						>
+							<ToggleArrow isOpen={isShowingHighlights} />
+							Highlights
+						</ActionButton>
+					)}
+				</div>
+
+				<div className="flex gap-4">
+					{project.website && (
+						<ExternalLinkButton
+							href={project.website}
+							icon={GlobeSVG}
+						>
+							Visit website
+						</ExternalLinkButton>
+					)}
+
+					<ExternalLinkButton href={project.github} icon={GithubSVG}>
+						Visit GitHub
+					</ExternalLinkButton>
+				</div>
+
+				<p className="w-full text-caption text-text-muted tabular-nums">
+					{project.duration}
+				</p>
+			</footer>
+
+			{isShowingHighlights && images && (
+				<Highlights title={project.title} images={images} />
+			)}
+		</article>
 	);
 };
 

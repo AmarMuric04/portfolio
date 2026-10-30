@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 import { FilterSVG, TECH_CATEGORIES, TECH_ICONS } from "@/assets";
 import { cycleFilter, filterStateOf } from "@/lib/filters";
 import { cn } from "@/lib/utils";
@@ -84,13 +82,7 @@ const ProjectFilters: React.FC<{
 		setCategoryFilter((filter) => cycleFilter({ filter, item: category }));
 
 	return (
-		<motion.section
-			className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-4 shadow-overlay"
-			transition={{ ease: "easeOut", duration: 0.3 }}
-			initial={{ opacity: 0, y: 16 }}
-			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, y: 16 }}
-		>
+		<section className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-4 shadow-surface">
 			<p className="text-caption text-text-muted">
 				Tap once to include, again to exclude, a third time to clear.
 			</p>
@@ -135,7 +127,7 @@ const ProjectFilters: React.FC<{
 			<p className="text-label text-text tabular-nums" aria-live="polite">
 				Showing {matchCount} of {totalCount} projects
 			</p>
-		</motion.section>
+		</section>
 	);
 };
 

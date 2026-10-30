@@ -1,4 +1,4 @@
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 import { type TECH_CATEGORIES, WORK } from "@/assets";
@@ -31,7 +31,7 @@ const ProjectList: React.FC = () => {
 	};
 
 	return (
-		<>
+		<div className="flex flex-col">
 			<ActionButton
 				onClick={handleFilterToggle}
 				aria-expanded={isFiltering}
@@ -41,25 +41,58 @@ const ProjectList: React.FC = () => {
 				{isFiltering ? "Clear filters" : "Add a filter"}
 			</ActionButton>
 
-			<AnimatePresence>
+			<AnimatePresence initial={false}>
 				{isFiltering && (
-					<ProjectFilters
-						setCategoryFilter={setCategoryFilter}
-						categoryFilter={categoryFilter}
-						setTechFilter={setTechFilter}
-						matchCount={visibleProjects.length}
-						totalCount={WORK.length}
-						techFilter={techFilter}
-					/>
+					<motion.div
+						exit={{
+							height: 0,
+							opacity: 0,
+							overflow: "hidden",
+							transition: { ease: "easeOut", duration: 0.3 },
+						}}
+						transition={{
+							ease: "easeOut",
+							duration: 0.3,
+							overflow: { delay: 0.3, duration: 0 },
+						}}
+						initial={{ height: 0, opacity: 0, overflow: "hidden" }}
+						animate={{
+							height: "auto",
+							opacity: 1,
+							overflow: "visible",
+						}}
+					>
+						<div className="pt-4">
+							<ProjectFilters
+								setCategoryFilter={setCategoryFilter}
+								categoryFilter={categoryFilter}
+								setTechFilter={setTechFilter}
+								matchCount={visibleProjects.length}
+								totalCount={WORK.length}
+								techFilter={techFilter}
+							/>
+						</div>
+					</motion.div>
 				)}
 			</AnimatePresence>
 
-			<ul className="flex flex-col gap-4">
-				{visibleProjects.map((project) => (
-					<Project key={project.title} project={project} />
-				))}
+			<ul className="mt-4 flex flex-col gap-4">
+				<AnimatePresence initial={false} mode="popLayout">
+					{visibleProjects.map((project) => (
+						<motion.li
+							transition={{ ease: "easeOut", duration: 0.3 }}
+							initial={{ opacity: 0, scale: 0.98 }}
+							exit={{ opacity: 0, scale: 0.98 }}
+							animate={{ opacity: 1, scale: 1 }}
+							key={project.title}
+							layout="position"
+						>
+							<Project project={project} />
+						</motion.li>
+					))}
+				</AnimatePresence>
 			</ul>
-		</>
+		</div>
 	);
 };
 
