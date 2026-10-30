@@ -4,7 +4,7 @@ const ProjectTech: React.FC<{
 	techs: (typeof WORK)[number]["techs"];
 }> = ({ techs }) => {
 	return (
-		<ul className="grid grid-cols-2 items-start gap-2 sm:grid-cols-4">
+		<ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
 			{TECH_CATEGORIES.filter(
 				(category) => techs[category].length > 0,
 			).map((category) => (
