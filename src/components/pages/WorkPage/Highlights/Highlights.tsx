@@ -20,46 +20,35 @@ const EASE_OUT_TRANSITION = { ease: "easeOut", duration: 0.3 } as const;
 const HighlightIndicator: React.FC<{
 	label: string;
 	isSelected: boolean;
-	layoutId: string;
 	onClick: () => void;
-}> = ({ label, isSelected, layoutId, onClick }) => {
+}> = ({ label, isSelected, onClick }) => {
 	return (
 		<motion.button
 			className={cn(
-				"relative grid h-6 cursor-pointer place-items-center rounded-md text-caption transition-colors duration-200",
-				{ "w-5 hover:bg-accent-tint": !isSelected },
+				"relative grid h-6 cursor-pointer place-items-center overflow-hidden rounded-md text-caption transition-colors duration-300 ease-out",
+				isSelected
+					? "bg-accent text-on-accent"
+					: "hover:bg-accent-tint",
 			)}
+			animate={{ width: isSelected ? "auto" : 20 }}
 			transition={EASE_OUT_TRANSITION}
 			aria-pressed={isSelected}
 			aria-label={label}
 			onClick={onClick}
+			initial={false}
 			type="button"
-			layout
 		>
-			{isSelected && (
-				<motion.span
-					className="absolute inset-0 rounded-md bg-accent"
-					transition={EASE_OUT_TRANSITION}
-					layoutId={layoutId}
-				/>
-			)}
+			<motion.span
+				className="px-2 whitespace-nowrap"
+				animate={{ opacity: isSelected ? 1 : 0 }}
+				transition={EASE_OUT_TRANSITION}
+				initial={false}
+			>
+				{label}
+			</motion.span>
 
-			{isSelected ? (
-				<motion.span
-					className="relative px-2 whitespace-nowrap text-on-accent"
-					transition={EASE_OUT_TRANSITION}
-					animate={{ opacity: 1 }}
-					initial={{ opacity: 0 }}
-					layout="position"
-				>
-					{label}
-				</motion.span>
-			) : (
-				<motion.span
-					className="size-2 rounded-xs bg-border-strong"
-					transition={EASE_OUT_TRANSITION}
-					layout="position"
-				/>
+			{!isSelected && (
+				<span className="absolute size-2 rounded-xs bg-border-strong" />
 			)}
 		</motion.button>
 	);
@@ -120,18 +109,13 @@ const Highlights: React.FC<{
 			<div className="flex items-center justify-between gap-4">
 				<ul className="flex flex-wrap items-center gap-1">
 					{images.map((image, index) => (
-						<motion.li
-							transition={EASE_OUT_TRANSITION}
-							key={image.image}
-							layout
-						>
+						<li key={image.image}>
 							<HighlightIndicator
 								onClick={() => handleIndicatorClick(index)}
 								isSelected={index === slide.index}
-								layoutId={`${title}-indicator`}
 								label={image.description}
 							/>
-						</motion.li>
+						</li>
 					))}
 				</ul>
 
