@@ -38,10 +38,11 @@ const Project: React.FC<{ project: (typeof WORK)[number] }> = ({ project }) => {
 		>
 			<header className="flex items-start gap-4">
 				<div className="flex min-w-0 flex-1 flex-col gap-2">
-					<div className="flex flex-wrap items-center gap-2">
-						<h2 className="text-card-title text-ink">
-							{project.title}
-						</h2>
+					<h2 className="text-card-title text-ink">
+						{project.title}
+					</h2>
+
+					<div className="flex flex-wrap items-center gap-1.5">
 						<Tag>{project.type}</Tag>
 
 						{"info" in project && (

@@ -158,7 +158,8 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   `text-text-muted`. Filled sage controls `bg-accent text-on-accent`; sage as
   text `text-accent-text`; quiet selected states `bg-accent-tint`; excluded
   `bg-danger-tint` with `border-danger`. Meaningful edges `border-border-strong`.
-  Status badges `text-status-live` / `-development` / `-archived`.
+  Status badges are filled: `bg-status-live` / `-development` / `-archived`
+  with `text-on-status`; tags `bg-inset text-text` or `bg-accent text-on-accent`.
 - Never a Tailwind palette color (`green-400`, `white`, `gray-500`), never
   translucent white or `backdrop-blur` on a surface that doesn't overlap
   content (the modal overlay is the one blur).
@@ -169,9 +170,10 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   to Framer Motion (`textShadow` arrays), which can't animate CSS variables.
 - Radius scale: surfaces (header, cards, modals, panels, floating buttons)
   `rounded-2xl`; tiles nested inside a surface (tech tiles, lists, images)
-  `rounded-xl`; buttons and chips `rounded-lg`. `rounded-full` only for shapes
-  that are meant to be round (avatar, pills, dots, progress bars, icon
-  circles). Never introduce another radius.
+  `rounded-xl`; buttons and chips `rounded-lg`; badges and gallery indicators
+  `rounded-md` (indicator dots `rounded-xs`). `rounded-full` only for shapes
+  that are meant to be round (avatar, progress bars, icon circles). Never
+  introduce another radius.
 - Type: only the seven styles `text-display` (Home name only),
   `text-page-title` (each page's `h1`), `text-card-title` (card and modal
   `h2`), `text-lead` (intros, Home bio), `text-body`, `text-label` (buttons,

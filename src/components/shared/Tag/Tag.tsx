@@ -7,8 +7,8 @@ const Tag: React.FC<React.PropsWithChildren<{ isFilled?: boolean }>> = ({
 	return (
 		<span
 			className={cn(
-				"inline-flex h-5 items-center rounded-full px-2 text-caption text-ink",
-				isFilled ? "bg-accent-tint" : "border border-border-strong",
+				"inline-flex h-5 items-center rounded-md px-1.5 text-caption",
+				isFilled ? "bg-accent text-on-accent" : "bg-inset text-text",
 			)}
 		>
 			{children}
