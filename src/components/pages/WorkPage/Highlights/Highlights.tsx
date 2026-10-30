@@ -139,7 +139,7 @@ const Highlights: React.FC<{
 			</div>
 
 			<div
-				className="relative aspect-[1.9] overflow-hidden rounded-xl bg-inset"
+				className="relative aspect-[1.9] overflow-hidden rounded-xl border border-hairline bg-inset"
 				aria-label={`${title} screenshots, use the arrow keys to browse`}
 				aria-roledescription="carousel"
 				tabIndex={0}

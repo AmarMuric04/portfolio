@@ -8,7 +8,10 @@ const ProjectTech: React.FC<{
 			{TECH_CATEGORIES.filter(
 				(category) => techs[category].length > 0,
 			).map((category) => (
-				<li className="rounded-xl bg-inset p-3" key={category}>
+				<li
+					className="rounded-xl border border-hairline bg-inset p-3"
+					key={category}
+				>
 					<p className="mb-2 text-caption text-accent-text uppercase">
 						{category}
 					</p>
