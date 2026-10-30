@@ -17,9 +17,10 @@ const ClassicExternalLink: React.FC<{
 					<ExternalLinkSVG />
 				</span>
 
-				<span>
-					<span className="text-ink">{title}</span>
-					<span className="text-text"> — {description}</span>
+				<span className="flex min-w-0 flex-col sm:flex-row sm:gap-2">
+					<span className="truncate text-ink">{title}</span>
+					<span className="hidden text-text-muted sm:inline">—</span>
+					<span className="truncate text-text">{description}</span>
 				</span>
 			</a>
 		</li>
