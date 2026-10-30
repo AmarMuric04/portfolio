@@ -8,11 +8,11 @@ const ToggleThemeButton: React.FC<{ className: string }> = ({ className }) => {
 	const { isLight, toggleTheme } = useTheme();
 
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		const bounds = event.currentTarget.getBoundingClientRect();
-
 		toggleTheme({
-			x: bounds.left + bounds.width / 2,
-			y: bounds.top + bounds.height / 2,
+			bounds: event.currentTarget.getBoundingClientRect(),
+			radius: Number.parseFloat(
+				getComputedStyle(event.currentTarget).borderTopLeftRadius,
+			),
 		});
 	};
 
