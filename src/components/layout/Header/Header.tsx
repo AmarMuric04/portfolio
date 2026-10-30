@@ -73,7 +73,7 @@ const Header: React.FC = () => {
 								>
 									{NAV_ITEMS.map(({ to, label, icon }) => (
 										<TabsTrigger
-											className="w-full justify-center text-label opacity-70 transition-opacity duration-200 hover:opacity-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus focus-visible:outline-solid data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
+											className="w-full justify-center text-label opacity-70 transition-opacity duration-200 isolate hover:opacity-100 focus-visible:outline-none focus-visible:before:absolute focus-visible:before:inset-x-[-0.5rem] focus-visible:before:inset-y-2 focus-visible:before:-z-10 focus-visible:before:rounded-lg focus-visible:before:bg-accent-tint data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
 											variant="nav"
 											value={to}
 											key={to}
