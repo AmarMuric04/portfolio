@@ -455,93 +455,86 @@ What makes this project so special to me is not just the functionality, but how 
 const OTHER_WORK = [
 	{
 		github: "https://github.com/AmarMuric04/electron-react-bootstrap-zustand-express-boilerplate",
-		description:
-			"An Electron Boilerplate with a complete introduction process already done.",
+		description: "Electron starter with onboarding",
 		title: "Electron Boilerplate",
 	},
 	{
-		description: "A full auth system with NextAuth, JWTs and Cookies.",
+		description: "NextAuth, JWT and cookies",
 		github: "https://github.com/AmarMuric04/auth-boilerplate",
 		title: "Next.js Auth Boilerplate",
 	},
 	{
 		github: "https://github.com/AmarMuric04/Py/tree/main/Day_20/snake_game",
-		description: "A classic Snake game implemented in Python.",
+		description: "Classic Snake in Python",
 		title: "Python snake",
 	},
 	{
-		description: "A simple Blackjack card game built with Python.",
+		description: "Blackjack in Python",
 		github: "https://github.com/AmarMuric04/Blackjack",
 		title: "Blackjack",
 	},
 	{
-		description: "A food recipe app for discovering and sharing recipes.",
+		description: "Share and discover recipes",
 		github: "https://github.com/AmarMuric04/Foodies",
 		title: "Foodies",
 	},
 	{
 		github: "https://github.com/AmarMuric04/JS-Vanilla-Tic-Tac-Toe",
-		description: "A Tic-Tac-Toe game built using plain JavaScript.",
+		description: "In plain JavaScript",
 		title: "Tic-Tac-Toe Vanilla Javascript",
 	},
 	{
-		description: "A Tic-Tac-Toe game implemented using React.",
+		description: "Built with React",
 		github: "https://github.com/AmarMuric04/Tic-Tac-Toe",
 		title: "Tic-Tac-Toe React",
 	},
 	{
-		description: "A fun app that generates random Chuck Norris jokes.",
+		description: "Random Chuck Norris jokes",
 		github: "https://github.com/AmarMuric04/Chuck-Norris-App",
 		title: "Chuck Norris App",
 	},
 	{
-		description:
-			"A weather app that fetches and displays current weather data.",
+		description: "Current weather lookup",
 		github: "https://github.com/AmarMuric04/Weather-App",
 		title: "Weather App",
 	},
 	{
-		description:
-			"A recipe search app built with JavaScript and modern web technologies.",
+		description: "Recipe search app",
 		github: "https://github.com/AmarMuric04/Forkify",
 		title: "Forkify",
 	},
 	{
-		description:
-			"A workout tracking app that uses geolocation to map exercises.",
+		description: "Map your workouts",
 		github: "https://github.com/AmarMuric04/Mapty",
 		title: "Mapty",
 	},
 	{
-		description:
-			"A minimalist banking app simulation built with JavaScript.",
+		description: "Minimal banking demo",
 		github: "https://github.com/AmarMuric04/Bankist",
 		title: "Bankist",
 	},
 	{
-		description:
-			"A simple memory card matching game to test your recall skills.",
+		description: "Card matching game",
 		github: "https://github.com/AmarMuric04/Memory-game",
 		title: "Memory Game",
 	},
 	{
-		description: "A dice game where players race to reach a target score.",
+		description: "Race-to-target dice game",
 		github: "https://github.com/AmarMuric04/Pig-Game-Modified",
 		title: "Pig Game",
 	},
 	{
-		description: "A digital clock application built with JavaScript.",
+		description: "Digital clock",
 		github: "https://github.com/AmarMuric04/Clock",
 		title: "Clock",
 	},
 	{
-		description: "A Rock Paper Scissors game implemented in JavaScript.",
+		description: "Play against the computer",
 		github: "https://github.com/AmarMuric04/Rock-Paper-Scissors",
 		title: "Rock Paper Scissors",
 	},
 	{
-		description:
-			"A clone of the Amazon's e-commerce built for learning purposes.",
+		description: "Amazon storefront clone",
 		github: "https://github.com/AmarMuric04/Amazon-Clone",
 		title: "Amazon Clone",
 	},
