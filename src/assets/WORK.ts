@@ -25,7 +25,7 @@ const WORK = [
 		learningOutcomes:
 			"Strengthened my skills in building scalable, developer-first templates and reinforced best practices for modular design and authentication flows.",
 		contributions:
-			"Sole developer responsible for the entire project—frontend architecture, backend logic, authentication, and design.",
+			"Sole developer responsible for the entire project: frontend architecture, backend logic, authentication, and design.",
 		userFeedback:
 			"Developers have praised the project for its clean architecture, ease of setup, and developer-friendly design.",
 		accessibility:
@@ -40,7 +40,7 @@ const WORK = [
 		status: "Live",
 	},
 	{
-		myThoughts: `GoVault represents a significant milestone in my development journey—a secure and intuitive password manager built with Next.js. This project challenged me to delve deep into encryption techniques and user-centric design, ensuring both functionality and security. The experience honed my skills in full-stack development and reinforced the importance of safeguarding user data.`,
+		myThoughts: `GoVault represents a significant milestone in my development journey: a secure and intuitive password manager built with Next.js. This project challenged me to delve deep into encryption techniques and user-centric design, ensuring both functionality and security. The experience honed my skills in full-stack development and reinforced the importance of safeguarding user data.`,
 		content:
 			"GoVault is a web-based password manager that allows users to securely store and manage their credentials. Key features include customizable password generation, detailed user statistics, and a responsive interface that prioritizes user experience.",
 		techs: {
@@ -111,7 +111,7 @@ const WORK = [
 	},
 	{
 		myThoughts:
-			"While on a family vacation, I stumbled upon Framer Motion and was instantly captivated by its potential. This inspired me to create DineDivine—a project where my passion for culinary exploration meets innovative web design. During the development process, I challenged myself to blend smooth, captivating animations with an interactive user experience that truly engages. Every step, from implementing intricate transitions to integrating AI-powered meal recommendations, pushed me to expand my skills and embrace creative problem-solving. Reflecting on the journey, I'm proud of how DineDivine turned out. It not only represents my technical growth but also my commitment to delivering an immersive, intuitive platform that makes discovering great food both delightful and seamless.",
+			"While on a family vacation, I stumbled upon Framer Motion and was instantly captivated by its potential. This inspired me to create DineDivine, a project where my passion for culinary exploration meets innovative web design. During the development process, I challenged myself to blend smooth, captivating animations with an interactive user experience that truly engages. Every step, from implementing intricate transitions to integrating AI-powered meal recommendations, pushed me to expand my skills and embrace creative problem-solving. Reflecting on the journey, I'm proud of how DineDivine turned out. It not only represents my technical growth but also my commitment to delivering an immersive, intuitive platform that makes discovering great food both delightful and seamless.",
 		content:
 			"A modern culinary experience platform featuring restaurant discovery, recipe sharing, and AI-powered meal recommendations. Built as a single-page application with heavy emphasis on smooth animations and transitions using Framer Motion. Includes dynamic content loading and interactive UI elements.",
 		techs: {
@@ -158,9 +158,9 @@ const WORK = [
 		status: "Live",
 	},
 	{
-		myThoughts: `Lelegram is my most ambitious and recent project—a full-featured Telegram clone that embodies everything I've learned over the past year in web development and design. After completing my MERN journey and stepping into the full-stack world, I challenged myself to build an application that not only mimics Telegram’s core functionalities but also pushes the boundaries of what I thought was possible in just three weeks.
+		myThoughts: `Lelegram is my most ambitious and recent project, a full-featured Telegram clone that embodies everything I've learned over the past year in web development and design. After completing my MERN journey and stepping into the full-stack world, I challenged myself to build an application that not only mimics Telegram’s core functionalities but also pushes the boundaries of what I thought was possible in just three weeks.
 
-This project features an extensive array of functionalities and I’m incredibly proud of how seamlessly it works—every feature is designed to provide an intuitive and responsive user experience. The name 'Lelegram' is a playful nod to a legendary Serbian phrase, reflecting my cultural roots and adding a unique twist to the project. Overall, Lelegram is not just a messaging app; it's a testament to my growth as a developer and a celebration of the skills I’ve honed throughout my journey.`,
+This project features an extensive array of functionalities and I’m incredibly proud of how seamlessly it works. Every feature is designed to provide an intuitive and responsive user experience. The name 'Lelegram' is a playful nod to a legendary Serbian phrase, reflecting my cultural roots and adding a unique twist to the project. Overall, Lelegram is not just a messaging app; it's a testament to my growth as a developer and a celebration of the skills I’ve honed throughout my journey.`,
 		techs: {
 			frontend: ["React", "Material UI", "Tailwind CSS", "JavaScript"],
 			other: ["Cloudinary", "JWT", "WebSockets", "Redux"],
@@ -201,7 +201,7 @@ This project features an extensive array of functionalities and I’m incredibly
 	},
 	{
 		myThoughts:
-			"Learnify was one of those wild hackathon moments that I'll never forget. My teammates—Dzenis G, Amin N, and Hasan M—and I built this course platform in just one day. It's like Udemy, but designed specifically for elementary schools, with all the bells and whistles like video streaming, progress tracking, and even AI-powered recommendations. We actually lost the first 12 hours because of Git issues, so we really only had about 12 hours to put everything together. Despite that rocky start, we managed to pull off a feature-packed and beautifully designed project that completely blew the competition away. I even remember peeking through the school’s glass door and seeing everyone so focused on their work—it was a bit nerve-wracking, but it pushed us to deliver our best. In the end, our quick thinking and determination earned us first place at the UNINP Hackathon 2024. It was an intense day, but one that truly showed what can be achieved under pressure.",
+			"Learnify was one of those wild hackathon moments that I'll never forget. My teammates (Dzenis G, Amin N and Hasan M) and I built this course platform in just one day. It's like Udemy, but designed specifically for elementary schools, with all the bells and whistles like video streaming, progress tracking, and even AI-powered recommendations. We actually lost the first 12 hours because of Git issues, so we really only had about 12 hours to put everything together. Despite that rocky start, we managed to pull off a feature-packed and beautifully designed project that completely blew the competition away. I even remember peeking through the school’s glass door and seeing everyone so focused on their work. It was a bit nerve-wracking, but it pushed us to deliver our best. In the end, our quick thinking and determination earned us first place at the UNINP Hackathon 2024. It was an intense day, but one that truly showed what can be achieved under pressure.",
 		techs: {
 			frontend: [
 				"Next.js",
@@ -249,7 +249,7 @@ This project features an extensive array of functionalities and I’m incredibly
 	},
 	{
 		myThoughts:
-			"Social Media was a fun experiment I started right after wrapping up my last MERN course. I built it to test my full-stack skills and explore real-time updates, and it turned out to be a great learning experience. The homepage is entirely my design, while the posts page takes inspiration from Twitter and the account page blends ideas from Twitter and LinkedIn. A quirky bit of timing was that I kicked off this project around the time TikTok was rumored to be banned in the US, which added an extra layer of excitement to the whole thing. It was also my first time using Socket.IO, and I loved how it transformed the user experience with live updates—I’m definitely planning to use it in all of my future projects.",
+			"Social Media was a fun experiment I started right after wrapping up my last MERN course. I built it to test my full-stack skills and explore real-time updates, and it turned out to be a great learning experience. The homepage is entirely my design, while the posts page takes inspiration from Twitter and the account page blends ideas from Twitter and LinkedIn. A quirky bit of timing was that I kicked off this project around the time TikTok was rumored to be banned in the US, which added an extra layer of excitement to the whole thing. It was also my first time using Socket.IO, and I loved how it transformed the user experience with live updates, and I’m definitely planning to use it in all of my future projects.",
 		content:
 			"Full-stack MERN social network with real-time features including post creation/editing, liking/commenting, bookmarking, and notifications. Implements user authentication, feed filtering, and Socket.IO for live updates.",
 		techs: {
@@ -289,9 +289,9 @@ This project features an extensive array of functionalities and I’m incredibly
 		status: "Live",
 	},
 	{
-		myThoughts: `SolveBox is one of my latest projects and a bit of a departure from my usual app-based work. I built it as a school project using plain JavaScript, and it focuses on showing algorithms that help solve different puzzles. I designed the whole thing myself and organized the code using an MVC structure, which really helped keep everything neat despite the project's size—it's probably the biggest website I've ever put together in terms of pages and information.
+		myThoughts: `SolveBox is one of my latest projects and a bit of a departure from my usual app-based work. I built it as a school project using plain JavaScript, and it focuses on showing algorithms that help solve different puzzles. I designed the whole thing myself and organized the code using an MVC structure, which really helped keep everything neat despite the project's size. It's probably the biggest website I've ever put together in terms of pages and information.
 
-What really makes SolveBox stand out is the extra touches I added along the way. For instance, I incorporated a built-in translator for Serbian, which I thought would be a neat feature to help users who prefer that language. I also experimented with interactive algorithm visualizations and step-by-step tutorials that not only look good but make understanding the underlying processes much easier. Overall, I'm really proud of how SolveBox turned out—it’s a project that blends a lot of learning with creativity, and it shows just how far I've come in my coding journey.`,
+What really makes SolveBox stand out is the extra touches I added along the way. For instance, I incorporated a built-in translator for Serbian, which I thought would be a neat feature to help users who prefer that language. I also experimented with interactive algorithm visualizations and step-by-step tutorials that not only look good but make understanding the underlying processes much easier. Overall, I'm really proud of how SolveBox turned out. It’s a project that blends a lot of learning with creativity, and it shows just how far I've come in my coding journey.`,
 		content:
 			"Interactive puzzle-solving platform featuring algorithm visualization, step-by-step tutorials, and challenge exercises. Includes various puzzle types with difficulty levels and progress tracking.",
 		keyFeatures: [
@@ -331,7 +331,7 @@ What really makes SolveBox stand out is the extra touches I added along the way.
 	},
 	{
 		myThoughts:
-			"Blajvinance marked a significant milestone in my React journey. It all began after I discovered React Context, which inspired me to build a project that would test and expand my newfound skills. I set out to create a Binance-inspired cryptocurrency exchange, complete with real-time market data, dynamic charting, and interactive portfolio tracking. The project name is a playful nod to my Serbian roots, and it perfectly encapsulates my enthusiasm for both web development and crypto. Despite being developed in a short span, Blajvinance not only looks sleek and modern but also functions flawlessly, especially in handling numerical computations and currency transactions—a first for me. I’m incredibly proud of how this project turned out, as it challenged me to master new concepts and work efficiently under time constraints while delivering a robust, user-friendly experience.",
+			"Blajvinance marked a significant milestone in my React journey. It all began after I discovered React Context, which inspired me to build a project that would test and expand my newfound skills. I set out to create a Binance-inspired cryptocurrency exchange, complete with real-time market data, dynamic charting, and interactive portfolio tracking. The project name is a playful nod to my Serbian roots, and it perfectly encapsulates my enthusiasm for both web development and crypto. Despite being developed in a short span, Blajvinance not only looks sleek and modern but also functions flawlessly, especially in handling numerical computations and currency transactions, a first for me. I’m incredibly proud of how this project turned out, as it challenged me to master new concepts and work efficiently under time constraints while delivering a robust, user-friendly experience.",
 		content:
 			"Binance-inspired cryptocurrency exchange interface featuring real-time market data visualization, portfolio tracking, and simulated trading. Implements complex charting functionalities and wallet management systems.",
 		keyFeatures: [
@@ -371,7 +371,7 @@ What really makes SolveBox stand out is the extra touches I added along the way.
 	},
 	{
 		myThoughts:
-			"Shopping was one of those early projects where I really got my hands dirty with React. I was just starting out with React Router DOM, and I decided to create something that would let me experiment with new features and design ideas. I spent a lot of time tweaking the product filtering and cart management to make them as smooth as possible, and trying out Stripe integration was a real learning curve. I even went with a bold green color scheme because it’s my favorite—and it really gives the site a unique vibe. Although I set the project aside after a couple of weeks (since I hadn’t yet learned backend stuff), working on it taught me so much about building user interfaces and handling tricky integrations. It was a fun, hands-on way to see what I could achieve with React, and it definitely helped shape my approach to future projects.",
+			"Shopping was one of those early projects where I really got my hands dirty with React. I was just starting out with React Router DOM, and I decided to create something that would let me experiment with new features and design ideas. I spent a lot of time tweaking the product filtering and cart management to make them as smooth as possible, and trying out Stripe integration was a real learning curve. I even went with a bold green color scheme because it’s my favorite, and it really gives the site a unique vibe. Although I set the project aside after a couple of weeks (since I hadn’t yet learned backend stuff), working on it taught me so much about building user interfaces and handling tricky integrations. It was a fun, hands-on way to see what I could achieve with React, and it definitely helped shape my approach to future projects.",
 		content:
 			"Full-featured online shopping experience with product catalog, cart management, and Stripe payment integration. Features product filtering, wishlist functionality, and order history tracking.",
 		keyFeatures: [
@@ -410,9 +410,9 @@ What really makes SolveBox stand out is the extra touches I added along the way.
 		title: "Shopping",
 	},
 	{
-		myThoughts: `Newsly is honestly my first real dive into coding—a Google News clone built with nothing but vanilla JavaScript. I won't lie; looking at its code now might even give you a heart attack! Back then, I was just figuring things out, and the project ended up being a mix of excitement and chaos. I had to work around a pretty annoying API that would reset after only 20 fetches, so I ended up juggling around 15 different ones just to keep the news rolling. Even with all that hassle, Newsly still delivers the latest news with a simple, responsive design that I've always appreciated.
+		myThoughts: `Newsly is honestly my first real dive into coding: a Google News clone built with nothing but vanilla JavaScript. I won't lie; looking at its code now might even give you a heart attack! Back then, I was just figuring things out, and the project ended up being a mix of excitement and chaos. I had to work around a pretty annoying API that would reset after only 20 fetches, so I ended up juggling around 15 different ones just to keep the news rolling. Even with all that hassle, Newsly still delivers the latest news with a simple, responsive design that I've always appreciated.
 
-What makes this project so special to me is not just the functionality, but how it marks the starting point of my journey. Every line of messy code is a reminder of how far I've come. I learned so much about API integration, performance optimization (especially with that infinite scroll), and just handling the ups and downs of real-world programming. Despite its rough edges, Newsly has a charm of its own—it's a tangible snapshot of my growth as a developer, and I’m proud to see it still live and kicking.`,
+What makes this project so special to me is not just the functionality, but how it marks the starting point of my journey. Every line of messy code is a reminder of how far I've come. I learned so much about API integration, performance optimization (especially with that infinite scroll), and just handling the ups and downs of real-world programming. Despite its rough edges, Newsly has a charm of its own. It's a tangible snapshot of my growth as a developer, and I’m proud to see it still live and kicking.`,
 		content:
 			"Google News-style aggregator built with vanilla JavaScript, featuring category filtering, search functionality, and news source highlighting. Implements infinite scroll and responsive layout.",
 		keyFeatures: [

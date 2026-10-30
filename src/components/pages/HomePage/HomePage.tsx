@@ -91,7 +91,7 @@ const HomePage: React.FC = () => {
 						I thrive on taking rough, abstract ideas and turning
 						them into fully functional, well-designed products
 						<UnhideButton>
-							—whether it’s crafting intuitive user interfaces,
+							, whether it’s crafting intuitive user interfaces,
 							designing scalable and efficient backends,
 							optimizing databases, or automating deployment{" "}
 							<strong>pipelines with CI/CD tools.</strong>

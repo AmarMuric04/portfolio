@@ -182,6 +182,8 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
 - Buttons are `ActionButton` with `variant` `primary` (one per card),
   `secondary` or `ghost`; links out are `ExternalLinkButton`. Sentence-case
   labels ("Show more", "Visit GitHub").
+- No em-dashes (—) anywhere in copy or data; use a comma, colon,
+  parentheses or a full stop. List separators are a muted `·`.
 - Every interactive element keeps the global `:focus-visible` ring. Removing an
   outline requires replacing it with `focus-visible:outline-*` classes.
 - Animations: default `ease-out`, 0.2–0.3s (never >1s); hover `ease` 200ms.
