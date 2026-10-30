@@ -1,4 +1,5 @@
 import NiceModal from "@ebay/nice-modal-react";
+import { useState } from "react";
 
 import { GithubSVG, GlobeSVG, type WORK, WORK_READMES } from "@/assets";
 import {
@@ -6,22 +7,32 @@ import {
 	Modal,
 	ProjectStatus,
 	Tag,
+	UnderlineTab,
 } from "@/components/shared";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 
 import { DetailTile } from "./DetailTile";
 import { NumberedList } from "./NumberedList";
 import { ProjectOverview } from "./ProjectOverview";
 import { Readme } from "./Readme";
 
+const DETAIL_TABS = [
+	{ value: "overview", label: "Overview" },
+	{ value: "features", label: "Features" },
+	{ value: "thoughts", label: "My thoughts" },
+	{ value: "readme", label: "README" },
+];
+
 const WorkDetailsModal = NiceModal.create<{
 	project: (typeof WORK)[number];
 }>(({ project }) => {
+	const [selectedTab, setSelectedTab] = useState("overview");
+
 	const readme = WORK_READMES[project.title];
 
 	return (
 		<Modal title={project.title}>
-			<div className="flex flex-col gap-3 border-b border-hairline pb-4">
+			<div className="flex flex-col gap-3">
 				<div className="flex flex-wrap items-center gap-2">
 					<Tag>{project.type}</Tag>
 
@@ -50,12 +61,27 @@ const WorkDetailsModal = NiceModal.create<{
 				</div>
 			</div>
 
-			<Tabs className="mt-4 min-h-0 flex-1 gap-4" defaultValue="overview">
-				<TabsList variant="line">
-					<TabsTrigger value="overview">Overview</TabsTrigger>
-					<TabsTrigger value="features">Features</TabsTrigger>
-					<TabsTrigger value="thoughts">My thoughts</TabsTrigger>
-					{readme && <TabsTrigger value="readme">README</TabsTrigger>}
+			<Tabs
+				className="mt-4 min-h-0 flex-1 gap-4"
+				onValueChange={setSelectedTab}
+				value={selectedTab}
+			>
+				<TabsList
+					className="h-10 w-full gap-6 border-b border-hairline"
+					variant="nav"
+				>
+					{DETAIL_TABS.filter(
+						({ value }) => value !== "readme" || readme,
+					).map(({ value, label }) => (
+						<UnderlineTab
+							isSelected={selectedTab === value}
+							layoutId="details-underline"
+							value={value}
+							key={value}
+						>
+							{label}
+						</UnderlineTab>
+					))}
 				</TabsList>
 
 				<TabsContent
