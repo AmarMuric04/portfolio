@@ -21,6 +21,7 @@
 	--color-status-live: var(--status-live);
 	--color-status-development: var(--status-development);
 	--color-status-archived: var(--status-archived);
+	--color-on-status: var(--on-status);
 	--color-focus: var(--focus);
 	--color-overlay: var(--overlay);
 
@@ -94,6 +95,7 @@
 	--status-live: #b4232f;
 	--status-development: #8a5a00;
 	--status-archived: #5f6360;
+	--on-status: #ffffff;
 	--focus: #1e201e;
 	--overlay: #1e201e80;
 	--surface-shadow: 0 1px 2px #1e201e14, 0 4px 12px #1e201e0f;
@@ -118,6 +120,7 @@
 	--status-live: #f0737b;
 	--status-development: #e6b34a;
 	--status-archived: #a3a69e;
+	--on-status: #1e201e;
 	--focus: #ecdfcc;
 	--overlay: #00000099;
 	--surface-shadow: 0 1px 2px #00000040;
