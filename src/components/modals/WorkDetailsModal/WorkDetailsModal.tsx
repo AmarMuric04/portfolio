@@ -9,6 +9,7 @@ import {
 } from "@/components/shared";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import { DetailTile } from "./DetailTile";
 import { NumberedList } from "./NumberedList";
 import { ProjectOverview } from "./ProjectOverview";
 import { Readme } from "./Readme";
@@ -20,31 +21,36 @@ const WorkDetailsModal = NiceModal.create<{
 
 	return (
 		<Modal title={project.title}>
-			<div className="flex flex-wrap items-center gap-2">
-				<Tag>{project.type}</Tag>
+			<div className="flex flex-col gap-3 border-b border-hairline pb-4">
+				<div className="flex flex-wrap items-center gap-2">
+					<Tag>{project.type}</Tag>
 
-				{"info" in project && <Tag isFilled>{project.info}</Tag>}
+					{"info" in project && <Tag isFilled>{project.info}</Tag>}
 
-				<ProjectStatus status={project.status} />
+					<ProjectStatus status={project.status} />
 
-				<p className="text-caption text-text-muted tabular-nums">
-					{project.duration}
-				</p>
-			</div>
+					<p className="text-caption text-text-muted tabular-nums">
+						{project.duration}
+					</p>
+				</div>
 
-			<div className="mt-3 flex flex-wrap gap-4">
-				{project.website && (
-					<ExternalLinkButton href={project.website} icon={GlobeSVG}>
-						Visit website
+				<div className="flex flex-wrap gap-4">
+					{project.website && (
+						<ExternalLinkButton
+							href={project.website}
+							icon={GlobeSVG}
+						>
+							Visit website
+						</ExternalLinkButton>
+					)}
+
+					<ExternalLinkButton href={project.github} icon={GithubSVG}>
+						Visit GitHub
 					</ExternalLinkButton>
-				)}
-
-				<ExternalLinkButton href={project.github} icon={GithubSVG}>
-					Visit GitHub
-				</ExternalLinkButton>
+				</div>
 			</div>
 
-			<Tabs className="mt-4 gap-4" defaultValue="overview">
+			<Tabs className="mt-4 min-h-0 flex-1 gap-4" defaultValue="overview">
 				<TabsList variant="line">
 					<TabsTrigger value="overview">Overview</TabsTrigger>
 					<TabsTrigger value="features">Features</TabsTrigger>
@@ -52,30 +58,40 @@ const WorkDetailsModal = NiceModal.create<{
 					{readme && <TabsTrigger value="readme">README</TabsTrigger>}
 				</TabsList>
 
-				<TabsContent value="overview">
+				<TabsContent
+					className="min-h-0 overflow-y-auto"
+					value="overview"
+				>
 					<ProjectOverview project={project} />
 				</TabsContent>
 
-				<TabsContent className="flex flex-col gap-4" value="features">
-					<section className="flex flex-col gap-2">
-						<h3 className="text-label text-ink">What it does</h3>
+				<TabsContent
+					className="grid min-h-0 content-start gap-2 overflow-y-auto sm:grid-cols-2"
+					value="features"
+				>
+					<DetailTile title="What it does">
 						<NumberedList items={project.keyFeatures} />
-					</section>
+					</DetailTile>
 
-					<section className="flex flex-col gap-2">
-						<h3 className="text-label text-ink">
-							What I’d add next
-						</h3>
+					<DetailTile title="What I’d add next">
 						<NumberedList items={project.futurePlans} />
-					</section>
+					</DetailTile>
 				</TabsContent>
 
-				<TabsContent value="thoughts">
-					<p className="text-body">{project.myThoughts}</p>
+				<TabsContent
+					className="min-h-0 overflow-y-auto"
+					value="thoughts"
+				>
+					<p className="rounded-xl bg-inset p-3 text-body whitespace-pre-line">
+						{project.myThoughts.trim()}
+					</p>
 				</TabsContent>
 
 				{readme && (
-					<TabsContent value="readme">
+					<TabsContent
+						className="min-h-0 overflow-y-auto rounded-xl border border-hairline p-4"
+						value="readme"
+					>
 						<Readme markdown={readme} />
 					</TabsContent>
 				)}
