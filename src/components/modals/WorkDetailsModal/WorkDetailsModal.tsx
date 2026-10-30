@@ -92,7 +92,7 @@ const WorkDetailsModal = NiceModal.create<{
 				</TabsContent>
 
 				<TabsContent
-					className="grid min-h-0 content-start gap-2 overflow-y-auto sm:grid-cols-2"
+					className="flex min-h-0 flex-col gap-2 overflow-y-auto"
 					value="features"
 				>
 					<DetailTile title="What it does">
