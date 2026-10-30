@@ -12,7 +12,7 @@ const SOCIAL_LINKS = [
 	},
 	{
 		label: "LinkedIn",
-		href: "https://www.linkedin.com/in/amar-muri%C4%87-52564b2a2/",
+		href: "https://www.linkedin.com/in/amar-muric-52564b2a2/",
 		icon: LinkedInSVG,
 		isExternal: true,
 	},
