@@ -8,7 +8,7 @@ const ClassicExternalLink: React.FC<{
 	return (
 		<li>
 			<a
-				className="group flex gap-3 rounded-xl border border-hairline bg-surface p-3 text-body transition-colors duration-200 hover:bg-accent-tint"
+				className="group flex gap-3 rounded-xl border border-hairline bg-surface sheen p-3 text-body transition-colors duration-200 hover:bg-accent-tint"
 				target="_blank"
 				rel="noreferrer"
 				href={href}
