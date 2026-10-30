@@ -15,6 +15,56 @@ const SLIDE_VARIANTS = {
 	exit: (direction: number) => ({ x: `${direction * -100}%` }),
 };
 
+const EASE_OUT_TRANSITION = { ease: "easeOut", duration: 0.3 } as const;
+
+const HighlightIndicator: React.FC<{
+	label: string;
+	isSelected: boolean;
+	layoutId: string;
+	onClick: () => void;
+}> = ({ label, isSelected, layoutId, onClick }) => {
+	return (
+		<motion.button
+			className={cn(
+				"relative grid h-6 cursor-pointer place-items-center rounded-md text-caption transition-colors duration-200",
+				{ "w-5 hover:bg-accent-tint": !isSelected },
+			)}
+			transition={EASE_OUT_TRANSITION}
+			aria-pressed={isSelected}
+			aria-label={label}
+			onClick={onClick}
+			type="button"
+			layout
+		>
+			{isSelected && (
+				<motion.span
+					className="absolute inset-0 rounded-md bg-accent"
+					transition={EASE_OUT_TRANSITION}
+					layoutId={layoutId}
+				/>
+			)}
+
+			{isSelected ? (
+				<motion.span
+					className="relative px-2 whitespace-nowrap text-on-accent"
+					transition={EASE_OUT_TRANSITION}
+					animate={{ opacity: 1 }}
+					initial={{ opacity: 0 }}
+					layout="position"
+				>
+					{label}
+				</motion.span>
+			) : (
+				<motion.span
+					className="size-2 rounded-xs bg-border-strong"
+					transition={EASE_OUT_TRANSITION}
+					layout="position"
+				/>
+			)}
+		</motion.button>
+	);
+};
+
 const Highlights: React.FC<{
 	images: NonNullable<(typeof WORK_HIGHLIGHTS)[string]>;
 	title: string;
@@ -70,22 +120,18 @@ const Highlights: React.FC<{
 			<div className="flex items-center justify-between gap-4">
 				<ul className="flex flex-wrap items-center gap-1">
 					{images.map((image, index) => (
-						<li key={image.image}>
-							<button
-								className={cn(
-									"grid h-6 cursor-pointer place-items-center rounded-md text-caption transition-colors duration-200",
-									index === slide.index
-										? "bg-accent px-2 text-on-accent"
-										: "w-5 before:size-2 before:rounded-xs before:bg-border-strong before:content-[''] hover:bg-accent-tint",
-								)}
+						<motion.li
+							transition={EASE_OUT_TRANSITION}
+							key={image.image}
+							layout
+						>
+							<HighlightIndicator
 								onClick={() => handleIndicatorClick(index)}
-								aria-pressed={index === slide.index}
-								aria-label={image.description}
-								type="button"
-							>
-								{index === slide.index && image.description}
-							</button>
-						</li>
+								isSelected={index === slide.index}
+								layoutId={`${title}-indicator`}
+								label={image.description}
+							/>
+						</motion.li>
 					))}
 				</ul>
 
@@ -118,7 +164,7 @@ const Highlights: React.FC<{
 					{selectedImage && (
 						<motion.img
 							className="absolute inset-0 size-full object-cover object-top"
-							transition={{ ease: "easeOut", duration: 0.3 }}
+							transition={EASE_OUT_TRANSITION}
 							alt={selectedImage.description}
 							custom={slide.direction}
 							key={selectedImage.image}
