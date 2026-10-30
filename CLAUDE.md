@@ -84,6 +84,12 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
 - No abbreviated identifiers — spell the full word: `event` not `e`,
   `education` not `edu`, `previous` not `prev`. `id` is a word, not an
   abbreviation.
+- One UI pattern, one component. Before building any control (tabs, chips,
+  tiles, badges, buttons), find where the app already does it and reuse that
+  exact component and its states (hover, focus, motion). If the existing one
+  lives inside a single consumer, extract it to `shared/` first. Tabs are
+  `UnderlineTab` (animated underline, pill focus), never shadcn's `line`
+  variant.
 - Reuse shared/shadcn components from `@/components/shared` and
   `@/components/ui`. Never hand-roll an equivalent. If one lacks a style you
   need, extend it with a prop rather than building a one-off in the consumer.

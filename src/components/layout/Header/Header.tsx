@@ -1,8 +1,8 @@
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { UnderlineTab } from "@/components/shared";
+import { Tabs, TabsList } from "@/components/ui/tabs";
 import { useIntersectionObserver } from "@/hooks";
 import { cn } from "@/lib/utils";
 
@@ -72,43 +72,26 @@ const Header: React.FC = () => {
 									variant="nav"
 								>
 									{NAV_ITEMS.map(({ to, label, icon }) => (
-										<TabsTrigger
-											className="w-full justify-center text-label opacity-70 transition-opacity duration-200 isolate hover:opacity-100 focus-visible:outline-none focus-visible:before:absolute focus-visible:before:inset-x-[-0.5rem] focus-visible:before:inset-y-2 focus-visible:before:-z-10 focus-visible:before:rounded-lg focus-visible:before:bg-accent-tint data-[state=active]:opacity-100 sm:w-auto sm:justify-start"
-											variant="nav"
+										<UnderlineTab
+											className="w-full justify-center sm:w-auto sm:justify-start"
+											isSelected={
+												location.pathname === to
+											}
+											layoutId="nav-underline"
 											value={to}
 											key={to}
-											asChild
+											to={to}
 										>
-											<Link
-												aria-current={
+											<NavIcon
+												isFilled={
 													location.pathname === to
-														? "page"
-														: undefined
 												}
-												to={to}
-											>
-												<NavIcon
-													isFilled={
-														location.pathname === to
-													}
-													name={icon}
-												/>
-												<span className="sr-only sm:not-sr-only">
-													{label}
-												</span>
-
-												{location.pathname === to && (
-													<motion.div
-														className="absolute bottom-0 left-0 h-0.5 w-full bg-ink"
-														transition={{
-															ease: "easeOut",
-															duration: 0.3,
-														}}
-														layoutId="underline"
-													/>
-												)}
-											</Link>
-										</TabsTrigger>
+												name={icon}
+											/>
+											<span className="sr-only sm:not-sr-only">
+												{label}
+											</span>
+										</UnderlineTab>
 									))}
 								</TabsList>
 							</Tabs>
