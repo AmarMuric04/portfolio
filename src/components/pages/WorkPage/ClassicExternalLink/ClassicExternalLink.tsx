@@ -19,7 +19,7 @@ const ClassicExternalLink: React.FC<{
 
 				<span className="flex min-w-0 flex-col sm:flex-row sm:gap-2">
 					<span className="truncate text-ink">{title}</span>
-					<span className="hidden text-text-muted sm:inline">—</span>
+					<span className="hidden text-text-muted sm:inline">·</span>
 					<span className="truncate text-text">{description}</span>
 				</span>
 			</a>
