@@ -134,6 +134,16 @@
 	background-image: var(--surface-sheen);
 }
 
+@utility sheen-glow {
+	background-image:
+		radial-gradient(
+			circle at top left,
+			color-mix(in oklab, var(--accent) 22%, transparent),
+			transparent 28rem
+		),
+		var(--surface-sheen);
+}
+
 @layer base {
 	::selection {
 		@apply bg-accent text-on-accent;
