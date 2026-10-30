@@ -40,7 +40,7 @@ const Modal: React.FC<React.PropsWithChildren<{ title: string }>> = ({
 							asChild
 						>
 							<motion.div
-								className="fixed top-1/2 left-1/2 z-50 flex h-[min(42rem,calc(100dvh-2rem))] w-[min(56rem,calc(100%-2rem))] -translate-x-1/2 -translate-y-1/2 flex-col rounded-2xl border border-hairline bg-surface sheen-glow p-4 text-text shadow-overlay sm:p-6"
+								className="fixed top-1/2 left-1/2 z-50 flex h-[min(48rem,calc(100dvh-2rem))] w-[95%] -translate-x-1/2 -translate-y-1/2 flex-col rounded-2xl border border-hairline bg-surface sheen-glow p-4 text-text shadow-overlay sm:p-6 md:w-[40rem]"
 								transition={{ ease: "easeOut", duration: 0.2 }}
 								initial={{ opacity: 0, scale: 0.98, y: 16 }}
 								exit={{ opacity: 0, scale: 0.98, y: 16 }}
