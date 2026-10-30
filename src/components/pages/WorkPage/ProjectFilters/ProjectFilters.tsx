@@ -36,7 +36,7 @@ const FilterChip: React.FC<
 	return (
 		<button
 			className={cn(
-				"flex h-8 cursor-pointer items-center gap-2 rounded-lg border px-2 text-label text-ink transition-colors duration-200 hover:bg-accent-tint",
+				"flex h-20 w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border p-2 text-center text-caption text-ink transition-colors duration-200 hover:bg-accent-tint",
 				FILTER_STATES[state].className,
 				className,
 			)}
@@ -45,7 +45,7 @@ const FilterChip: React.FC<
 			type="button"
 		>
 			{children}
-			{label}
+			<span className="line-clamp-2">{label}</span>
 		</button>
 	);
 };
@@ -90,7 +90,7 @@ const ProjectFilters: React.FC<{
 			<section className="flex flex-col gap-2">
 				<FilterHeading title="Technologies" />
 
-				<ul className="flex flex-wrap gap-2">
+				<ul className="grid grid-cols-[repeat(auto-fill,minmax(6rem,1fr))] gap-2">
 					{Object.entries(TECH_ICONS).map(([tech, Icon]) => (
 						<li key={tech}>
 							<FilterChip
@@ -98,7 +98,7 @@ const ProjectFilters: React.FC<{
 								filter={techFilter}
 								label={tech}
 							>
-								<span className="grid size-4 shrink-0 place-items-center [&>svg]:size-4">
+								<span className="grid size-6 shrink-0 place-items-center [&>svg]:size-6">
 									<Icon />
 								</span>
 							</FilterChip>
@@ -110,7 +110,7 @@ const ProjectFilters: React.FC<{
 			<section className="flex flex-col gap-2 border-t border-hairline pt-4">
 				<FilterHeading title="Categories" />
 
-				<ul className="flex flex-wrap gap-2">
+				<ul className="grid grid-cols-[repeat(auto-fill,minmax(6rem,1fr))] gap-2">
 					{TECH_CATEGORIES.map((category) => (
 						<li key={category}>
 							<FilterChip
