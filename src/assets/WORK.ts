@@ -1,5 +1,81 @@
 const WORK = [
 	{
+		myThoughts: `Market Maker started as a way to practise the kind of thinking trading interviews test: pricing a number you can only partly see. Building it pushed me to keep the game engine pure and deterministic, so every round can be replayed and tested, and to treat the UI as something that only reads state. Adding online rooms later was much easier because of that split.`,
+		content:
+			"Market Maker is a peer-to-peer market-making game. Each player holds a private number, and everyone trades two-sided quotes on a hidden total built from those numbers. Quotes can only get tighter, the first click wins each trade, and at the end the truth is revealed and every fill settles as a zero-sum bet. You can play locally against AI bots or online with friends in private rooms.",
+		keyFeatures: [
+			"Live two-sided market with a round timer that resets on every tighter quote",
+			"AI bots that estimate the truth, quote markets and decide when to trade",
+			"Online rooms with private numbers, access codes and a host-paced reveal",
+			"Results page with every private number, sorted P&L and a zero-sum check",
+			"Fairness explainer with charts showing how the reveal order leaks information",
+		],
+		techs: {
+			frontend: ["React", "Tailwind CSS", "Framer Motion"],
+			backend: ["Node.js", "Express", "Socket.IO"],
+			database: ["MongoDB", "Mongoose"],
+			other: ["WebSockets"],
+		},
+		futurePlans: [
+			"Deploy the online mode publicly",
+			"Add more categories for the hidden total",
+			"Add bot difficulty levels",
+		],
+		challenges:
+			"Keeping the game engine pure and seedable so rounds are reproducible and testable, while syncing the same game state in real time across online players.",
+		learningOutcomes:
+			"Learned how to separate a framework-free domain engine from the store and UI, how to test game logic deterministically, and how to sync rooms with Socket.IO.",
+		contributions:
+			"Sole developer: game engine, bots, frontend, and the Express and Socket.IO backend for online rooms.",
+		accessibility:
+			"Built on Radix primitives for dialogs, menus, tabs and tooltips, with keyboard support throughout.",
+		deployment:
+			"Runs locally; the online mode uses an Express and Socket.IO server backed by MongoDB.",
+		duration: "June 30th, 2026 - Present",
+		github: "https://github.com/AmarMuric04/market-maker-game",
+		website: null,
+		title: "Market Maker",
+		type: "Game",
+		status: "Development",
+	},
+	{
+		myThoughts: `eslint-plugin-nima came from code review. The same comments kept coming up, so I turned them into rules that catch the problem before anyone has to say it. Writing rules meant learning how ESLint walks the AST and how to write fixes that never break code, and seeing the package used across NIMA's projects is one of the things I'm proudest of.`,
+		content:
+			"eslint-plugin-nima is an ESLint plugin that enforces NIMA Labs' code conventions. Its rules cover naming, React patterns, function parameters and unsafe patterns, so common review comments are caught automatically in the editor and in CI. It's published on npm and used across the team's projects.",
+		keyFeatures: [
+			"13 rules for naming, React, parameters and restricted patterns",
+			"Auto-fixes where a rule can safely rewrite the code",
+			"Configurable restrictions for imports, functions and console methods",
+			"Published on npm with an automated release pipeline",
+		],
+		techs: {
+			frontend: [],
+			backend: ["Node.js"],
+			database: [],
+			other: ["JavaScript"],
+		},
+		futurePlans: [
+			"Add more rules as new review patterns come up",
+			"Ship ready-made configs for React and React Native projects",
+		],
+		challenges:
+			"Writing rules that are strict enough to be useful without false positives, and auto-fixes that are always safe to apply.",
+		learningOutcomes:
+			"Learned how ESLint parses code into an AST, how to write and test custom rules and fixes, and how to publish and version an npm package.",
+		contributions:
+			"Main author: designed and wrote the rules, tests, documentation and release setup.",
+		accessibility:
+			"Each rule has its own documentation page with correct and incorrect examples.",
+		deployment:
+			"Published on npm; new versions release automatically through GitHub Actions.",
+		duration: "August 25th, 2025 - Present",
+		github: "https://github.com/NIMA-Enterprises/eslint-plugin-nima",
+		website: "https://www.npmjs.com/package/eslint-plugin-nima",
+		title: "eslint-plugin-nima",
+		type: "ESLint Plugin",
+		status: "Live",
+	},
+	{
 		myThoughts: `ModernShop reflects my goal to simplify the process of launching an online store. Built as a customizable e-commerce template using Next.js and modern tooling, it enables developers or entrepreneurs to plug in their backend and database with minimal configuration. This project reinforced my focus on scalability, modular design, and ease of developer adoption.`,
 		content:
 			"ModernShop is a fully functional e-commerce starter template that provides a robust foundation for online stores. With key features like dynamic product listings, cart functionality, and user authentication, it’s designed to be production-ready while easily adaptable to various business needs.",
