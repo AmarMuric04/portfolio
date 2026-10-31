@@ -319,6 +319,12 @@ const CloseSVG: React.FC = () => (
 	</OutlineIcon>
 );
 
+const CheckSVG: React.FC = () => (
+	<OutlineIcon>
+		<path d="M20 6 9 17l-5-5" />
+	</OutlineIcon>
+);
+
 const FilterSVG: React.FC = () => (
 	<OutlineIcon>
 		<path d="M4 5h16l-6 7.5V19l-4-2v-4.5z" />
@@ -341,6 +347,7 @@ export {
 	ArchiveSVG,
 	BootstrapSVG,
 	CSSSVG,
+	CheckSVG,
 	ChevronDownSVG,
 	ChevronLeftSVG,
 	ChevronRightSVG,
