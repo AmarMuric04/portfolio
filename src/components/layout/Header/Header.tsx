@@ -51,10 +51,11 @@ const Header: React.FC = () => {
 			<header className="mb-8 h-18" ref={targetRef}>
 				<nav
 					className={cn(
-						"fixed top-4 left-1/2 z-50 h-14 -translate-x-1/2 overflow-hidden rounded-2xl border border-hairline bg-surface pr-4 text-ink shadow-surface transition-[width] duration-300 ease-out select-none [interpolate-size:allow-keywords]",
+						"fixed top-4 left-1/2 z-50 h-14 -translate-x-1/2 overflow-hidden rounded-2xl border border-hairline bg-surface pr-4 text-ink transition-[width,box-shadow] duration-300 ease-out select-none [interpolate-size:allow-keywords]",
 						{
-							"w-[80%] sm:w-fit": !isIntersecting,
-							"w-[95%] md:w-[45rem]": isIntersecting,
+							"w-[80%] shadow-overlay sm:w-fit": !isIntersecting,
+							"w-[95%] shadow-surface md:w-[45rem]":
+								isIntersecting,
 						},
 					)}
 				>
