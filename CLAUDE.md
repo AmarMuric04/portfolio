@@ -162,8 +162,10 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   filter panel); anything nested in a surface `bg-inset` with `border border-hairline`. Headings and icons
   `text-ink`, running text `text-text`, dates and helper lines
   `text-text-muted`. Filled sage controls `bg-accent text-on-accent`; sage as
-  text `text-accent-text`; quiet selected states `bg-accent-tint`; excluded
-  `bg-danger-tint` with `border-danger`. Meaningful edges `border-border-strong`.
+  text `text-accent-text`; quiet selected states `bg-accent-tint`; toggle
+  tiles are borderless solid fills (`bg-inset` off, `bg-accent text-on-accent`
+  on, `bg-danger text-on-danger` excluded). Tech logos are monochrome
+  (`fill-current`), never brand-coloured. Meaningful edges `border-border-strong`.
   Status badges are filled: `bg-status-live` / `-development` / `-archived`
   with `text-on-status`; tags `bg-inset text-text` or `bg-accent text-on-accent`.
 - Never a Tailwind palette color (`green-400`, `white`, `gray-500`), never
