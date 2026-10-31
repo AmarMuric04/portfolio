@@ -26,7 +26,7 @@ const ProjectTech: React.FC<{
 									className="flex min-w-0 items-center gap-2 text-label text-text"
 									key={tech}
 								>
-									<span className="grid size-4 shrink-0 place-items-center [&>svg]:size-4">
+									<span className="grid size-4 shrink-0 place-items-center text-ink [&>svg]:size-4">
 										{Icon && <Icon />}
 									</span>
 
