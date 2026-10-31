@@ -3,7 +3,7 @@ const YEARS = ["1st", "2nd", "3rd", "4th"];
 const PERCENTAGES = ["0%", "20%", "40%", "60%", "80%", "100%"];
 
 const ProgressLabel: React.FC<{ type: string }> = ({ type }) => {
-	if (type === "Online Course") {
+	if (type === "Online Course" || type === "Live Class") {
 		return (
 			<div className="mt-1 flex w-full justify-between text-caption text-text-muted tabular-nums">
 				{PERCENTAGES.map((percentage) => (
