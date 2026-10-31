@@ -4,3 +4,4 @@ export * from "./TECH";
 export * from "./EDUCATION";
 export * from "./svgs";
 export * from "./WORK";
+export * from "./EXPERIENCE";
