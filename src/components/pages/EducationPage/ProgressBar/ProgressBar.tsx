@@ -1,23 +1,14 @@
-const ProgressBar: React.FC<{ progression: number; labelOffset: number }> = ({
-	progression,
-	labelOffset,
-}) => {
+const ProgressBar: React.FC<{ progression: number }> = ({ progression }) => {
 	return (
-		<div>
+		<div className="mt-6 flex flex-col gap-1">
 			<div
-				className="relative mt-6 inline-flex w-auto text-caption text-ink tabular-nums"
-				style={{ left: `${progression - labelOffset}%` }}
+				className="flex min-w-fit justify-end text-caption text-ink tabular-nums"
+				style={{ width: `${progression}%` }}
 			>
-				{progression === 100 ? (
-					<p className="relative right-14 w-auto sm:right-10">
-						Completed
-					</p>
-				) : (
-					<p className="relative w-auto">{progression}%</p>
-				)}
+				{progression === 100 ? "Completed" : `${progression}%`}
 			</div>
 
-			<div className="mt-1 h-1 w-full rounded-full bg-inset">
+			<div className="h-1 w-full rounded-full bg-inset">
 				<div
 					className="h-full rounded-full bg-accent"
 					style={{ width: `${progression}%` }}
