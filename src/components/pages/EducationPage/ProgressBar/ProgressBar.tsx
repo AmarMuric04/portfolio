@@ -35,16 +35,12 @@ const ProgressBar: React.FC<{ progression: number }> = ({ progression }) => {
 				</AnimatePresence>
 			</div>
 
-			<motion.div
-				className="h-1 w-full rounded-full bg-inset"
-				animate={isCompleted ? { scaleY: [1, 2.5, 1] } : { scaleY: 1 }}
-				transition={{ ease: "easeOut", duration: 0.3 }}
-			>
+			<div className="h-1 w-full rounded-full bg-inset">
 				<div
 					className="h-full rounded-full bg-accent"
 					style={{ width: `${progression}%` }}
 				/>
-			</motion.div>
+			</div>
 		</div>
 	);
 };
