@@ -54,7 +54,7 @@ const TECH_ICONS = {
 	"HTML": HTMLSVG,
 	"CSS": CSSSVG,
 	"Stripe": StripeSVG,
-	"AI Recommendations": AISVG,
+	"AI Suggestions": AISVG,
 	"AI Integration": AISVG2,
 	"Algorithm Visualizer": AlgorithmSVG,
 	"Mongoose": MongooseSVG,

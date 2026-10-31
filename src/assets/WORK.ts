@@ -211,7 +211,7 @@ This project features an extensive array of functionalities and I’m incredibly
 				"JavaScript",
 			],
 			backend: ["Node.js", "Express", "Next.js"],
-			other: ["AI Recommendations", "REST API"],
+			other: ["AI Suggestions", "REST API"],
 			database: ["MongoDB", "Mongoose"],
 		},
 		content:
