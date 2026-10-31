@@ -18,6 +18,7 @@
 	--color-accent-tint: var(--accent-tint);
 	--color-danger: var(--danger);
 	--color-danger-tint: var(--danger-tint);
+	--color-on-danger: var(--on-danger);
 	--color-status-live: var(--status-live);
 	--color-status-development: var(--status-development);
 	--color-status-archived: var(--status-archived);
@@ -92,6 +93,7 @@
 	--accent-tint: #dce3d6;
 	--danger: #b42318;
 	--danger-tint: #f6dcd8;
+	--on-danger: #ffffff;
 	--status-live: #b4232f;
 	--status-development: #8a5a00;
 	--status-archived: #5f6360;
@@ -117,6 +119,7 @@
 	--accent-tint: #343c31;
 	--danger: #f97066;
 	--danger-tint: #43221f;
+	--on-danger: #1e201e;
 	--status-live: #f0737b;
 	--status-development: #e6b34a;
 	--status-archived: #a3a69e;

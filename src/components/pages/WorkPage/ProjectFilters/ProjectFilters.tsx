@@ -1,21 +1,19 @@
-import { CheckSVG, FilterSVG, TECH_CATEGORIES, TECH_ICONS } from "@/assets";
+import { FilterSVG, TECH_CATEGORIES, TECH_ICONS } from "@/assets";
 import { cycleFilter, filterStateOf } from "@/lib/filters";
 import { cn } from "@/lib/utils";
 
 const FILTER_STATES = {
 	off: {
 		description: "not filtered",
-		className:
-			"border-hairline bg-inset text-text-muted hover:border-border-strong hover:text-ink",
+		className: "bg-inset text-text hover:bg-accent-tint hover:text-ink",
 	},
 	included: {
 		description: "included",
-		className: "border-accent bg-accent-tint text-ink",
+		className: "bg-accent text-on-accent",
 	},
 	excluded: {
 		description: "excluded",
-		className:
-			"border-danger bg-danger-tint text-text-muted [&_svg]:opacity-50 [&_svg]:grayscale",
+		className: "bg-danger text-on-danger",
 	},
 };
 
@@ -41,7 +39,7 @@ const FilterChip: React.FC<
 	return (
 		<button
 			className={cn(
-				"relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border p-2 text-center text-caption transition-colors duration-200",
+				"flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-2 text-center text-caption transition-colors duration-200",
 				FILTER_STATES[state].className,
 				className,
 			)}
@@ -57,12 +55,6 @@ const FilterChip: React.FC<
 			>
 				{label}
 			</span>
-
-			{state === "included" && (
-				<span className="absolute top-1 right-1 grid size-4 place-items-center rounded-full bg-accent text-on-accent">
-					<CheckSVG className="size-3 [stroke-width:2.5]" />
-				</span>
-			)}
 		</button>
 	);
 };
@@ -116,7 +108,7 @@ const ProjectFilters: React.FC<{
 								filter={techFilter}
 								label={tech}
 							>
-								<span className="grid size-6 shrink-0 place-items-center text-ink [&>svg]:size-6">
+								<span className="grid size-6 shrink-0 place-items-center [&>svg]:size-6">
 									<Icon />
 								</span>
 							</FilterChip>
