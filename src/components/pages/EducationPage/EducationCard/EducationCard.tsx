@@ -30,10 +30,7 @@ const EducationCard: React.FC<{
 					{education.teacher !== "N/A" && `by ${education.teacher}`}
 				</p>
 
-				<ProgressBar
-					labelOffset={education.progression > 90 ? 7 : 2}
-					progression={progression}
-				/>
+				<ProgressBar progression={progression} />
 
 				<ProgressLabel type={education.type} />
 
