@@ -48,7 +48,7 @@ const EDUCATION = [
 			"Point-free Style",
 		],
 		name: "Functional Programming Workshop",
-		institution: "Stockholm, Sweden",
+		institution: "Confetti, Stockholm, Sweden",
 		type: "Live Class",
 		progression: 100,
 		teacher: "Kyle Simpson",
