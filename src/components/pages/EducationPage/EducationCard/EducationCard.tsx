@@ -1,4 +1,5 @@
 import type { EDUCATION } from "@/assets";
+import { SkillList } from "@/components/shared";
 import { useAnimatedNumber, useIntersectionObserver } from "@/hooks";
 
 import { ProgressBar } from "../ProgressBar";
@@ -38,16 +39,7 @@ const EducationCard: React.FC<{
 					Acquired skills
 				</h3>
 
-				<ul className="flex flex-wrap gap-2">
-					{education.skills.map((skill) => (
-						<li
-							className="rounded-lg bg-accent px-2 py-1 text-label text-on-accent"
-							key={skill}
-						>
-							{skill}
-						</li>
-					))}
-				</ul>
+				<SkillList skills={education.skills} />
 			</article>
 		</li>
 	);
