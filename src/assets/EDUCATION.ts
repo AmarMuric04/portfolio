@@ -16,7 +16,7 @@ const EDUCATION = [
 		institution: "State University of Novi Pazar, Serbia",
 		name: "Software Engineering Student",
 		type: "University Course",
-		progression: 50,
+		progression: 67,
 		teacher: "N/A",
 	},
 	{
@@ -63,7 +63,7 @@ const EDUCATION = [
 		teacher: "Frontend Masters",
 		type: "Online Course",
 		institution: "Udemy",
-		progression: 62,
+		progression: 100,
 	},
 	{
 		skills: [
@@ -158,7 +158,7 @@ const EDUCATION = [
 		teacher: "Dr. Angela Yu",
 		type: "Online Course",
 		institution: "Udemy",
-		progression: 90,
+		progression: 100,
 	},
 	{
 		skills: [

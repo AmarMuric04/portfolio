@@ -11,7 +11,7 @@ const EducationPage: React.FC = () => {
 			<h1 className="mb-4 text-page-title text-ink">My education</h1>
 
 			<p className="text-lead">
-				I’m currently in my second year of university, where I’ve been
+				I’m currently in my third year of university, where I’ve been
 				actively exploring a mix of academic and hands-on projects. From
 				coursework to personal initiatives, I’ve worked on everything
 				from creative hobbies to practical solutions for everyday
