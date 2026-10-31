@@ -177,10 +177,10 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   third-party brand logos in `src/assets/svgs.tsx` and keyframe values handed
   to Framer Motion (`textShadow` arrays), which can't animate CSS variables.
 - Radius scale: surfaces (header, cards, modals, panels, floating buttons)
-  `rounded-2xl`; tiles nested inside a surface (tech tiles, lists, images)
+  and the Home portrait `rounded-2xl`; tiles nested inside a surface (tech tiles, lists, images)
   `rounded-xl`; buttons and chips `rounded-lg`; badges and gallery indicators
   `rounded-md` (indicator dots `rounded-xs`). `rounded-full` only for shapes
-  that are meant to be round (avatar, progress bars, icon circles). Never
+  that are meant to be round (progress bars, icon circles). Never
   introduce another radius.
 - Type: only the seven styles `text-display` (Home name only),
   `text-page-title` (each page's `h1`), `text-card-title` (card and modal
