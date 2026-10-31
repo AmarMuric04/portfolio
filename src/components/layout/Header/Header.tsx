@@ -51,14 +51,14 @@ const Header: React.FC = () => {
 			<header className="mb-8 h-18" ref={targetRef}>
 				<nav
 					className={cn(
-						"fixed top-4 left-1/2 z-50 h-14 -translate-x-1/2 overflow-hidden rounded-2xl border border-hairline bg-surface pr-4 text-ink shadow-surface transition-[width] duration-300 ease-out select-none",
+						"fixed top-4 left-1/2 z-50 h-14 -translate-x-1/2 overflow-hidden rounded-2xl border border-hairline bg-surface pr-4 text-ink shadow-surface transition-[width] duration-300 ease-out select-none [interpolate-size:allow-keywords]",
 						{
-							"w-[80%] md:w-[38rem]": !isIntersecting,
+							"w-[80%] sm:w-fit": !isIntersecting,
 							"w-[95%] md:w-[45rem]": isIntersecting,
 						},
 					)}
 				>
-					<div className="flex h-full w-full items-center justify-between">
+					<div className="flex h-full w-full items-center justify-between gap-4">
 						<div className="flex h-full w-full gap-4 sm:w-auto">
 							<ToggleThemeButton className="hidden h-full w-14 sm:grid" />
 
