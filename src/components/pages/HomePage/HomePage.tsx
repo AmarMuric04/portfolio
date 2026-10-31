@@ -1,7 +1,11 @@
+import dayjs from "dayjs";
+
 import { GithubSVG, LinkedInSVG, MailSVG } from "@/assets";
 
 import { PageHelmet } from "./PageHelmet";
 import { UnhideButton } from "./UnhideButton";
+
+const BIRTH_DATE = "2004-12-27";
 
 const SOCIAL_LINKS = [
 	{
@@ -25,13 +29,15 @@ const SOCIAL_LINKS = [
 ];
 
 const HomePage: React.FC = () => {
+	const age = dayjs().diff(BIRTH_DATE, "year");
+
 	return (
 		<>
 			<PageHelmet />
 
 			<section className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-start">
 				<img
-					className="size-16 rounded-full sm:size-20"
+					className="size-16 rounded-2xl sm:size-20"
 					alt="Amar Murić"
 					src="/myself.webp"
 				/>
@@ -46,9 +52,9 @@ const HomePage: React.FC = () => {
 
 			<section className="my-8 flex flex-col gap-4 text-lead">
 				<p>
-					I’m a 20-year-old full-stack developer with a deep passion
-					for building polished, impactful, and innovative products.
-					My journey into programming began in 2022-2023
+					I’m a {age}-year-old full-stack developer with a deep
+					passion for building polished, impactful, and innovative
+					products. My journey into programming began in 2022-2023
 					<UnhideButton>
 						, and it’s been an exhilarating ride ever since
 						<UnhideButton>
