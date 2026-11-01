@@ -102,8 +102,6 @@ const WORK = [
 			"Strengthened my skills in building scalable, developer-first templates and reinforced best practices for modular design and authentication flows.",
 		contributions:
 			"Sole developer responsible for the entire project: frontend architecture, backend logic, authentication, and design.",
-		userFeedback:
-			"Developers have praised the project for its clean architecture, ease of setup, and developer-friendly design.",
 		accessibility:
 			"Designed with accessibility considerations, supporting keyboard navigation and screen readers.",
 		deployment:
@@ -140,8 +138,6 @@ const WORK = [
 		],
 		challenges:
 			"Implementing robust encryption and safety for password storage and ensuring seamless user interactions across various devices.",
-		userFeedback:
-			"Users have appreciated the application's clean design and the ease with which they can manage their credentials securely.",
 		accessibility:
 			" Designed with accessibility in mind, ensuring compatibility with screen readers and keyboard navigation.",
 		contributions:
@@ -175,7 +171,6 @@ const WORK = [
 		deployment: "Deployed on onrender because the project uses sqlite",
 		accessibility: "Project is made so that it's accessible to anyone",
 		futurePlans: ["Adding 2FA as part of the authentication process"],
-		userFeedback: "Users appreciated how simple the website is.",
 		challenges: "Working with new techonologies and libraries.",
 		duration: "April 20th, 2025 - April 21st, 2025 (1 day)",
 		contributions: "Sole developer of the project",
@@ -218,8 +213,6 @@ const WORK = [
 			"Implementing smooth animations without compromising performance and integrating AI recommendations seamlessly.",
 		learningOutcomes:
 			"Mastered Framer Motion for animations and learned about AI integration in web apps.",
-		userFeedback:
-			"Users loved the intuitive design and personalized meal recommendations.",
 		contributions:
 			"Led frontend development, designed animations, and integrated AI APIs.",
 		accessibility:
@@ -263,8 +256,6 @@ This project features an extensive array of functionalities and I’m incredibly
 			"Implementing WebSocket for real-time updates and ensuring message encryption.",
 		learningOutcomes:
 			"Learned about WebSocket communication and encryption techniques.",
-		userFeedback:
-			"Users praised the seamless real-time communication and clean UI.",
 		deployment:
 			"Deployed on Vercel with MongoDB Atlas for database hosting.",
 		accessibility: "Added keyboard shortcuts and screen reader support.",
@@ -310,8 +301,6 @@ This project features an extensive array of functionalities and I’m incredibly
 			"Learned about video streaming and AI integration in educational platforms.",
 		contributions:
 			"Led the frontend development, integrated AI APIs, and designed the UI.",
-		userFeedback:
-			"Users praised the intuitive course management and AI recommendations.",
 		deployment:
 			"Deployed on Vercel with MongoDB Atlas for database hosting.",
 		accessibility: "Added keyboard navigation and screen reader support.",
@@ -352,8 +341,6 @@ This project features an extensive array of functionalities and I’m incredibly
 			"Gained expertise in real-time communication and full-stack development.",
 		contributions:
 			"Developed the backend, integrated WebSocket, and designed the frontend.",
-		userFeedback:
-			"Users loved the real-time updates and intuitive interface.",
 		deployment:
 			"Deployed on Vercel with MongoDB Atlas for database hosting.",
 		github: "https://github.com/AmarMuric04/NodeJs-Course/tree/main/fsp",
@@ -394,8 +381,6 @@ What really makes SolveBox stand out is the extra touches I added along the way.
 			"Creating interactive algorithm visualizations and ensuring smooth performance.",
 		learningOutcomes:
 			"Gained expertise in algorithm visualization and interactive UI design.",
-		userFeedback:
-			"Users found the tutorials and visualizations extremely helpful.",
 		deployment: "Deployed on Vercel with Local Storage for user progress.",
 		accessibility: "Added keyboard navigation and ARIA labels.",
 		duration: "Jan 2, 2025 - Jan 25, 2025 (3 weeks, 2 days)",
@@ -432,8 +417,6 @@ What really makes SolveBox stand out is the extra touches I added along the way.
 			"Handling real-time data feeds and ensuring responsive design across devices.",
 		contributions:
 			"Developed the frontend, integrated third-party APIs, and designed the UI.",
-		userFeedback:
-			"Users appreciated the real-time data accuracy and intuitive interface.",
 		learningOutcomes:
 			"Gained expertise in real-time data handling and responsive design.",
 		accessibility: "Added screen reader support and keyboard navigation.",
@@ -472,8 +455,6 @@ What really makes SolveBox stand out is the extra touches I added along the way.
 			"Gained experience in payment gateway integration and state management.",
 		challenges:
 			"Implementing a seamless payment flow and ensuring a responsive design.",
-		userFeedback:
-			"Early users appreciated the smooth payment process and clean design.",
 		contributions:
 			"Developed the frontend, integrated Stripe, and designed the UI.",
 		accessibility: "Implemented ARIA labels and keyboard navigation.",
@@ -515,8 +496,6 @@ What makes this project so special to me is not just the functionality, but how 
 			"Developed the entire application, integrated the News API, and designed the UI.",
 		learningOutcomes:
 			"Learned about API integration and performance optimization.",
-		userFeedback:
-			"Users loved the simplicity and ease of finding relevant news.",
 		accessibility: "Added keyboard navigation and screen reader support.",
 		deployment: "Deployed on Firebase with Webpack for bundling.",
 		duration: "Jan 14, 2024 - Mar 26, 2024 (2 months, 12 days)",
