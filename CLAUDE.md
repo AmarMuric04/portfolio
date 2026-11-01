@@ -35,12 +35,19 @@ npm run format      # prettier --write .
   `routeTree.gen.ts` is generated — never edit it.
 - `src/components/` — every component (see File & Folder Structure).
 - `src/assets/` — static content as `as const` data (`WORK`, `OTHER_WORK`,
-  `EDUCATION`, `WORK_HIGHLIGHTS`, `WORK_READMES`, `TECH_ICONS`,
-  `TECH_CATEGORIES`) and the SVG icon components (`svgs.tsx`). Shapes are
-  inferred from the data — never hand-write a type for it.
-- `src/hooks/` — reusable hooks (`useTheme`, `useIntersectionObserver`,
-  `useAnimatedNumber`).
-- `src/lib/` — framework-free helpers (`cn` in `utils.ts`, project filters).
+  `EDUCATION`, `EXPERIENCE`, `WORK_HIGHLIGHTS`, `WORK_READMES`, `TECH_NAMES`,
+  `TECH_ICONS`, `TECH_CATEGORIES`, `EMAIL_ADDRESS`, `SITE_URL`) and the SVG
+  icon components (`svgs.tsx`). Shapes are inferred from the data — never
+  hand-write a type for it; constrain data with `satisfies` (every `WORK` tech
+  must be one of `TECH_NAMES`).
+- `src/hooks/` — reusable hooks (`useTheme`, `useIntersectionObserver`).
+- `src/lib/` — framework-free helpers (`cn` in `utils.ts`, project filters,
+  dates).
+- Per-page `<head>` goes through the shared `PageHelmet` (`title`,
+  `description`, `keywords`, `path`). The saved theme is applied by an inline
+  script in `index.html` before first paint; keep it in sync with `useTheme`.
+- Animated numbers and widths run on Framer motion values (`useMotionValue`,
+  `animate`), never on a `setInterval` + `useState` loop.
 - Modals: every modal is `NiceModal.create(...)` in `src/components/modals/`,
   renders the shared `Modal` shell, and is opened with
   `useModal(XModal).show(args)`. Never render a modal inline or keep open/closed
@@ -89,7 +96,10 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   exact component and its states (hover, focus, motion). If the existing one
   lives inside a single consumer, extract it to `shared/` first. Tabs are
   `UnderlineTab` (animated underline, pill focus), never shadcn's `line`
-  variant.
+  variant. Site navigation passes `to` and renders plain links with
+  `aria-current`, never a `Tabs` tablist; in-page tabs pass `value` inside
+  `Tabs`. Buttons that navigate are links (`ActionButton asChild` around a
+  `Link`).
 - Reuse shared/shadcn components from `@/components/shared` and
   `@/components/ui`. Never hand-roll an equivalent. If one lacks a style you
   need, extend it with a prop rather than building a one-off in the consumer.
@@ -97,6 +107,7 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   section banner, no "why" comment, no `eslint-disable`. There is no exception
   and no judgement call to make: code documents itself. If something needs
   explaining, rename it, split it, or restructure it until it explains itself.
+  A comment you consider justified is still prohibited.
 - No dead, commented-out, or speculative code — no props/branches/abstractions
   nobody uses. Dead weight is a defect even when it typechecks.
 
@@ -129,6 +140,7 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
 
 - Strict mode with `noUncheckedIndexedAccess` and `verbatimModuleSyntax`. No
   `any` — use `unknown` and narrow, or a generic.
+- Type parameters and inputs inline rather than naming them.
 - Never create a named type/interface alias unless the compiler literally cannot
   infer and a call site breaks without it (e.g. the router `Register`
   augmentation in `main.tsx`). DRY is not a reason to extract a
@@ -147,8 +159,9 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   const ProjectCard: React.FC<{ project: (typeof WORK)[number] }> = ...
   ```
 
-- Never annotate function/component return types — let inference work. If the
-  inferred shape is wrong, fix the body.
+- Never annotate function/component return types — let inference work. This
+  applies to every function (components, hooks, helpers, inline arrows). If the
+  inferred shape is wrong, fix the body (make branches return the same shape).
 
 ## Styling & Color Tokens
 
@@ -159,7 +172,7 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
 - Colors are the design-system tokens in `src/index.css`, used as Tailwind
   classes. Page `bg-ground`; header, cards, panels and modals `bg-surface` with
   `border-hairline` and `shadow-surface` (`shadow-overlay` for modals and the
-  filter panel); anything nested in a surface `bg-inset` with `border border-hairline`. Headings and icons
+  filter panel, `shadow-accent` for the header once content scrolls under it); anything nested in a surface `bg-inset` with `border border-hairline`. Headings and icons
   `text-ink`, running text `text-text`, dates and helper lines
   `text-text-muted`. Filled sage controls `bg-accent text-on-accent`; sage as
   text `text-accent-text`; quiet selected states `bg-accent-tint`; toggle
@@ -180,7 +193,8 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   and the Home portrait `rounded-2xl`; tiles nested inside a surface (tech tiles, lists, images)
   `rounded-xl`; buttons and chips `rounded-lg`; badges and gallery indicators
   `rounded-md` (indicator dots `rounded-xs`). `rounded-full` only for shapes
-  that are meant to be round (progress bars, icon circles). Never
+  that are meant to be round (progress bars, icon circles). A child inset
+  ≤8px inside a rounded parent gets the parent radius minus the inset. Never
   introduce another radius.
 - Type: only the seven styles `text-display` (Home name only),
   `text-page-title` (each page's `h1`), `text-card-title` (card and modal
@@ -228,6 +242,23 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
 - Never call deprecated APIs (IDE strike-through / `@deprecated` in the .d.ts).
 - Never rely on object key order for what renders; iterate an explicit ordered
   array (`TECH_CATEGORIES`).
+- Dates via `dayjs` — never raw `new Date()` arithmetic or formatting
+  (`dayjs(x).format("MMMM YYYY")`, `dayjs().diff(x, "year")`).
+- Name arguments and variables after the value they carry, so the meaning is
+  readable at the call site without opening the function (`isoDate`, not
+  `value`; `progression`, not `number`).
+
+## Zero Layout Shift
+
+The page must not move while it loads or animates in. Every slot reserves its
+final box from the first frame.
+
+- Images get an explicit size or aspect ratio (`size-16`, `aspect-[1.9]`), so
+  they never pop in or push content when they load.
+- Lazily rendered content (`wasInView`) keeps its box while hidden; only
+  opacity or transform animate, never height or width that moves siblings.
+- Before shipping, check first paint, the loaded state and any toggle: nothing
+  may move, resize, or pop in unless that is the interaction itself.
 
 ## Abstraction Balance
 
@@ -237,6 +268,9 @@ export const MyComponent: React.FC<MyComponentProps> = ({ title }) => { ... };
   data-massaging across a view. Derivation belongs inline at the call site or
   in `src/lib`. A small shared presentational component that removes real
   markup duplication is fine — this targets utilities, not components.
+- No custom derivation hooks (`useXyz` that only computes values from other
+  values). Derive inline in the component; a hook exists only when it owns
+  state, effects or subscriptions.
 
 ## Important
 
