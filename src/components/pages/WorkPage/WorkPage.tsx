@@ -1,11 +1,17 @@
-import { PageHelmet } from "./PageHelmet";
+import { PageHelmet } from "@/components/shared";
+
 import { ProjectList } from "./ProjectList";
 import { SmallProjectList } from "./SmallProjectList";
 
 const WorkPage: React.FC = () => {
 	return (
 		<>
-			<PageHelmet />
+			<PageHelmet
+				title="Projects"
+				description="Explore the projects of Amar Muric, a MERN full-stack developer. View web applications built using MongoDB, Express, React, and Node.js."
+				keywords="Amar Muric, MERN full-stack developer, projects, MongoDB, Express, React, Node.js, portfolio"
+				path="/projects"
+			/>
 
 			<div className="flex flex-col gap-8">
 				<section className="flex flex-col gap-4">

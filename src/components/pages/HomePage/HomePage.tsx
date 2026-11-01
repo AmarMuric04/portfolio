@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 
-import { GithubSVG, LinkedInSVG, MailSVG } from "@/assets";
+import { EMAIL_ADDRESS, GithubSVG, LinkedInSVG, MailSVG } from "@/assets";
+import { ExternalLinkButton, PageHelmet } from "@/components/shared";
 
-import { PageHelmet } from "./PageHelmet";
 import { UnhideButton } from "./UnhideButton";
 
 const BIRTH_DATE = "2004-12-27";
@@ -12,19 +12,19 @@ const SOCIAL_LINKS = [
 		label: "GitHub",
 		href: "https://github.com/AmarMuric04",
 		icon: GithubSVG,
-		isExternal: true,
+		opensInNewTab: true,
 	},
 	{
 		label: "LinkedIn",
 		href: "https://www.linkedin.com/in/amar-muric-52564b2a2/",
 		icon: LinkedInSVG,
-		isExternal: true,
+		opensInNewTab: true,
 	},
 	{
 		label: "Email",
-		href: "mailto:muricamar2004@gmail.com",
+		href: `mailto:${EMAIL_ADDRESS}`,
 		icon: MailSVG,
-		isExternal: false,
+		opensInNewTab: false,
 	},
 ];
 
@@ -33,7 +33,12 @@ const HomePage: React.FC = () => {
 
 	return (
 		<>
-			<PageHelmet />
+			<PageHelmet
+				title="About Me"
+				description="Learn more about Amar Muric, a passionate MERN full-stack developer. Discover his journey, skills, and projects built using MongoDB, Express, React, and Node.js."
+				keywords="Amar Muric, full-stack developer, MERN, portfolio, developer journey, MongoDB, Express, React, Node.js"
+				path="/"
+			/>
 
 			<section className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-start">
 				<img
@@ -163,19 +168,15 @@ const HomePage: React.FC = () => {
 			</section>
 
 			<section className="flex flex-wrap items-center gap-6">
-				{SOCIAL_LINKS.map(({ label, href, icon: Icon, isExternal }) => (
-					<a
-						className="flex h-8 items-center gap-2 rounded-lg text-label text-ink transition-colors duration-200 hover:text-accent-text"
-						target={isExternal ? "_blank" : undefined}
-						rel={isExternal ? "noreferrer" : undefined}
+				{SOCIAL_LINKS.map(({ label, href, icon, opensInNewTab }) => (
+					<ExternalLinkButton
+						opensInNewTab={opensInNewTab}
 						href={href}
+						icon={icon}
 						key={label}
 					>
-						<span className="grid size-5 shrink-0 place-items-center [&>svg]:size-5">
-							<Icon />
-						</span>
 						{label}
-					</a>
+					</ExternalLinkButton>
 				))}
 			</section>
 		</>
