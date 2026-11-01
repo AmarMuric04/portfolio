@@ -18,14 +18,29 @@
 			property="og:description"
 			content="Explore the projects and skills of Amar Muric, a web developer."
 		/>
-		<meta property="og:image" content="/portfolio-logo.png" />
+		<meta
+			property="og:image"
+			content="https://amarmuric.vercel.app/portfolio-logo.png"
+		/>
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://your-portfolio-url.com" />
+		<meta property="og:url" content="https://amarmuric.vercel.app" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
 		<title>Amar Muric | Portfolio</title>
+		<script>
+			{
+				const storedIsLight = localStorage.getItem("isLight");
+				const isLight =
+					storedIsLight === null
+						? !matchMedia("(prefers-color-scheme: dark)").matches
+						: JSON.parse(storedIsLight);
+				document.documentElement.dataset.theme = isLight
+					? "light"
+					: "dark";
+			}
+		</script>
 	</head>
 
 	<body>
