@@ -1,15 +1,46 @@
-import { AnimatePresence, motion } from "framer-motion";
+import {
+	animate,
+	AnimatePresence,
+	motion,
+	useMotionValue,
+	useReducedMotion,
+	useTransform,
+} from "framer-motion";
+import { useEffect, useState } from "react";
 
 import { CheckSVG } from "@/assets";
 
-const ProgressBar: React.FC<{ progression: number }> = ({ progression }) => {
-	const isCompleted = progression === 100;
+const ProgressBar: React.FC<{ progression: number; isVisible: boolean }> = ({
+	progression,
+	isVisible,
+}) => {
+	const isReducedMotion = useReducedMotion();
+
+	const [isCompleted, setIsCompleted] = useState(false);
+
+	const count = useMotionValue(0);
+	const width = useTransform(count, (value) => `${value}%`);
+	const percentage = useTransform(count, (value) => `${Math.round(value)}%`);
+
+	useEffect(() => {
+		if (!isVisible) {
+			return;
+		}
+
+		const controls = animate(count, progression, {
+			duration: isReducedMotion ? 0 : 0.6,
+			ease: "easeOut",
+			onComplete: () => setIsCompleted(progression === 100),
+		});
+
+		return () => controls.stop();
+	}, [count, isReducedMotion, isVisible, progression]);
 
 	return (
 		<div className="mt-6 flex flex-col gap-1">
-			<div
+			<motion.div
 				className="flex min-w-fit justify-end text-caption text-ink tabular-nums"
-				style={{ width: `${progression}%` }}
+				style={{ width }}
 			>
 				<AnimatePresence initial={false} mode="popLayout">
 					{isCompleted ? (
@@ -29,16 +60,16 @@ const ProgressBar: React.FC<{ progression: number }> = ({ progression }) => {
 							transition={{ ease: "easeOut", duration: 0.2 }}
 							key="percentage"
 						>
-							{progression}%
+							{percentage}
 						</motion.span>
 					)}
 				</AnimatePresence>
-			</div>
+			</motion.div>
 
 			<div className="h-1 w-full rounded-full bg-inset">
-				<div
+				<motion.div
 					className="h-full rounded-full bg-accent"
-					style={{ width: `${progression}%` }}
+					style={{ width }}
 				/>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 import type { EDUCATION } from "@/assets";
 import { SkillList } from "@/components/shared";
-import { useAnimatedNumber, useIntersectionObserver } from "@/hooks";
+import { useIntersectionObserver } from "@/hooks";
 
 import { ProgressBar } from "../ProgressBar";
 import { ProgressLabel } from "../ProgressLabel";
@@ -11,11 +11,6 @@ const EducationCard: React.FC<{
 	const { targetRef, wasInView } = useIntersectionObserver<HTMLLIElement>({
 		rootMargin: "-150px",
 		threshold: 0,
-	});
-
-	const progression = useAnimatedNumber({
-		target: wasInView ? education.progression : 0,
-		duration: 600,
 	});
 
 	return (
@@ -31,7 +26,10 @@ const EducationCard: React.FC<{
 					{education.teacher !== "N/A" && `by ${education.teacher}`}
 				</p>
 
-				<ProgressBar progression={progression} />
+				<ProgressBar
+					progression={education.progression}
+					isVisible={wasInView}
+				/>
 
 				<ProgressLabel type={education.type} />
 
