@@ -8,6 +8,7 @@ const EXPERIENCE = [
 		type: "Contract",
 		startDate: "2025-06-01",
 		location: "Belgrade, Serbia (Remote)",
+		description: "A lot of things",
 		skillGroups: [
 			{
 				title: "Core frontend",
