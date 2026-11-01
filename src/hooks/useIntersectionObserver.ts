@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from "react";
 const useIntersectionObserver = <T extends HTMLElement = HTMLElement>({
 	rootMargin = "0px",
 	threshold = 0.1,
+	initialIsIntersecting = false,
 }: {
 	rootMargin?: string;
 	threshold?: number;
+	initialIsIntersecting?: boolean;
 } = {}) => {
-	const [isIntersecting, setIsIntersecting] = useState(false);
+	const [isIntersecting, setIsIntersecting] = useState(initialIsIntersecting);
 	const [wasInView, setWasInView] = useState(false);
 
 	const targetRef = useRef<T>(null);
