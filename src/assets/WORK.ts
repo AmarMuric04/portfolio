@@ -1,3 +1,5 @@
+import type { TECH_CATEGORIES, TECH_NAMES } from "./TECH";
+
 const WORK = [
 	{
 		myThoughts: `Market Maker started as a way to practise the kind of thinking trading interviews test: pricing a number you can only partly see. Building it pushed me to keep the game engine pure and deterministic, so every round can be replayed and tested, and to treat the UI as something that only reads state. Adding online rooms later was much easier because of that split.`,
@@ -505,7 +507,12 @@ What makes this project so special to me is not just the functionality, but how 
 		title: "Newsly",
 		status: "Live",
 	},
-] as const;
+] as const satisfies readonly (Record<string, unknown> & {
+	techs: Record<
+		(typeof TECH_CATEGORIES)[number],
+		readonly (typeof TECH_NAMES)[number][]
+	>;
+})[];
 
 const OTHER_WORK = [
 	{

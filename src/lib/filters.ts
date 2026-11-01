@@ -1,4 +1,4 @@
-import type { TECH_CATEGORIES, WORK } from "@/assets";
+import type { TECH_CATEGORIES, TECH_NAMES, WORK } from "@/assets";
 
 const withoutItem = <T extends string>({
 	items,
@@ -56,13 +56,18 @@ const matchesFilters = ({
 	categoryFilter,
 }: {
 	project: (typeof WORK)[number];
-	techFilter: { included: string[]; excluded: string[] };
+	techFilter: {
+		included: (typeof TECH_NAMES)[number][];
+		excluded: (typeof TECH_NAMES)[number][];
+	};
 	categoryFilter: {
 		included: (typeof TECH_CATEGORIES)[number][];
 		excluded: (typeof TECH_CATEGORIES)[number][];
 	};
 }) => {
-	const projectTechs: string[] = Object.values(project.techs).flat();
+	const projectTechs: readonly (typeof TECH_NAMES)[number][] = Object.values(
+		project.techs,
+	).flat();
 
 	return (
 		techFilter.included.every((tech) => projectTechs.includes(tech)) &&

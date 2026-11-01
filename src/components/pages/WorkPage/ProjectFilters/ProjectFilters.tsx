@@ -1,4 +1,4 @@
-import { FilterSVG, TECH_CATEGORIES, TECH_ICONS } from "@/assets";
+import { FilterSVG, TECH_CATEGORIES, TECH_ICONS, TECH_NAMES } from "@/assets";
 import { cycleFilter, filterStateOf } from "@/lib/filters";
 import { cn } from "@/lib/utils";
 
@@ -60,13 +60,19 @@ const FilterChip: React.FC<
 };
 
 const ProjectFilters: React.FC<{
-	techFilter: { included: string[]; excluded: string[] };
+	techFilter: {
+		included: (typeof TECH_NAMES)[number][];
+		excluded: (typeof TECH_NAMES)[number][];
+	};
 	categoryFilter: {
 		included: (typeof TECH_CATEGORIES)[number][];
 		excluded: (typeof TECH_CATEGORIES)[number][];
 	};
 	setTechFilter: React.Dispatch<
-		React.SetStateAction<{ included: string[]; excluded: string[] }>
+		React.SetStateAction<{
+			included: (typeof TECH_NAMES)[number][];
+			excluded: (typeof TECH_NAMES)[number][];
+		}>
 	>;
 	setCategoryFilter: React.Dispatch<
 		React.SetStateAction<{
@@ -84,7 +90,7 @@ const ProjectFilters: React.FC<{
 	matchCount,
 	totalCount,
 }) => {
-	const handleTechClick = (tech: string) =>
+	const handleTechClick = (tech: (typeof TECH_NAMES)[number]) =>
 		setTechFilter((filter) => cycleFilter({ filter, item: tech }));
 
 	const handleCategoryClick = (category: (typeof TECH_CATEGORIES)[number]) =>
@@ -100,20 +106,24 @@ const ProjectFilters: React.FC<{
 				<FilterHeading title="Technologies" />
 
 				<ul className="grid grid-cols-4 gap-2 sm:grid-cols-6">
-					{Object.entries(TECH_ICONS).map(([tech, Icon]) => (
-						<li key={tech}>
-							<FilterChip
-								onClick={() => handleTechClick(tech)}
-								className="aspect-square"
-								filter={techFilter}
-								label={tech}
-							>
-								<span className="grid size-6 shrink-0 place-items-center [&>svg]:size-6">
-									<Icon />
-								</span>
-							</FilterChip>
-						</li>
-					))}
+					{TECH_NAMES.map((tech) => {
+						const Icon = TECH_ICONS[tech];
+
+						return (
+							<li key={tech}>
+								<FilterChip
+									onClick={() => handleTechClick(tech)}
+									className="aspect-square"
+									filter={techFilter}
+									label={tech}
+								>
+									<span className="grid size-6 shrink-0 place-items-center [&>svg]:size-6">
+										<Icon />
+									</span>
+								</FilterChip>
+							</li>
+						);
+					})}
 				</ul>
 			</section>
 

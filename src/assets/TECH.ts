@@ -8,6 +8,7 @@ import {
 	AlgorithmSVG,
 	BootstrapSVG,
 	WebSocketSVG,
+	WebpackSVG,
 	FireBaseSVG,
 	MongooseSVG,
 	SocketIoSVG,
@@ -32,6 +33,42 @@ import {
 	JWTSVG,
 	AISVG,
 } from "./svgs";
+
+const TECH_NAMES = [
+	"Node.js",
+	"Next.js",
+	"Express",
+	"Material UI",
+	"Redux",
+	"React",
+	"JavaScript",
+	"MongoDB",
+	"Framer Motion",
+	"Firebase",
+	"API",
+	"REST API",
+	"JWT",
+	"Socket.IO",
+	"Cloudinary",
+	"Local Storage",
+	"Tailwind CSS",
+	"HTML",
+	"CSS",
+	"Stripe",
+	"AI Suggestions",
+	"AI Integration",
+	"Algorithm Visualizer",
+	"Mongoose",
+	"WebSockets",
+	"Flask",
+	"Sqlite",
+	"Python",
+	"Bootstrap",
+	"Drizzle",
+	"Neon",
+	"Postgresql",
+	"Webpack",
+] as const;
 
 const TECH_ICONS = {
 	"Node.js": NodeJsSVG,
@@ -66,8 +103,9 @@ const TECH_ICONS = {
 	"Drizzle": DrizzleSVG,
 	"Neon": NeonSVG,
 	"Postgresql": PostgresqlSVG,
-};
+	"Webpack": WebpackSVG,
+} satisfies Record<(typeof TECH_NAMES)[number], React.FC>;
 
 const TECH_CATEGORIES = ["frontend", "backend", "database", "other"] as const;
 
-export { TECH_ICONS, TECH_CATEGORIES };
+export { TECH_CATEGORIES, TECH_ICONS, TECH_NAMES };
