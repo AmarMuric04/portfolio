@@ -73,16 +73,16 @@ const HomePage: React.FC = () => {
 					<strong>
 						<em>
 							{" "}
-							My primary stack is the MERN (MongoDB, Express.js,
-							React, Node.js)
+							Day to day I work with React, TypeScript, Next.js
+							and React Native
 						</em>
-					</strong>{" "}
-					ecosystem{" "}
+					</strong>
+					,{" "}
 					<UnhideButton>
-						but I’m always experimenting with modern tools like{" "}
+						and I’m always experimenting with tools like{" "}
 						<strong>
 							{" "}
-							Next.js for server-side rendering, WebSocket for
+							Node.js and Express on the backend, WebSockets for
 							real-time communication
 						</strong>
 						, and other cutting-edge technologies that push the
@@ -92,8 +92,9 @@ const HomePage: React.FC = () => {
 				</p>
 
 				<p>
+					Alongside my work as a software engineer at NIMA Labs,{" "}
 					<UnhideButton>
-						{"Although I don’t have formal work experience yet, "}
+						{"where I build trading interfaces and tooling, "}
 					</UnhideButton>
 					I’ve spent countless hours building personal projects,
 					contributing to open-source, and immersing myself in the
