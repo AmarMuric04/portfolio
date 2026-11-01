@@ -16,7 +16,6 @@ import {
 	ProjectTech,
 	Tag,
 } from "@/components/shared";
-import { useIntersectionObserver } from "@/hooks";
 
 import { Highlights } from "../Highlights";
 import { ProjectDescription } from "../ProjectDescription";
@@ -25,17 +24,12 @@ import { ToggleArrow } from "../ToggleArrow";
 const Project: React.FC<{ project: (typeof WORK)[number] }> = ({ project }) => {
 	const workDetailsModal = useModal(WorkDetailsModal);
 
-	const { targetRef, wasInView } = useIntersectionObserver<HTMLElement>();
-
 	const [isShowingHighlights, setIsShowingHighlights] = useState(false);
 
 	const images = WORK_HIGHLIGHTS[project.title.toLowerCase()];
 
 	return (
-		<article
-			className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-3 shadow-surface sm:p-4"
-			ref={targetRef}
-		>
+		<article className="flex flex-col gap-4 rounded-2xl border border-hairline bg-surface p-3 shadow-surface sm:p-4">
 			<header className="flex items-start gap-4">
 				<div className="flex min-w-0 flex-1 flex-col gap-2">
 					<h2 className="text-card-title text-ink">
@@ -55,13 +49,13 @@ const Project: React.FC<{ project: (typeof WORK)[number] }> = ({ project }) => {
 					<ProjectDescription content={project.content} />
 				</div>
 
-				{wasInView && (
-					<img
-						className="size-12 shrink-0 rounded-xl object-contain opacity-50 sm:size-16"
-						src={`/${project.title.replace(" ", "").toLowerCase()}-logo.png`}
-						alt=""
-					/>
-				)}
+				<img
+					className="size-12 shrink-0 rounded-xl object-contain opacity-50 sm:size-16"
+					src={`/${project.title.replace(" ", "").toLowerCase()}-logo.png`}
+					decoding="async"
+					loading="lazy"
+					alt=""
+				/>
 			</header>
 
 			<ProjectTech techs={project.techs} />
