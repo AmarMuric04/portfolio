@@ -39,7 +39,7 @@ const FilterChip: React.FC<
 	return (
 		<button
 			className={cn(
-				"flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-2 text-center text-caption transition-colors duration-200",
+				"flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-2 text-center text-caption",
 				FILTER_STATES[state].className,
 				className,
 			)}
