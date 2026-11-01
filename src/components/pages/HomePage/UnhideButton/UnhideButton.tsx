@@ -1,17 +1,10 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { CodeSVG } from "@/assets";
 
 const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 	const [isRevealed, setIsRevealed] = useState(false);
-	const [isAnimationEnabled, setIsAnimationEnabled] = useState(false);
-
-	useEffect(() => {
-		const timeout = setTimeout(() => setIsAnimationEnabled(true), 500);
-
-		return () => clearTimeout(timeout);
-	}, []);
 
 	if (!isRevealed) {
 		return (
@@ -24,10 +17,6 @@ const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 				<CodeSVG />
 			</button>
 		);
-	}
-
-	if (!isAnimationEnabled) {
-		return <span className="inline text-accent-text">{children}</span>;
 	}
 
 	return (
