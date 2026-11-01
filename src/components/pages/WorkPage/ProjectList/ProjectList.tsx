@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-import { type TECH_CATEGORIES, WORK } from "@/assets";
+import { type TECH_CATEGORIES, type TECH_NAMES, WORK } from "@/assets";
 import { ActionButton } from "@/components/shared";
 import { matchesFilters } from "@/lib/filters";
 
@@ -12,8 +12,8 @@ import { ToggleArrow } from "../ToggleArrow";
 const ProjectList: React.FC = () => {
 	const [isFiltering, setIsFiltering] = useState(false);
 	const [techFilter, setTechFilter] = useState<{
-		included: string[];
-		excluded: string[];
+		included: (typeof TECH_NAMES)[number][];
+		excluded: (typeof TECH_NAMES)[number][];
 	}>({ included: [], excluded: [] });
 	const [categoryFilter, setCategoryFilter] = useState<{
 		included: (typeof TECH_CATEGORIES)[number][];

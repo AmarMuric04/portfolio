@@ -1,4 +1,9 @@
-import { TECH_CATEGORIES, TECH_ICONS, type WORK } from "@/assets";
+import {
+	TECH_CATEGORIES,
+	TECH_ICONS,
+	type TECH_NAMES,
+	type WORK,
+} from "@/assets";
 
 const ProjectTech: React.FC<{
 	techs: (typeof WORK)[number]["techs"];
@@ -17,23 +22,24 @@ const ProjectTech: React.FC<{
 					</p>
 
 					<ul className="flex flex-col gap-2">
-						{techs[category].map((tech: string) => {
-							const Icon =
-								TECH_ICONS[tech as keyof typeof TECH_ICONS];
+						{techs[category].map(
+							(tech: (typeof TECH_NAMES)[number]) => {
+								const Icon = TECH_ICONS[tech];
 
-							return (
-								<li
-									className="flex min-w-0 items-center gap-2 text-label text-text"
-									key={tech}
-								>
-									<span className="grid size-4 shrink-0 place-items-center text-ink [&>svg]:size-4">
-										{Icon && <Icon />}
-									</span>
+								return (
+									<li
+										className="flex min-w-0 items-center gap-2 text-label text-text"
+										key={tech}
+									>
+										<span className="grid size-4 shrink-0 place-items-center text-ink [&>svg]:size-4">
+											<Icon />
+										</span>
 
-									<span className="truncate">{tech}</span>
-								</li>
-							);
-						})}
+										<span className="truncate">{tech}</span>
+									</li>
+								);
+							},
+						)}
 					</ul>
 				</li>
 			))}
