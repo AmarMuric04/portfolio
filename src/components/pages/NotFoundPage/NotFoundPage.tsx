@@ -1,10 +1,8 @@
-import { useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 
 import { ActionButton } from "@/components/shared";
 
 const NotFoundPage: React.FC = () => {
-	const navigate = useNavigate();
-
 	return (
 		<section className="flex flex-col items-start gap-4">
 			<h1 className="text-page-title text-ink">Page not found</h1>
@@ -13,11 +11,8 @@ const NotFoundPage: React.FC = () => {
 				has a typo.
 			</p>
 
-			<ActionButton
-				onClick={() => navigate({ to: "/" })}
-				variant="primary"
-			>
-				Back to Home
+			<ActionButton variant="primary" asChild>
+				<Link to="/">Back to home</Link>
 			</ActionButton>
 		</section>
 	);
