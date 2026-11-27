@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import EducationList from "../components/education/EducationList";
+import EducationList from "@/components/organisms/EducationList";
 
 export default function Education() {
   return (
@@ -22,7 +22,7 @@ export default function Education() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/portfolio-logo.png" />
       </Helmet>
-      <h2 className="transition-all theme-title-text font-semibold text-2xl mb-8">
+      <h2 className="mb-8 text-2xl font-semibold text-foreground transition-all">
         My Education
       </h2>
       <p className="text-lg">

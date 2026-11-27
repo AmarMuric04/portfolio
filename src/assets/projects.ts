@@ -1,4 +1,4 @@
-import { SmallProjectType } from "../types/project";
+import { SmallProjectType } from "@/types";
 
 export const projects = [
   {

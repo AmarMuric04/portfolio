@@ -1,128 +1,130 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-@layer base {
-  ::selection {
-    @apply bg-[#697565] text-white;
-  }
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/* Design tokens: shadcn semantic colors mapped to the brand palette   */
+/* ------------------------------------------------------------------ */
+
+@theme inline {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: var(--font-sans);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --bg-color: #faf7f2;
-  --surface-color: #ede9e1;
-  --surface-alt-color: #e0dbd0;
-  --border-color: #cfc9bb;
-  --text-primary: #1e201e;
-  --text-secondary: #6f9072;
-  --accent-color: #697565;
-  --container-text: #444;
-  --title-color: #000;
+  --radius: 0.625rem;
+
+  --background: #faf7f2;
+  --foreground: #1e201e;
+  --card: #ede9e1;
+  --card-foreground: #1e201e;
+  --popover: #ede9e1;
+  --popover-foreground: #1e201e;
+  --primary: #697565;
+  --primary-foreground: #faf7f2;
+  --secondary: #e0dbd0;
+  --secondary-foreground: #1e201e;
+  --muted: #ede9e1;
+  --muted-foreground: #57604f;
+  --accent: #e0dbd0;
+  --accent-foreground: #1e201e;
+  --destructive: #df2038;
+  --border: #cfc9bb;
+  --input: #cfc9bb;
+  --ring: #697565;
 }
 
-[data-theme="dark"] {
-  --bg-color: #1e201e;
-  --surface-color: #262825;
-  --surface-alt-color: #2d2f2b;
-  --border-color: #3c3d37;
-  --text-primary: #ecdfcc;
-  --text-secondary: #697565;
-  --accent-color: #53594e;
-  --container-text: #ddd;
-  --title-color: #fff;
+.dark {
+  --background: #1e201e;
+  --foreground: #ecdfcc;
+  --card: #262825;
+  --card-foreground: #ecdfcc;
+  --popover: #262825;
+  --popover-foreground: #ecdfcc;
+  --primary: #697565;
+  --primary-foreground: #ecdfcc;
+  --secondary: #2d2f2b;
+  --secondary-foreground: #ecdfcc;
+  --muted: #262825;
+  --muted-foreground: #a39d8f;
+  --accent: #2d2f2b;
+  --accent-foreground: #ecdfcc;
+  --destructive: #df2038;
+  --border: #3c3d37;
+  --input: #3c3d37;
+  --ring: #697565;
 }
 
-.theme-title-text {
-  color: var(--title-color);
+@layer base {
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
 }
 
-.theme-container-text {
-  color: var(--container-text);
+/* ------------------------------------------------------------------ */
+/* Global keyframes and utilities                                      */
+/* ------------------------------------------------------------------ */
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
-.theme-background {
-  background-color: var(--bg-color);
-}
-
-.theme-surface {
-  background-color: var(--surface-color);
-}
-
-.theme-surface-border {
-  border-color: var(--surface-color);
-}
-
-.theme-surface-alt {
-  background-color: var(--surface-alt-color);
-}
-
-.theme-border-background {
-  background-color: var(--border-color);
-}
-
-.theme-background-hover:hover {
-  background-color: var(--bg-color);
-}
-
-.theme-surface-hover:hover {
-  background-color: var(--surface-color);
-}
-
-.theme-primary-text-border {
-  border-color: var(--text-primary);
-}
-
-.theme-primary-text-background {
-  background-color: var(--text-primary);
-}
-
-.theme-border {
-  border-color: var(--border-color);
-}
-
-.theme-text-primary {
-  color: var(--text-primary);
-}
-
-.theme-text-secondary-hover:hover {
-  color: var(--text-secondary);
-}
-
-.theme-text-secondary {
-  color: var(--text-secondary);
-}
-
-.theme-secondary-background {
-  background-color: var(--text-secondary);
-}
-
-.theme-accent {
-  color: var(--accent-color);
-}
-
-.theme-accent-background {
-  background-color: var(--accent-color);
-}
-
-.theme-accent-text {
-  color: var(--accent-color);
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--background);
-  color: var(--text-primary);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @keyframes show {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
-}
-
-*::-webkit-scrollbar {
-  display: none;
 }
 
 .showAnimation {
@@ -130,7 +132,7 @@ body {
 }
 
 .gradient {
-  background: linear-gradient(180deg, var(--bg-color), var(--surface-color));
+  background: linear-gradient(180deg, var(--background), var(--card));
   transition: all 0.3s ease-in;
 }
 
@@ -146,10 +148,12 @@ body {
     text-shadow: 0 0 5px rgba(100, 200, 255, 0.8),
       0 0 10px rgba(100, 200, 255, 0.8), 0 0 20px rgba(100, 200, 255, 0.8);
   }
+
   50% {
     text-shadow: 0 0 10px rgba(100, 200, 255, 0.4),
       0 0 20px rgba(100, 200, 255, 0.4), 0 0 30px rgba(100, 200, 255, 0.4);
   }
+
   100% {
     text-shadow: 0 0 5px rgba(100, 200, 255, 0.8),
       0 0 10px rgba(100, 200, 255, 0.8), 0 0 20px rgba(100, 200, 255, 0.8);

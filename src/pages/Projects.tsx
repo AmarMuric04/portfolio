@@ -1,11 +1,7 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
-import ProjectItemSkeleton from "../components/project/ProjectSkeleton";
-
-const ProjectList = lazy(() => import("../components/project/ProjectList"));
-const SmallProjectList = lazy(
-  () => import("../components/project/SmallProjectList")
-);
+import ProjectList from "@/components/organisms/ProjectList";
+import SmallProjectList from "@/components/organisms/SmallProjectList";
 
 const Projects: React.FC = () => {
   return (
@@ -32,39 +28,39 @@ const Projects: React.FC = () => {
           content="https://your-portfolio-url.com/projects"
         />
       </Helmet>
-      <h2 className="mb-8 font-semibold text-2xl transition-all theme-title-text">
-        Projects
-      </h2>
-      <p className="text-lg">
-        Over the past two years, I’ve taken on a mix of projects—some for
-        enjoyment, others to explore concepts, and a few to solve specific
-        problems I’ve encountered. Here’s a glimpse at some of what I’ve worked
-        on.
-      </p>
-      <Suspense
-        fallback={
-          <ul className="flex flex-col gap-4 mt-15">
-            {Array.from({ length: 3 }).map((_, index) => (
-              <ProjectItemSkeleton key={index} />
-            ))}
-          </ul>
-        }
-      >
-        <ProjectList />
-        <p className="my-4 text-lg">
-          Here are a few more projects I’ve tackled. For the full collection,
-          feel free to check out my{" "}
+
+      <header>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+          Projects
+        </h2>
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          Over the past two years I've built a mix of projects. Some were made
+          just for the fun of it, some to explore an idea I was curious about,
+          and a few to solve a specific problem I kept running into. Here is a
+          look at the work I'm most proud of.
+        </p>
+      </header>
+
+      <ProjectList />
+
+      <section className="mt-12 border-t border-border pt-8">
+        <h3 className="text-lg font-semibold text-foreground">More projects</h3>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          A few smaller things I've built. For the full collection, take a look
+          at my{" "}
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/AmarMuric04"
-            className="font-semibold hover:text-[#697565] underline transition-all cursor-pointer"
+            className="font-medium text-foreground underline underline-offset-4 transition-colors hover:text-primary"
           >
             GitHub profile
           </a>
           .
         </p>
+
         <SmallProjectList />
-      </Suspense>
+      </section>
     </>
   );
 };

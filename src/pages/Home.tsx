@@ -1,10 +1,15 @@
 import Myself from "/myself.webp";
-import UnhideText from "../components/buttons/UnhideText";
-import { GithubSVG, LinkedInSVG, MailSVG } from "../assets/svgs";
+import UnhideText from "@/components/atoms/UnhideText";
+import { GithubSVG, LinkedInSVG, MailSVG } from "@/assets/svgs";
+import { getAge } from "@/utils/getAge";
 import { Helmet } from "react-helmet";
 import React from "react";
 
+const BIRTH_DATE = new Date(2004, 11, 27);
+
 const Home: React.FC = () => {
+  const age = getAge(BIRTH_DATE);
+
   return (
     <>
       <Helmet>
@@ -33,7 +38,7 @@ const Home: React.FC = () => {
           alt="Amar Murić"
         />
         <div>
-          <h2 className="font-bold transition-all theme-title-text text-xl sm:text-4xl">
+          <h2 className="text-xl font-bold text-foreground transition-all sm:text-4xl">
             Amar Murić
           </h2>
           <p className="sm:text-xl">
@@ -43,7 +48,7 @@ const Home: React.FC = () => {
       </section>
       <section className="my-8 sm:text-lg leading-8">
         <p>
-          I’m a 20-year-old full-stack developer with a deep passion for
+          I’m a {age}-year-old full-stack developer with a deep passion for
           building polished, impactful, and innovative products. My journey into
           programming began in 2022-2023
           <UnhideText>
@@ -145,7 +150,7 @@ const Home: React.FC = () => {
         <a
           target="_blank"
           href="https://github.com/AmarMuric04"
-          className="theme-text-secondary-hover flex gap-3 text-lg cursor-pointer items-center transition-all"
+          className="flex cursor-pointer items-center gap-3 text-lg transition-all hover:text-primary"
         >
           <GithubSVG />
           <p>GitHub</p>
@@ -153,14 +158,14 @@ const Home: React.FC = () => {
         <a
           target="_blank"
           href="https://www.linkedin.com/in/amar-muri%C4%87-52564b2a2/"
-          className="theme-text-secondary-hover flex gap-3 text-lg cursor-pointer items-center transition-all"
+          className="flex cursor-pointer items-center gap-3 text-lg transition-all hover:text-primary"
         >
           <LinkedInSVG />
           <p>LinkedIn</p>
         </a>
         <a
           href="mailto:muricamar2004@gmail.com"
-          className="theme-text-secondary-hover flex gap-3 text-lg cursor-pointer items-center transition-all"
+          className="flex cursor-pointer items-center gap-3 text-lg transition-all hover:text-primary"
         >
           <MailSVG />
           <p>Email</p>

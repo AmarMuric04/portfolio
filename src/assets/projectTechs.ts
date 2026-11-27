@@ -1,4 +1,4 @@
-import { TechType } from "../types/tech";
+import { TechType } from "@/types";
 import {
   AISVG,
   AISVG2,
