@@ -10,7 +10,7 @@ const WORK_READMES: Record<string, string> = {
 
 ## Overview
 
-Lelegram is a Telegram-style messaging platform designed for seamless real-time communication. It supports features such as group chats, message encryption, media sharing, and user presence indicators, all powered by WebSocket integration for instant updates.
+Lelegram is a Telegram-style messaging app with real-time chat. It supports features such as group chats, message encryption, media sharing, and user presence indicators, all powered by WebSocket integration for instant updates.
 
 **Status:** Live  
 **Project Duration:** Feb 4, 2025 – Feb 25, 2025 (3 weeks)
@@ -21,7 +21,7 @@ Lelegram is a Telegram-style messaging platform designed for seamless real-time 
 
 - **Real-time Messaging:** Instant message delivery with WebSocket.
 - **Group Chats:** Engage in dynamic conversations with multiple participants.
-- **Message Encryption:** Secure your chats with robust encryption.
+- **Message Encryption:** Messages are encrypted before they are stored.
 - **Media Sharing:** Easily share images, videos, and other media.
 - **User Presence Indicators:** See when your contacts are online.
 
@@ -95,7 +95,7 @@ _Project started on 4th February 2025 and finished on 25th February 2025._
 ## Challenges
 
 - **Real-Time Updates:** Implementing WebSocket for instantaneous communication.
-- **Security:** Ensuring robust message encryption to protect user data.
+- **Security:** Encrypting messages to protect user data.
 
 ---
 
@@ -113,12 +113,7 @@ _Project started on 4th February 2025 and finished on 25th February 2025._
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Users have praised Lelegram for its seamless real-time communication and clean, intuitive UI.
-
-**Future Plans:**
+## Future Plans
 - Integrate video calling functionality.
 - Implement end-to-end encryption.
 - Expand the platform to mobile devices.
@@ -201,7 +196,7 @@ DineDivine is a modern culinary experience platform designed to enhance your din
 - **Restaurant Discovery:** Find restaurants with advanced filters.
 - **Recipe Sharing Community:** Share and explore recipes with other food enthusiasts.
 - **AI-Powered Meal Recommendations:** Get personalized meal suggestions based on your preferences.
-- **Smooth Animations:** Enjoy a seamless user experience with Framer Motion animations.
+- **Smooth Animations:** Page transitions and UI animations built with Framer Motion.
 - **Dynamic Content Loading:** Experience fast and efficient content loading.
 
 ---
@@ -256,7 +251,7 @@ DineDivine is a modern culinary experience platform designed to enhance your din
 ## Challenges
 
 - **Smooth Animations:** Implementing smooth animations without compromising performance.
-- **AI Integration:** Seamlessly integrating AI-powered meal recommendations into the platform.
+- **AI Integration:** Fitting AI meal recommendations into the rest of the platform.
 
 ---
 
@@ -274,12 +269,7 @@ DineDivine is a modern culinary experience platform designed to enhance your din
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Users loved the intuitive design and personalized meal recommendations.
-
-**Future Plans:**
+## Future Plans
 - Add user-generated content moderation.
 - Expand AI recommendations to include dietary restrictions.
 - Integrate food delivery services.
@@ -338,7 +328,7 @@ Happy dining with DineDivine!`,
 
 ## Overview
 
-Social Media is a full-stack MERN (MongoDB, Express, React, Node.js) social network with real-time features. It includes post creation/editing, liking/commenting, bookmarking, and notifications. The platform also implements user authentication, feed filtering, and Socket.IO for live updates, providing users with a seamless and interactive social experience.
+Social Media is a full-stack MERN (MongoDB, Express, React, Node.js) social network with real-time features. It includes post creation/editing, liking/commenting, bookmarking, and notifications. The platform also implements user authentication, feed filtering, and Socket.IO for live updates.
 
 **Status:** Live  
 **Project Duration:** Jan 8, 2025 – Jan 24, 2025 (2 weeks, 2 days)
@@ -375,7 +365,7 @@ Social Media is a full-stack MERN (MongoDB, Express, React, Node.js) social netw
 
 5. **Real-Time Updates:**
    - Get live updates on posts and notifications.
-   - Experience seamless interaction with WebSocket integration.
+   - Live updates over WebSockets.
 
 ---
 
@@ -424,12 +414,7 @@ Social Media is a full-stack MERN (MongoDB, Express, React, Node.js) social netw
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Users loved the real-time updates and intuitive interface.
-
-**Future Plans:**
+## Future Plans
 - Add video sharing.
 - Implement stories feature.
 - Expand to mobile platforms.
@@ -488,7 +473,7 @@ Connect and share with Social Media!`,
 
 ## Overview
 
-Blajvinance is a Binance-inspired cryptocurrency exchange interface featuring real-time market data visualization, portfolio tracking, and simulated trading. It implements complex charting functionalities and wallet management systems, providing users with a seamless and intuitive trading experience.
+Blajvinance is a Binance-inspired cryptocurrency exchange interface featuring real-time market data visualization, portfolio tracking, and simulated trading. It implements complex charting functionalities and wallet management.
 
 **Status:** Live  
 **Project Duration:** Apr 30, 2024 – Jul 20, 2024 (2 months, 22 days)
@@ -552,7 +537,7 @@ Blajvinance is a Binance-inspired cryptocurrency exchange interface featuring re
 ## Challenges
 
 - **Real-Time Data Handling:** Ensuring accurate and timely updates of market data.
-- **Responsive Design:** Creating a seamless experience across all devices.
+- **Responsive Design:** Making a data-heavy layout work on every screen size.
 
 ---
 
@@ -570,12 +555,7 @@ Blajvinance is a Binance-inspired cryptocurrency exchange interface featuring re
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Users appreciated the real-time data accuracy and intuitive interface.
-
-**Future Plans:**
+## Future Plans
 - Add more cryptocurrencies.
 - Implement advanced trading algorithms.
 - Enhance security features.
@@ -634,7 +614,7 @@ Happy trading with Blajvinance!`,
 
 ## Overview
 
-Learnify is a Udemy-style course platform featuring video streaming, progress tracking, and course management. It was developed as part of the UNINP Hackathon 2024 and won first place. The platform includes peer-to-peer learning tools and AI-powered recommendations, making it a comprehensive solution for online education.
+Learnify is a Udemy-style course platform featuring video streaming, progress tracking, and course management. It was developed as part of the UNINP Hackathon 2024 and won first place. The platform includes peer-to-peer learning tools and AI-powered recommendations.
 
 **Status:** Archived  
 **Project Duration:** Apr 28, 2024 – Apr 28, 2024 (1 day)
@@ -643,7 +623,7 @@ Learnify is a Udemy-style course platform featuring video streaming, progress tr
 
 ## Key Features
 
-- **Video Streaming:** Stream course videos seamlessly.
+- **Video Streaming:** Stream course videos in the browser.
 - **Progress Tracking:** Track your progress through courses.
 - **Course Management:** Manage your courses and learning materials.
 - **Peer-to-Peer Learning Tools:** Collaborate and learn with peers.
@@ -702,7 +682,7 @@ Learnify is a Udemy-style course platform featuring video streaming, progress tr
 ## Challenges
 
 - **Video Streaming:** Implementing high-quality video streaming within a tight deadline.
-- **AI Integration:** Seamlessly integrating AI-powered recommendations into the platform.
+- **AI Integration:** Fitting AI course recommendations into the platform.
 
 ---
 
@@ -720,12 +700,7 @@ Learnify is a Udemy-style course platform featuring video streaming, progress tr
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Users praised the intuitive course management and AI recommendations.
-
-**Future Plans:**
+## Future Plans
 - Add live classes.
 - Implement gamification.
 - Expand to mobile platforms.
@@ -866,12 +841,7 @@ SolveBox is an interactive puzzle-solving platform designed to help users learn 
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Users found the tutorials and visualizations extremely helpful.
-
-**Future Plans:**
+## Future Plans
 - Add more puzzle types.
 - Implement multiplayer challenges.
 - Expand to mobile platforms.
@@ -929,7 +899,7 @@ Happy learning with SolveBox!`,
 
 ## Overview
 
-Newsly is a Google News-style aggregator built with vanilla JavaScript. It features category filtering, search functionality, and news source highlighting. The app implements infinite scroll and a responsive layout, providing users with a seamless and intuitive news browsing experience.
+Newsly is a Google News-style aggregator built with vanilla JavaScript. It features category filtering, search functionality, and news source highlighting. The app implements infinite scroll and a responsive layout.
 
 **Status:** Live  
 **Project Duration:** Jan 14, 2024 – Mar 26, 2024 (2 months, 12 days)
@@ -950,7 +920,7 @@ Newsly is a Google News-style aggregator built with vanilla JavaScript. It featu
 
 1. **Category Filtering:**
    - Filter news articles by various categories.
-   - Switch between categories seamlessly.
+   - Switch between categories.
 
 2. **Search Functionality:**
    - Search for specific news articles or topics.
@@ -1011,12 +981,7 @@ Newsly is a Google News-style aggregator built with vanilla JavaScript. It featu
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Users loved the simplicity and ease of finding relevant news.
-
-**Future Plans:**
+## Future Plans
 - Add personalized news feeds.
 - Implement dark mode.
 - Expand to more news sources.
@@ -1075,7 +1040,7 @@ Stay informed with Newsly!`,
 
 ## Overview
 
-Shopping is a full-featured online shopping platform offering a seamless shopping experience. It includes a product catalog with filtering, cart management, and Stripe payment integration. Additional features like wishlist functionality and order history tracking make it a comprehensive solution for e-commerce.
+Shopping is an online shop built with React. It includes a product catalog with filtering, cart management, and Stripe payment integration. Additional features like wishlist functionality and order history tracking round it out.
 
 **Status:** Development  
 **Project Duration:** May 28, 2024 – Present
@@ -1086,7 +1051,7 @@ Shopping is a full-featured online shopping platform offering a seamless shoppin
 
 - **Product Catalog with Filtering:** Browse products with advanced filtering options.
 - **Cart Management:** Easily manage items in your shopping cart.
-- **Stripe Payment Integration:** Secure and seamless payment processing.
+- **Stripe Payment Integration:** Card payments through Stripe.
 - **Wishlist Functionality:** Save products to your wishlist for later.
 - **Order History Tracking:** Track your past orders and their status.
 
@@ -1139,7 +1104,7 @@ Shopping is a full-featured online shopping platform offering a seamless shoppin
 
 ## Challenges
 
-- **Payment Flow:** Implementing a seamless and secure payment process.
+- **Payment Flow:** Getting the Stripe payment flow right and secure.
 - **Responsive Design:** Ensuring a consistent experience across all devices.
 
 ---
@@ -1158,12 +1123,7 @@ Shopping is a full-featured online shopping platform offering a seamless shoppin
 
 ---
 
-## User Feedback & Future Plans
-
-**User Feedback:**  
-Early users appreciated the smooth payment process and clean design.
-
-**Future Plans:**
+## Future Plans
 - Add user reviews and ratings.
 - Implement a recommendation engine.
 - Expand to mobile apps.

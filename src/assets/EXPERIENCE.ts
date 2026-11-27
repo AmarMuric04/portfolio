@@ -107,7 +107,7 @@ const EXPERIENCE = [
 		startDate: "2022-01-01",
 		location: "Novi Pazar, Serbia (Hybrid)",
 		description:
-			"I’ve built over 15 dynamic websites and managed more than 5 databases for a range of clients. I focus on clean design and efficient code, using React, Next.js, Node.js and Tailwind CSS to deliver work that looks great and performs reliably.",
+			"I’ve built more than 15 websites and managed more than 5 databases for clients, mostly with React, Next.js, Node.js and Tailwind CSS.",
 		skillGroups: [
 			{
 				title: "Web development",

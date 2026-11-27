@@ -8,7 +8,7 @@ const WorkPage: React.FC = () => {
 		<>
 			<PageHelmet
 				title="Projects"
-				description="Explore the projects of Amar Muric, a MERN full-stack developer. View web applications built using MongoDB, Express, React, and Node.js."
+				description="Projects by Amar Murić, a full-stack developer: web apps, games and tools built with React, Next.js, Node.js and MongoDB."
 				keywords="Amar Muric, MERN full-stack developer, projects, MongoDB, Express, React, Node.js, portfolio"
 				path="/projects"
 			/>

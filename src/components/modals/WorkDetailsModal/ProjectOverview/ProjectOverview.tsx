@@ -21,7 +21,7 @@ const ProjectOverview: React.FC<{ project: (typeof WORK)[number] }> = ({
 						className="grid gap-1 border-b border-hairline px-3 py-2 last:border-b-0 sm:grid-cols-[7rem_1fr] sm:gap-4"
 						key={field}
 					>
-						<dt className="text-caption text-accent-text uppercase sm:pt-1">
+						<dt className="text-label text-accent-text sm:pt-0.5">
 							{label}
 						</dt>
 						<dd className="text-body">{project[field]}</dd>

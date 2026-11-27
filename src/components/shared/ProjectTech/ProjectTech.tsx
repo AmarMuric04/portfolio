@@ -17,7 +17,7 @@ const ProjectTech: React.FC<{
 					className="rounded-xl border border-hairline bg-inset p-3"
 					key={category}
 				>
-					<p className="mb-2 text-caption text-accent-text uppercase">
+					<p className="mb-2 text-label text-accent-text">
 						{category}
 					</p>
 

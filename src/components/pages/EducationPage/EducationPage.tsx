@@ -8,8 +8,8 @@ const EducationPage: React.FC = () => {
 		<>
 			<PageHelmet
 				title="Education"
-				description="Explore the educational background of Amar Muric, a MERN full-stack developer. Learn about his skills and the institutions that shaped his career."
-				keywords="Amar Muric, full-stack developer, MERN, education, learning journey, MongoDB, Express, React, Node.js"
+				description="Amar Murić's education: school, university and the courses he took to learn web development."
+				keywords="Amar Muric, full-stack developer, MERN, education, MongoDB, Express, React, Node.js"
 				path="/education"
 			/>
 

@@ -35,8 +35,8 @@ const HomePage: React.FC = () => {
 		<>
 			<PageHelmet
 				title="About Me"
-				description="Learn more about Amar Muric, a passionate MERN full-stack developer. Discover his journey, skills, and projects built using MongoDB, Express, React, and Node.js."
-				keywords="Amar Muric, full-stack developer, MERN, portfolio, developer journey, MongoDB, Express, React, Node.js"
+				description="Amar Murić is a full-stack developer in Serbia. He works at NIMA Labs with React, TypeScript, Next.js and React Native, and builds his own projects with Node.js and MongoDB."
+				keywords="Amar Muric, full-stack developer, MERN, portfolio, MongoDB, Express, React, Node.js"
 				path="/"
 			/>
 
@@ -50,26 +50,20 @@ const HomePage: React.FC = () => {
 				<div>
 					<h1 className="text-display text-ink">Amar Murić</h1>
 					<p className="text-lead text-text-muted">
-						Fullstack Software Engineer based in Serbia
+						Full-stack software engineer based in Serbia
 					</p>
 				</div>
 			</section>
 
 			<section className="my-8 flex flex-col gap-4 text-lead">
 				<p>
-					I’m a {age}-year-old full-stack developer with a deep
-					passion for building polished, impactful, and innovative
-					products. My journey into programming began in 2022-2023
+					I’m a {age}-year-old full-stack developer. I started
+					programming around 2022
 					<UnhideButton>
-						, and it’s been an exhilarating ride ever since
-						<UnhideButton>
-							, captivated by the art of creating beautiful and
-							responsive user interfaces
-						</UnhideButton>
+						, building user interfaces first because I liked seeing
+						the result straight away
 					</UnhideButton>
-					, but my curiosity quickly led me to explore the backend,
-					databases, and DevOps, transforming me into a well-rounded
-					full-stack developer.
+					, and soon moved on to backends, databases and deployment.
 					<strong>
 						<em>
 							{" "}
@@ -77,94 +71,55 @@ const HomePage: React.FC = () => {
 							and React Native
 						</em>
 					</strong>
-					,{" "}
 					<UnhideButton>
-						and I’m always experimenting with tools like{" "}
+						, and for my own projects I use{" "}
 						<strong>
-							{" "}
-							Node.js and Express on the backend, WebSockets for
-							real-time communication
+							Node.js and Express on the backend, with WebSockets
+							when something has to update in real time
 						</strong>
-						, and other cutting-edge technologies that push the
-						boundaries of what’s possible on the web
 					</UnhideButton>
 					.
 				</p>
 
 				<p>
-					Alongside my work as a software engineer at NIMA Labs,{" "}
+					I’m a software engineer at NIMA Labs
 					<UnhideButton>
-						{"where I build trading interfaces and tooling, "}
+						{", where I build trading interfaces and tooling"}
 					</UnhideButton>
-					I’ve spent countless hours building personal projects,
-					contributing to open-source, and immersing myself in the
-					developer community.{" "}
+					. Outside work I build my own projects and take part in
+					hackathons.{" "}
 					<UnhideButton>
-						I thrive on taking rough, abstract ideas and turning
-						them into fully functional, well-designed products
-						<UnhideButton>
-							, whether it’s crafting intuitive user interfaces,
-							designing scalable and efficient backends,
-							optimizing databases, or automating deployment{" "}
-							<strong>pipelines with CI/CD tools.</strong>
-						</UnhideButton>
+						My team won first place at the UNINP Hackathon 2024 with
+						a course platform we built in about 12 hours.
 					</UnhideButton>{" "}
-					I’m a <strong>quick learner</strong> and love diving into
-					new frameworks, libraries, and tools to expand my skill set
-					and stay ahead in the ever-evolving tech landscape.
+					I’m a <strong>quick learner</strong> and I like picking up a
+					new framework by building something real with it.
 				</p>
 
 				<p>
-					So far, I’ve built a variety of projects
+					So far I’ve built
 					<UnhideButton>
-						, from dynamic web applications and e-commerce platforms
-						to real-time chat systems and interactive dashboards
-					</UnhideButton>
-					. Each project has been a learning experience, helping me
-					refine my
-					<strong> problem-solving skills</strong> and deepen my
-					understanding of the full development lifecycle.{" "}
-					<UnhideButton>
-						I’m particularly fascinated by the intersection of
-						design and technology, and
+						{" "}
+						a Telegram-style chat app, a Binance-style exchange
+						interface, an online shop with Stripe payments, a
+						password manager and
 					</UnhideButton>{" "}
-					I strive to create products that are <em>not</em>{" "}
+					a market-making game you can play against bots or friends.
+					Each one taught me something about{" "}
+					<strong>solving problems</strong> across the whole stack,
+					from the database to the last animation.{" "}
+					<UnhideButton>
+						I care about how a product looks and feels as much as
+						whether it works.
+					</UnhideButton>
+				</p>
+
+				<p>
+					I’m early in my career and keen to keep learning.{" "}
 					<strong>
-						only functional and performant but also visually
-						appealing, accessible, and user-friendly
+						If you want to talk about a project or just about code,
+						get in touch.
 					</strong>
-					.{" "}
-					<UnhideButton>
-						I believe that great software is a{" "}
-						<strong>
-							blend of technical excellence and thoughtful design
-						</strong>
-						.
-					</UnhideButton>
-				</p>
-
-				<p>
-					While I’m still early in my career, I’m incredibly excited
-					about the future and the opportunities to{" "}
-					<UnhideButton>
-						grow <UnhideButton>, collaborate,</UnhideButton> and
-					</UnhideButton>{" "}
-					make a meaningful impact in the tech world. I’m always{" "}
-					<strong>
-						eager to learn, share knowledge, and connect with
-						like-minded developers
-					</strong>{" "}
-					who are passionate about building cool things and solving
-					real-world problems.{" "}
-					<UnhideButton>
-						Whether it’s through open-source contributions,
-						hackathons, or personal projects,{" "}
-						<UnhideButton>
-							I’m committed to continuously improving my craft and
-							contributing to the developer community in
-							meaningful ways.
-						</UnhideButton>
-					</UnhideButton>
 				</p>
 			</section>
 

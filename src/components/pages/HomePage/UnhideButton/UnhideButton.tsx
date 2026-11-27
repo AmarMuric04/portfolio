@@ -21,17 +21,8 @@ const UnhideButton: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 	return (
 		<motion.span
-			animate={{
-				textShadow: [
-					"0px 0px 20px rgba(255,255,255,1)",
-					"0px 0px 0px rgba(255,255,255,0)",
-				],
-				scale: [1.1, 1],
-			}}
-			initial={{
-				textShadow: "0px 0px 0px rgba(255,255,255,0)",
-				scale: 0.95,
-			}}
+			animate={{ opacity: 1 }}
+			initial={{ opacity: 0 }}
 			transition={{ ease: "easeOut", duration: 0.2 }}
 			className="inline text-accent-text"
 		>
