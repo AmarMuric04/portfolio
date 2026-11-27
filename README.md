@@ -1,125 +1,52 @@
+# Amar Murić, portfolio
 
-# Amar Murić - Fullstack Software Engineer
+My personal portfolio: the projects I've built, my education and my work
+experience, in a calm single-page app.
 
-![MERN Stack](https://img.shields.io/badge/MERN-Stack-blue)
-![React](https://img.shields.io/badge/React-18.x-blue)
-![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
-![MongoDB](https://img.shields.io/badge/MongoDB-6.x-green)
-![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-blueviolet)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen)
+Live: https://amarmuric.vercel.app
 
-👋 Hi there! I'm **Amar Murić**, a 20-year-old full-stack developer based in Serbia. I specialize in building polished, impactful, and innovative products using modern web technologies. My primary stack is the **MERN (MongoDB, Express.js, React, Node.js)** ecosystem, but I’m always exploring new tools and frameworks to push the boundaries of what’s possible on the web.
+## Features
 
----
+- Four pages: Home, Projects, Education and Experience, with per-page titles
+  and meta tags.
+- Projects page with include/exclude filters by tech and tech category, and a
+  details modal for each project (overview, features, my thoughts and the
+  project's README).
+- Light and dark theme, saved per visitor and applied before first paint.
+- Animated counters and progress bars that respect reduced motion.
+- No layout shift: every image and lazily shown block reserves its box.
 
-## 🚀 About Me
+## Stack
 
-I’m a passionate and self-taught developer who started my programming journey in 2022-2023. Since then, I’ve been captivated by the art of creating beautiful and responsive user interfaces, and my curiosity has led me to explore backend development, databases, and DevOps. This has transformed me into a well-rounded full-stack developer with a strong focus on delivering high-quality, user-friendly applications.
+React 18, TypeScript (strict), Vite, TanStack Router (file-based routes),
+Tailwind CSS v4, Framer Motion, Nice Modal and shadcn/ui primitives. Hosted on
+Vercel.
 
-### What I Do:
-- **Frontend Development**: Crafting intuitive and visually appealing user interfaces using **React**, **Next.js**, and modern CSS frameworks like **Tailwind CSS**.
-- **Backend Development**: Building scalable and efficient APIs with **Node.js**, **Express.js**, and **MongoDB**.
-- **Full-Stack Projects**: Developing end-to-end solutions, from ideation to deployment, using the MERN stack.
-- **Real-Time Applications**: Experimenting with **WebSocket** and other real-time communication technologies.
-- **DevOps & CI/CD**: Automating deployment pipelines and optimizing workflows for seamless delivery.
+## Run locally
 
----
+Requires Node 24 (see `.nvmrc`) and npm.
 
-## 🛠️ Skills & Technologies
-
-### Frontend:
-- **React**, **Next.js**, **Framer Motion**, **Tailwind CSS**, **Material UI**
-- **JavaScript (ES6+)**, **TypeScript**, **HTML5**, **CSS3**
-
-### Backend:
-- **Node.js**, **Express.js**, **MongoDB**, **Mongoose**
-- **REST APIs**, **WebSocket**, **JWT Authentication**
-
-### Tools & DevOps:
-- **Git**, **GitHub**, **CI/CD Pipelines**
-- **Vercel**, **Netlify**, **Docker** (basic knowledge)
-
-### Other:
-- **Figma** (for UI/UX design), **Postman** (API testing), **VS Code**
-
----
-
-## 🌟 Projects
-
-Here are some of the projects I’ve built to showcase my skills:
-
-### 1. **DineDivine**
-- A fully responsive restaurant website with dynamic content and interactive features.
-- **Tech Stack**: React, Tailwind CSS, Framer Motion.
-- [Live Demo](#) | [GitHub Repo](#)
-
-### 2. **Blajvinance**
-- A cryptocurrency platform with real-time market data and wallet management.
-- **Tech Stack**: MERN stack, WebSocket for real-time updates.
-- [Live Demo](#) | [GitHub Repo](#)
-
-### 3. **Lelegram**
-- A real-time chat application inspired by Telegram.
-- **Tech Stack**: React, Node.js, Express.js, MongoDB, WebSocket.
-- [Live Demo](#) | [GitHub Repo](#)
-
-### 4. **Shopping App**
-- An e-commerce platform with product search, cart, and checkout functionality.
-- **Tech Stack**: MERN stack, Stripe for payments.
-- [Live Demo](#) | [GitHub Repo](#)
-
-### 5. **SolveBox**
-- A puzzle-solving platform with interactive tutorials and algorithm visualizations.
-- **Tech Stack**: Next.js, Tailwind CSS, MongoDB.
-- [Live Demo](#) | [GitHub Repo](#)
-
----
-
-## 🎯 What I’m Looking For
-
-I’m actively seeking opportunities to:
-- Collaborate on **open-source projects**.
-- Work on **real-world applications** that solve meaningful problems.
-- Learn from experienced developers and contribute to innovative teams.
-
----
-
-## 📫 Let’s Connect!
-
-I’m always excited to connect with like-minded developers, share knowledge, and collaborate on cool projects. Feel free to reach out to me via:
-
-- **GitHub**: [AmarMuric04](https://github.com/AmarMuric04)
-- **LinkedIn**: [Amar Murić](https://www.linkedin.com/in/amar-muri%C4%87-52564b2a2/)
-- **Email**: [muricamar2004@gmail.com](mailto:muricamar2004@gmail.com)
-
----
-
-## 🔍 Meta Tags (For SEO)
-
-```html
-<meta
-  name="description"
-  content="Learn more about Amar Muric, a passionate MERN full-stack developer. Discover his journey, skills, and projects built using MongoDB, Express, React, and Node.js."
-/>
-<meta
-  name="keywords"
-  content="Amar Muric, full-stack developer, MERN, portfolio, developer journey, MongoDB, Express, React, Node.js"
-/>
-<meta property="og:title" content="Amar Muric | About Me" />
-<meta
-  property="og:description"
-  content="Learn more about Amar Muric, a passionate MERN full-stack developer. Discover his journey, skills, and projects built using MongoDB, Express, React, and Node.js."
-/>
-<meta property="og:type" content="website" />
-<meta property="og:image" content="/portfolio-logo.png" />
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run typecheck  # tsc --noEmit
+npm run lint       # eslint .
+npm run build      # typecheck + production build into dist/
 ```
 
----
+No environment variables are needed.
 
-## 🚧 Always Learning
+## Project layout
 
-I believe that great software is a blend of **technical excellence** and **thoughtful design**. I’m committed to continuously improving my craft, exploring new technologies, and contributing to the developer community in meaningful ways.
+- `src/routes/`: TanStack file routes, each wiring one page component.
+- `src/components/`: `layout/`, `pages/`, `modals/`, `shared/` and the
+  shadcn primitives in `ui/`.
+- `src/assets/`: the site's content (projects, education, experience, tech)
+  as typed data, plus SVG icons.
+- `public/`: project logos and screenshots.
 
-Let’s build something amazing together! 🚀
+## Contact
+
+- GitHub: [AmarMuric04](https://github.com/AmarMuric04)
+- LinkedIn: [Amar Murić](https://www.linkedin.com/in/amar-muri%C4%87-52564b2a2/)
+- Email: [muricamar2004@gmail.com](mailto:muricamar2004@gmail.com)
