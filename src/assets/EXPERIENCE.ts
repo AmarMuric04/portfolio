@@ -8,7 +8,8 @@ const EXPERIENCE = [
 		type: "Contract",
 		startDate: "2025-06-01",
 		location: "Belgrade, Serbia (Remote)",
-		description: "A lot of things",
+		description:
+			"Frontend and mobile work on DeFi trading apps for perpetual futures: React and React Native screens, live market data over WebSockets, and TradingView charts.",
 		skillGroups: [
 			{
 				title: "Core frontend",
